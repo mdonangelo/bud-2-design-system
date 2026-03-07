@@ -1,0 +1,94 @@
+.subsectionTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--sp-2xs);
+}
+
+.subsectionDescription {
+  font-size: var(--text-sm);
+  color: var(--color-neutral-500);
+  line-height: 1.6;
+  margin-bottom: var(--sp-sm);
+}
+
+/* ——— Gallery ——— */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--sp-2xs);
+}
+
+.iconItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2xs);
+  padding: var(--sp-sm);
+  border-radius: var(--radius-sm);
+  color: var(--color-neutral-700);
+  transition: background-color 150ms ease;
+}
+
+.iconItem:hover {
+  background-color: var(--color-caramel-50);
+}
+
+.iconName {
+  font-size: 11px;
+  color: var(--color-neutral-500);
+  text-align: center;
+}
+
+/* ——— Weights ——— */
+
+.weightsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-sm);
+}
+
+.weightColumn {
+  padding: var(--sp-sm);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+}
+
+.weightLabel {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-500);
+  text-transform: capitalize;
+  margin-bottom: var(--sp-xs);
+}
+
+.weightIcons {
+  display: flex;
+  gap: var(--sp-xs);
+  color: var(--color-neutral-700);
+}
+
+/* ——— Sizes ——— */
+
+.sizesRow {
+  display: flex;
+  gap: var(--sp-xl);
+  align-items: flex-end;
+}
+
+.sizeItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2xs);
+  color: var(--color-neutral-700);
+}
+
+.sizeLabel {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 11px;
+  color: var(--color-neutral-500);
+}

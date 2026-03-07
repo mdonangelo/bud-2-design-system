@@ -1,0 +1,79 @@
+.swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3xs);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+  position: relative;
+}
+
+.swatch:focus-visible {
+  outline: 2px solid var(--color-orange-400);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.color {
+  width: 80px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  transition: transform 120ms ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.colorLight {
+  border: 1px solid var(--color-neutral-200);
+}
+
+.swatch:hover .color {
+  transform: scale(1.05);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3xs);
+}
+
+.token {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-700);
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-orange-600);
+  background-color: var(--color-orange-50);
+  padding: 1px 6px;
+  border-radius: var(--radius-2xs);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.hex {
+  font-size: 11px;
+  color: var(--color-neutral-500);
+}
+
+.copied {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-orange-400);
+}

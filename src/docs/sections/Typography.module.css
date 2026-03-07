@@ -1,0 +1,134 @@
+/* ——— Specimens ——— */
+
+.specimens {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-sm);
+}
+
+.specimen {
+  padding: var(--sp-lg);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+}
+
+.specimenLabel {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-950);
+  margin-bottom: 2px;
+}
+
+.specimenMeta {
+  font-size: var(--text-xs);
+  color: var(--color-neutral-500);
+  margin-bottom: var(--sp-sm);
+}
+
+.specimenSample {
+  color: var(--color-neutral-800);
+}
+
+/* ——— Scale ——— */
+
+.scaleGroup {
+  margin-bottom: var(--sp-xl);
+}
+
+.scaleGroup:last-child {
+  margin-bottom: 0;
+}
+
+.scaleGroupLabel {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-600);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: var(--sp-xs);
+  border-bottom: 1px solid var(--color-neutral-200);
+  margin-bottom: 0;
+}
+
+.scaleList {
+  display: flex;
+  flex-direction: column;
+}
+
+.scaleRow {
+  padding: var(--sp-md) 0;
+  border-bottom: 1px solid var(--color-neutral-100);
+}
+
+.scaleRow:last-child {
+  border-bottom: none;
+}
+
+/* ——— Row header: name + meta ——— */
+
+.scaleRowHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-xs);
+}
+
+.scaleName {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-950);
+}
+
+.scaleMeta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-xs);
+}
+
+.scaleMetaItem {
+  font-size: 11px;
+  color: var(--color-neutral-400);
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  white-space: nowrap;
+}
+
+.scaleMetaLabel {
+  color: var(--color-neutral-300);
+}
+
+/* ——— Samples ——— */
+
+.scaleSamples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+.scaleSampleRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-sm);
+  color: var(--color-neutral-950);
+}
+
+.scaleSampleWeight {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 11px;
+  color: var(--color-neutral-400);
+  min-width: 64px;
+  flex-shrink: 0;
+}
+
+/* ——— Subsection ——— */
+
+.subsectionTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--sp-sm);
+}

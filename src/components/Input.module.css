@@ -1,0 +1,116 @@
+/* ——— Wrapper ——— */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3xs);
+  width: 100%;
+}
+
+/* ——— Label ——— */
+.label {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: 1.05;
+  color: var(--color-neutral-950);
+}
+
+/* ——— Input box ——— */
+.inputBox {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3xs);
+  min-height: 40px;
+  padding: var(--sp-xs);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-caramel-300);
+  border-radius: var(--radius-2xs);
+  color: var(--color-neutral-500);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+  overflow: clip;
+}
+
+.inputBox:hover:not(.disabled),
+.hovered .inputBox:not(.disabled) {
+  border-color: var(--color-caramel-500);
+}
+
+.inputBox:focus-within:not(.disabled),
+.focused .inputBox:not(.disabled) {
+  border-color: var(--color-caramel-700);
+  box-shadow: 0 0 0 2px var(--color-caramel-300);
+}
+
+/* ——— Error borders ——— */
+.inputBox.error {
+  border-color: var(--color-red-300);
+}
+
+.inputBox.error:hover:not(.disabled),
+.hovered .inputBox.error:not(.disabled) {
+  border-color: var(--color-red-500);
+}
+
+.inputBox.error:focus-within:not(.disabled),
+.focused .inputBox.error:not(.disabled) {
+  border-color: var(--color-red-700);
+  box-shadow: 0 0 0 2px var(--color-red-200);
+}
+
+/* ——— Disabled ——— */
+.inputBox.disabled {
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-neutral-300);
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+/* ——— Input element ——— */
+.input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: normal;
+  color: var(--color-neutral-950);
+}
+
+.input::placeholder {
+  color: var(--color-neutral-500);
+}
+
+.input:disabled {
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+.input:disabled::placeholder {
+  color: var(--color-neutral-400);
+}
+
+/* ——— Message ——— */
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3xs);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  line-height: 1.05;
+}
+
+.message.error {
+  color: var(--color-red-600);
+}
+
+.message.attention {
+  color: var(--color-yellow-600);
+}
+
+.message.success {
+  color: var(--color-green-600);
+}

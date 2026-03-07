@@ -1,0 +1,148 @@
+/* ——— Base ——— */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-label);
+  font-weight: 500;
+  line-height: 1.05;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-orange-400);
+  outline-offset: 2px;
+}
+
+/* ——— Sizes ——— */
+.sm {
+  min-height: 24px;
+  padding: var(--sp-3xs) var(--sp-2xs);
+  gap: var(--sp-3xs);
+  font-size: var(--text-xs);
+}
+
+.md {
+  min-height: 32px;
+  padding: var(--sp-2xs);
+  gap: var(--sp-3xs);
+  font-size: var(--text-sm);
+}
+
+.lg {
+  min-height: 40px;
+  padding: var(--sp-xs) var(--sp-sm);
+  gap: var(--sp-2xs);
+  font-size: var(--text-md);
+}
+
+/* ——— Icon-only ——— */
+.iconOnly.sm {
+  width: 24px;
+  padding: var(--sp-3xs);
+}
+
+.iconOnly.md {
+  width: 32px;
+  padding: var(--sp-2xs);
+}
+
+.iconOnly.lg {
+  width: 40px;
+  padding: var(--sp-xs);
+}
+
+/* ——— Optical adjustment: icon side gets less padding ——— */
+.sm.hasLeftIcon  { padding-left: var(--sp-3xs); }
+.sm.hasRightIcon { padding-right: var(--sp-3xs); }
+
+.md.hasLeftIcon  { padding-left: var(--sp-3xs); }
+.md.hasRightIcon { padding-right: var(--sp-3xs); }
+
+.lg.hasLeftIcon  { padding-left: var(--sp-xs); }
+.lg.hasRightIcon { padding-right: var(--sp-xs); }
+
+/* ——— Primary ——— */
+.primary {
+  background-color: var(--color-orange-500);
+  border-color: var(--color-orange-600);
+  color: var(--color-white);
+}
+
+.primary:hover:not(:disabled),
+.primary.hovered {
+  background-color: var(--color-orange-600);
+  border-color: var(--color-orange-700);
+}
+
+.primary:active:not(:disabled) {
+  background-color: var(--color-orange-600);
+  border-color: var(--color-orange-700);
+}
+
+/* ——— Secondary ——— */
+.secondary {
+  background-color: var(--color-caramel-100);
+  border-color: var(--color-caramel-300);
+  color: var(--color-neutral-950);
+}
+
+.secondary:hover:not(:disabled),
+.secondary.hovered {
+  background-color: var(--color-caramel-200);
+  border-color: var(--color-caramel-300);
+}
+
+.secondary:active:not(:disabled) {
+  background-color: var(--color-caramel-200);
+  border-color: var(--color-caramel-300);
+}
+
+/* ——— Tertiary ——— */
+.tertiary {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-neutral-950);
+}
+
+.tertiary:hover:not(:disabled),
+.tertiary.hovered {
+  background-color: var(--color-caramel-100);
+}
+
+.tertiary:active:not(:disabled) {
+  background-color: var(--color-caramel-100);
+}
+
+/* ——— Disabled (all variants) ——— */
+.button:disabled {
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-neutral-200);
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+.tertiary:disabled {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-neutral-400);
+}
+
+/* ——— Loading ——— */
+.loading {
+  pointer-events: none;
+}
+
+.spinner {
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

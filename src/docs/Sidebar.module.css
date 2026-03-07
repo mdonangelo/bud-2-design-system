@@ -1,0 +1,116 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-lg) var(--sp-sm);
+  background-color: var(--color-neutral-100);
+  border-right: 1px solid var(--color-neutral-200);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+/* ——— Logo ——— */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2xs);
+  padding-bottom: var(--sp-lg);
+  border-bottom: 1px solid var(--color-neutral-200);
+  margin-bottom: var(--sp-sm);
+}
+
+.budLogo {
+  width: 54px;
+  height: auto;
+  color: var(--color-orange-400);
+}
+
+.version {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 11px;
+  color: var(--color-neutral-500);
+  background-color: var(--color-caramel-100);
+  padding: 1px 6px;
+  border-radius: var(--radius-2xs);
+  margin-left: auto;
+}
+
+/* ——— Navigation ——— */
+
+.nav {
+  flex: 1;
+}
+
+.navGroup {
+  margin-bottom: var(--sp-2xs);
+}
+
+.navGroupLabel {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--color-neutral-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: var(--sp-xs) var(--sp-xs) var(--sp-3xs);
+  margin-top: var(--sp-2xs);
+}
+
+.navItem {
+  display: block;
+  padding: var(--sp-2xs) var(--sp-xs);
+  font-size: var(--text-sm);
+  color: var(--color-neutral-500);
+  text-decoration: none;
+  border-radius: var(--radius-xs);
+  transition: background-color 150ms ease, color 150ms ease;
+  position: relative;
+}
+
+.navItem:hover {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-800);
+}
+
+.navItemActive {
+  background-color: var(--color-orange-50);
+  color: var(--color-neutral-950);
+  font-weight: 500;
+}
+
+.navItemActive::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: var(--sp-3xs);
+  bottom: var(--sp-3xs);
+  width: 3px;
+  background-color: var(--color-orange-400);
+  border-radius: 2px;
+}
+
+/* ——— Footer ——— */
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2xs);
+  padding-top: var(--sp-sm);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+.budSymbol {
+  width: 20px;
+  height: auto;
+  color: var(--color-neutral-300);
+}
+
+.footerText {
+  font-size: 11px;
+  color: var(--color-neutral-400);
+}

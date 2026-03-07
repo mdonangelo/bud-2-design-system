@@ -1,0 +1,56 @@
+.subsectionTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--sp-2xs);
+}
+
+.subsectionDescription {
+  font-size: var(--text-sm);
+  color: var(--color-neutral-500);
+  line-height: 1.6;
+  margin-bottom: var(--sp-sm);
+}
+
+/* ——— Colors grid ——— */
+
+.colorsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.colorItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.colorLabel {
+  font-size: 11px;
+  color: var(--color-neutral-500);
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  min-width: 72px;
+}
+
+.sizeRow {
+  display: flex;
+  gap: var(--sp-2xs);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ——— Icon-only grid ——— */
+
+.iconOnlyGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.iconOnlyGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}

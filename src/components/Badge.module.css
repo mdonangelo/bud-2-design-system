@@ -1,0 +1,100 @@
+/* ——— Base ——— */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-family: var(--font-label);
+  font-weight: 500;
+  line-height: 1.05;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ——— Sizes ——— */
+/* sm: font 12px, icon 12px */
+.sm {
+  padding: var(--sp-3xs) var(--sp-2xs);
+  font-size: var(--text-xs);
+  gap: var(--sp-3xs);
+}
+
+.sm.iconOnly {
+  padding: var(--sp-3xs);
+}
+
+/* md: font 14px, icon 12px — Figma 5px/10px ajustado para grid 4px */
+.md {
+  padding: var(--sp-3xs) var(--sp-xs);
+  font-size: var(--text-sm);
+  gap: var(--sp-3xs);
+}
+
+.md.iconOnly {
+  padding: var(--sp-3xs);
+}
+
+/* lg: font 16px, icon 16px — Figma 6px/12px ajustado para grid 4px */
+.lg {
+  padding: var(--sp-2xs) var(--sp-xs);
+  font-size: var(--text-md);
+  gap: var(--sp-2xs);
+}
+
+.lg.iconOnly {
+  padding: var(--sp-2xs);
+}
+
+/* ——— Label ——— */
+.label {
+  display: flex;
+  align-items: center;
+}
+
+/* ——— Color: Neutral ——— */
+.neutral {
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-700);
+}
+
+/* ——— Color: Orange ——— */
+/* Figma usa orange-600 (#fa4405) mas contraste é 3.2:1 — WCAG AA exige 4.5:1.
+   orange-800 (#ab3007) atinge 5.95:1 ✓ */
+.orange {
+  background-color: var(--color-orange-50);
+  color: var(--color-orange-800);
+}
+
+/* ——— Color: Wine ——— */
+.wine {
+  background-color: var(--color-wine-50);
+  color: var(--color-wine-600);
+}
+
+/* ——— Color: Caramel ——— */
+.caramel {
+  background-color: var(--color-caramel-50);
+  color: var(--color-caramel-950);
+}
+
+/* ——— Color: Error ——— */
+/* Figma usa red-600 (#e7000b) mas contraste é 4.36:1 — abaixo de 4.5:1.
+   red-700 (#c10007) atinge 5.87:1 ✓ */
+.error {
+  background-color: var(--color-red-50);
+  color: var(--color-red-700);
+}
+
+/* ——— Color: Warning ——— */
+/* Figma usa yellow-600 (#e17100) mas contraste é 3.09:1 — WCAG AA exige 4.5:1.
+   yellow-700 (#bb4d00) atinge 4.85:1 ✓ */
+.warning {
+  background-color: var(--color-yellow-50);
+  color: var(--color-yellow-700);
+}
+
+/* ——— Color: Success ——— */
+.success {
+  background-color: var(--color-green-50);
+  color: var(--color-green-700);
+}

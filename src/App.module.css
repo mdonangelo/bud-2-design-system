@@ -1,0 +1,13 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  margin-left: 240px;
+  padding: var(--sp-3xl) var(--sp-4xl);
+  max-width: 1280px;
+  background-color: var(--color-white);
+  min-height: 100vh;
+}

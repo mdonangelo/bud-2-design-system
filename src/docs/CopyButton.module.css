@@ -1,0 +1,39 @@
+.copyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3xs);
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  border-radius: var(--radius-2xs);
+  transition: background-color 150ms ease;
+}
+
+.copyButton:hover {
+  background-color: var(--color-neutral-50);
+}
+
+.copyButton:focus-visible {
+  outline: 2px solid var(--color-orange-400);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-neutral-500);
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.copyButton:hover .icon {
+  opacity: 1;
+}
+
+.checkIcon {
+  color: var(--color-orange-400);
+}

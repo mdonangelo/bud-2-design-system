@@ -1,0 +1,229 @@
+/* ——— Wrapper ——— */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3xs);
+  width: 100%;
+}
+
+/* ——— Label ——— */
+.label {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: 1.05;
+  color: var(--color-neutral-950);
+}
+
+/* ——— Anchor (positioning context) ——— */
+.anchor {
+  position: relative;
+}
+
+/* ——— Trigger (same visual as inputBox) ——— */
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3xs);
+  width: 100%;
+  min-height: 40px;
+  padding: var(--sp-xs);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-caramel-300);
+  border-radius: var(--radius-2xs);
+  color: var(--color-neutral-500);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+  text-align: left;
+}
+
+.trigger:hover:not(.disabled),
+.hovered .trigger:not(.disabled) {
+  border-color: var(--color-caramel-500);
+}
+
+.trigger:focus-within:not(.disabled),
+.trigger.open:not(.disabled),
+.focused .trigger:not(.disabled) {
+  border-color: var(--color-caramel-700);
+  box-shadow: 0 0 0 2px var(--color-caramel-300);
+}
+
+/* ——— Error borders ——— */
+.trigger.error {
+  border-color: var(--color-red-300);
+}
+
+.trigger.error:hover:not(.disabled),
+.hovered .trigger.error:not(.disabled) {
+  border-color: var(--color-red-500);
+}
+
+.trigger.error:focus-within:not(.disabled),
+.trigger.error.open:not(.disabled),
+.focused .trigger.error:not(.disabled) {
+  border-color: var(--color-red-700);
+  box-shadow: 0 0 0 2px var(--color-red-200);
+}
+
+/* ——— Disabled ——— */
+.trigger.disabled {
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-neutral-300);
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+/* ——— Value / Placeholder ——— */
+.value {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: normal;
+  color: var(--color-neutral-950);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: normal;
+  color: var(--color-neutral-500);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.disabled .value {
+  color: var(--color-neutral-400);
+}
+
+/* ——— Caret ——— */
+.caret {
+  flex-shrink: 0;
+  transition: transform 120ms ease;
+}
+
+.caretOpen {
+  transform: rotate(180deg);
+}
+
+/* ——— Dropdown (rendered via portal with position: fixed) ——— */
+.dropdown {
+  z-index: 9500;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-caramel-300);
+  border-radius: var(--radius-2xs);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ——— Search ——— */
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3xs);
+  padding: var(--sp-2xs) var(--sp-xs);
+  border-bottom: 1px solid var(--color-caramel-300);
+  color: var(--color-neutral-500);
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: normal;
+  color: var(--color-neutral-950);
+}
+
+.searchInput::placeholder {
+  color: var(--color-neutral-500);
+}
+
+/* ——— Option list ——— */
+.optionList {
+  flex: 1;
+  min-height: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  margin: 0;
+  padding: var(--sp-3xs);
+  list-style: none;
+}
+
+/* ——— Empty state ——— */
+.empty {
+  padding: var(--sp-2xs) var(--sp-xs);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-500);
+  text-align: center;
+}
+
+/* ——— Option (padrão tertiary button) ——— */
+.option {
+  display: flex;
+  align-items: center;
+  padding: var(--sp-2xs) var(--sp-xs);
+  border-radius: var(--radius-2xs);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-sm);
+  line-height: 1.05;
+  color: var(--color-neutral-950);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+.option.focused {
+  background-color: var(--color-caramel-100);
+}
+
+.option:active {
+  background-color: var(--color-caramel-100);
+}
+
+.option.selected {
+  color: var(--color-orange-500);
+}
+
+/* ——— Message ——— */
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3xs);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  line-height: 1.05;
+}
+
+.message.error {
+  color: var(--color-red-600);
+}
+
+.message.attention {
+  color: var(--color-yellow-600);
+}
+
+.message.success {
+  color: var(--color-green-600);
+}

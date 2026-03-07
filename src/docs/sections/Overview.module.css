@@ -1,0 +1,85 @@
+.hero {
+  margin-bottom: var(--sp-2xs);
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3xs);
+  padding: var(--sp-3xs) var(--sp-xs);
+  background-color: var(--color-caramel-100);
+  color: var(--color-caramel-950);
+  border-radius: var(--radius-2xs);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--text-xs);
+}
+
+/* ——— Principles ——— */
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-sm);
+}
+
+.principleCard {
+  padding: var(--sp-lg);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+}
+
+.principleIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-caramel-50);
+  border-radius: var(--radius-sm);
+  color: var(--color-caramel-950);
+  margin-bottom: var(--sp-sm);
+}
+
+.principleTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-neutral-950);
+  margin-bottom: var(--sp-2xs);
+}
+
+.principleDescription {
+  font-size: var(--text-sm);
+  color: var(--color-neutral-500);
+  line-height: 1.6;
+}
+
+/* ——— Quick Start ——— */
+
+.quickStart {}
+
+.subsectionTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--sp-2xs);
+}
+
+.subsectionDescription {
+  font-size: var(--text-sm);
+  color: var(--color-neutral-500);
+  line-height: 1.6;
+  margin-bottom: var(--sp-sm);
+}
+
+.inlineCode {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: var(--text-xs);
+  background-color: var(--color-neutral-100);
+  padding: 2px 6px;
+  border-radius: var(--radius-2xs);
+  color: var(--color-neutral-800);
+}
