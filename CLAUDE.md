@@ -57,7 +57,7 @@ Tokens de escala usam padrão **t-shirt size**: `3xs` (4px), `2xs` (8px), `xs` (
 
 ## Iconografia
 
-Todos os ícones DEVEM usar **Phosphor Icons** (`@phosphor-icons/react`). Nunca usar SVGs inline, imagens ou outras bibliotecas de ícones. Peso padrão: **regular** (outline). Tamanhos recomendados: 14px, 16px, 20px, 24px, 32px.
+Todos os ícones DEVEM usar **Phosphor Icons 2.1** (`@phosphor-icons/react`), exclusivamente no peso **regular** (outline). Sem exceção — nunca usar `weight="bold"`, `weight="fill"`, `weight="light"`, `weight="thin"` ou `weight="duotone"`. O peso regular é o padrão do Phosphor e não precisa ser declarado explicitamente. Nunca usar SVGs inline, imagens ou outras bibliotecas de ícones. Tamanhos recomendados: 14px, 16px, 20px, 24px, 32px.
 
 ## Referências de Design Systems
 
@@ -114,7 +114,10 @@ Quando um botão tem ícone à esquerda ou direita, o padding desse lado deve se
 Campos onde o usuário digita texto livremente (input, textarea) devem usar `line-height: normal` para não cortar caracteres com descendentes (ç, g, p, y, j). O `line-height: 1.05` é apenas para labels e botões (texto controlado).
 
 ### Estados visuais na documentação
-Para exibir estados como Hover e Focused na documentação sem interação do mouse, usar classes CSS auxiliares (`.hovered`, `.focused`) que replicam os estilos do pseudo-estado correspondente.
+Para exibir estados como Hover, Focused e Active na documentação sem interação do mouse, usar classes CSS auxiliares (`.hovered`, `.focused`, `.active`) que replicam os estilos do pseudo-estado correspondente.
+
+### Estado Active em botões
+A classe `.active` indica que o botão está associado a um elemento visível/ativo na interface (ex: painel lateral aberto, filtro aplicado, aba selecionada). O estilo é idêntico ao hover — mesmo background e borda. Disponível nas três variantes: primary, secondary e tertiary.
 
 ## Stack
 

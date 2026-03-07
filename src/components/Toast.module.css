@@ -149,3 +149,11 @@
   background-color: var(--color-neutral-700);
   border-color: var(--color-neutral-500);
 }
+
+@media (max-width: 768px) {
+  .toaster {
+    width: auto;
+    left: var(--sp-sm);
+    right: var(--sp-sm);
+  }
+}

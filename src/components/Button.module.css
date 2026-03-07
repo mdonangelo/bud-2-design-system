@@ -29,7 +29,7 @@
 
 .md {
   min-height: 32px;
-  padding: var(--sp-2xs);
+  padding: var(--sp-2xs) var(--sp-xs);
   gap: var(--sp-3xs);
   font-size: var(--text-sm);
 }
@@ -42,18 +42,22 @@
 }
 
 /* ——— Icon-only ——— */
+/* width/height include 1px border per side (box-sizing: border-box) */
 .iconOnly.sm {
-  width: 24px;
+  width: 26px;
+  height: 26px;
   padding: var(--sp-3xs);
 }
 
 .iconOnly.md {
-  width: 32px;
+  width: 34px;
+  height: 34px;
   padding: var(--sp-2xs);
 }
 
 .iconOnly.lg {
-  width: 40px;
+  width: 42px;
+  height: 42px;
   padding: var(--sp-xs);
 }
 
@@ -61,8 +65,8 @@
 .sm.hasLeftIcon  { padding-left: var(--sp-3xs); }
 .sm.hasRightIcon { padding-right: var(--sp-3xs); }
 
-.md.hasLeftIcon  { padding-left: var(--sp-3xs); }
-.md.hasRightIcon { padding-right: var(--sp-3xs); }
+.md.hasLeftIcon  { padding-left: var(--sp-2xs); }
+.md.hasRightIcon { padding-right: var(--sp-2xs); }
 
 .lg.hasLeftIcon  { padding-left: var(--sp-xs); }
 .lg.hasRightIcon { padding-right: var(--sp-xs); }
@@ -75,7 +79,8 @@
 }
 
 .primary:hover:not(:disabled),
-.primary.hovered {
+.primary.hovered,
+.primary.active {
   background-color: var(--color-orange-600);
   border-color: var(--color-orange-700);
 }
@@ -93,7 +98,8 @@
 }
 
 .secondary:hover:not(:disabled),
-.secondary.hovered {
+.secondary.hovered,
+.secondary.active {
   background-color: var(--color-caramel-200);
   border-color: var(--color-caramel-300);
 }
@@ -111,7 +117,8 @@
 }
 
 .tertiary:hover:not(:disabled),
-.tertiary.hovered {
+.tertiary.hovered,
+.tertiary.active {
   background-color: var(--color-caramel-100);
 }
 

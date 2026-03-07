@@ -57,3 +57,9 @@
   color: var(--color-neutral-800);
   margin-bottom: var(--sp-sm);
 }
+
+@media (max-width: 768px) {
+  .label {
+    min-width: 100px;
+  }
+}

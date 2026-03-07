@@ -92,3 +92,13 @@
   font-size: 11px;
   color: var(--color-neutral-500);
 }
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .weightsGrid {
+    grid-template-columns: 1fr;
+  }
+}

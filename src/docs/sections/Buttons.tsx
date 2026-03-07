@@ -143,8 +143,9 @@ export function Buttons() {
       <div>
         <h3 className={s.subsectionTitle}>Estados</h3>
         <p className={s.subsectionDescription}>
-          Disabled desabilita interação visual e funcional. Loading substitui o
-          conteúdo por um spinner e bloqueia cliques.
+          Active indica que o botão está associado a um elemento visível na
+          interface (ex: painel lateral aberto). Disabled desabilita interação.
+          Loading substitui o conteúdo por um spinner e bloqueia cliques.
         </p>
         <div className={s.statesGrid}>
           {variants.map((variant) => (
@@ -160,6 +161,12 @@ export function Buttons() {
                 <div className={s.stateItem}>
                   <span className={s.stateLabel}>Hover</span>
                   <Button variant={variant} size="md" className={btnStyles.hovered}>
+                    Botão
+                  </Button>
+                </div>
+                <div className={s.stateItem}>
+                  <span className={s.stateLabel}>Active</span>
+                  <Button variant={variant} size="md" className={btnStyles.active}>
                     Botão
                   </Button>
                 </div>

@@ -38,7 +38,7 @@ export function CopyButton({ text, children, className }: CopyButtonProps) {
       {children ?? text}
       <span className={s.icon}>
         {copied ? (
-          <Check size={14} weight="bold" className={s.checkIcon} />
+          <Check size={14}  className={s.checkIcon} />
         ) : (
           <Copy size={14} />
         )}

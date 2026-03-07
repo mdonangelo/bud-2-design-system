@@ -34,6 +34,12 @@
   gap: var(--sp-sm);
 }
 
+.footerActions {
+  display: flex;
+  gap: var(--sp-2xs);
+  align-items: center;
+}
+
 .behaviorList {
   font-family: var(--font-body);
   font-size: var(--text-sm);

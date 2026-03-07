@@ -365,8 +365,7 @@ export function Select(props: SelectProps) {
           </span>
           <CaretDown
             size={16}
-            weight="bold"
-            className={`${s.caret} ${open ? s.caretOpen : ""}`}
+                        className={`${s.caret} ${open ? s.caretOpen : ""}`}
           />
         </button>
 

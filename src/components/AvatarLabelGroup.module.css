@@ -1,0 +1,42 @@
+/* ——— Base ——— */
+.group {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ——— Text container ——— */
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ——— Name ——— */
+.name {
+  font-family: var(--font-label);
+  font-weight: 600;
+  color: var(--color-neutral-950);
+  line-height: 1.05;
+}
+
+/* ——— Supporting text ——— */
+.supporting {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-neutral-500);
+}
+
+/* ——— Sizes ——— */
+.sm { gap: var(--sp-2xs); }
+.md { gap: var(--sp-xs); }
+.lg { gap: var(--sp-xs); }
+.xl { gap: var(--sp-sm); }
+
+.sm .name { font-size: var(--text-xs); }
+.md .name { font-size: var(--text-sm); }
+.lg .name { font-size: var(--text-md); }
+.xl .name { font-size: var(--text-lg); line-height: 1.3; }
+
+.sm .supporting { font-size: var(--text-xs); line-height: 1.25; }
+.md .supporting { font-size: var(--text-sm); line-height: 1.4; }
+.lg .supporting { font-size: var(--text-md); line-height: 1.4; }
+.xl .supporting { font-size: var(--text-lg); line-height: 1.3; }

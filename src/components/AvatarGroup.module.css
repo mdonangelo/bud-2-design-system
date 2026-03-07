@@ -1,0 +1,85 @@
+/* ——— Base ——— */
+.group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.stack {
+  display: flex;
+  align-items: center;
+}
+
+/* ——— Override Avatar border inside group ——— */
+.group .stackItem {
+  border: 1.5px solid white;
+  flex-shrink: 0;
+}
+
+/* ——— More counter (+N) ——— */
+.more {
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: var(--color-caramel-50);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moreText {
+  font-family: var(--font-label);
+  font-weight: 500;
+  color: var(--color-neutral-950);
+  line-height: 1.05;
+  text-align: center;
+}
+
+/* ——— Add button ——— */
+.addButton {
+  border-radius: 50%;
+  border: 1px dashed var(--color-neutral-300);
+  background-color: white;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 120ms ease;
+}
+
+.addButton:hover {
+  border-color: var(--color-neutral-500);
+}
+
+.addIcon {
+  color: var(--color-neutral-500);
+}
+
+/* ——— Size: xs (24px) ——— */
+.xs .stack { padding-right: 4px; }
+.xs .stackItem { margin-right: -4px; }
+.xs .more { width: 24px; height: 24px; margin-right: -4px; }
+.xs .moreText { font-size: var(--text-xs); }
+.xs .addButton { width: 24px; height: 24px; }
+.xs.gapAdd { gap: var(--sp-xs); }
+.xs.gapMore { gap: var(--sp-2xs); }
+
+/* ——— Size: sm (32px) ——— */
+.sm .stack { padding-right: 8px; }
+.sm .stackItem { margin-right: -8px; }
+.sm .more { width: 32px; height: 32px; margin-right: -8px; }
+.sm .moreText { font-size: var(--text-sm); }
+.sm .addButton { width: 32px; height: 32px; }
+.sm.gapAdd { gap: var(--sp-sm); }
+.sm.gapMore { gap: var(--sp-2xs); }
+
+/* ——— Size: md (40px) ——— */
+.md .stack { padding-right: 12px; }
+.md .stackItem { margin-right: -12px; }
+.md .more { width: 40px; height: 40px; margin-right: -12px; }
+.md .moreText { font-size: var(--text-md); }
+.md .addButton { width: 40px; height: 40px; }
+.md.gapAdd { gap: var(--sp-md); }
+.md.gapMore { gap: var(--sp-2xs); }

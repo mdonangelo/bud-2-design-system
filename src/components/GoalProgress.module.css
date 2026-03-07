@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════
+   GoalProgressBar + GoalGaugeBar
+   ═══════════════════════════════════════════ */
+
+/* ——— Wrapper ——— */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3xs);
+}
+
+/* ——— Label ——— */
+.label {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-950);
+}
+
+/* ——— Track ——— */
+.trackContainer {
+  position: relative;
+}
+
+.track {
+  height: 8px;
+  background-color: var(--color-caramel-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ——— ProgressBar: fill ——— */
+.fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 300ms ease;
+}
+
+/* ——— ProgressBar: expected marker ——— */
+.expectedMarker {
+  position: absolute;
+  top: -1px;
+  width: 1px;
+  height: 10px;
+  border-left: 2px dashed var(--color-neutral-400);
+  transform: translateX(-1px);
+  pointer-events: none;
+}
+
+/* ——— GaugeBar: safe zone ——— */
+.safeZone {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: left 300ms ease, width 300ms ease;
+}
+
+/* ——— GaugeBar: marker (triangle) ——— */
+.gaugeMarker {
+  position: absolute;
+  bottom: -4px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 6px solid var(--color-neutral-700);
+  transform: translateX(-5px);
+  transition: left 300ms ease, opacity 120ms ease;
+  pointer-events: none;
+}
+
+/* ——— Thumb (aparece no hover quando interativo) ——— */
+.thumb {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--color-neutral-400);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 120ms ease, transform 120ms ease, border-color 120ms ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ——— Interactive mode ——— */
+.interactive {
+  cursor: pointer;
+  touch-action: none;
+}
+
+.interactive:hover .thumb,
+.dragging .thumb {
+  opacity: 1;
+}
+
+.interactive:hover .gaugeMarker,
+.dragging .gaugeMarker {
+  opacity: 0;
+}
+
+.dragging {
+  cursor: grabbing;
+}
+
+.dragging .thumb {
+  transform: translate(-50%, -50%) scale(1.15);
+  cursor: grabbing;
+}
+
+/* ——— Footer ——— */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statusGroup {
+  display: flex;
+  flex-direction: row;
+  gap: var(--sp-3xs);
+  align-items: center;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.statusText {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-xs);
+}
+
+.valueText {
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-950);
+}
+
+/* ═══════════════════════════════════════════
+   Status variants
+   ═══════════════════════════════════════════ */
+
+/* — on-track — */
+.onTrack .fill,
+.onTrack .safeZone {
+  background-color: var(--color-green-500);
+}
+.onTrack .statusDot {
+  background-color: var(--color-green-600);
+}
+.onTrack .statusText {
+  color: var(--color-green-700);
+}
+.onTrack .thumb {
+  border-color: var(--color-green-500);
+}
+
+/* — attention — */
+.attention .fill,
+.attention .safeZone {
+  background-color: var(--color-yellow-500);
+}
+.attention .statusDot {
+  background-color: var(--color-yellow-600);
+}
+.attention .statusText {
+  color: var(--color-yellow-700);
+}
+.attention .thumb {
+  border-color: var(--color-yellow-500);
+}
+
+/* — off-track — */
+.offTrack .fill,
+.offTrack .safeZone {
+  background-color: var(--color-red-500);
+}
+.offTrack .statusDot {
+  background-color: var(--color-red-600);
+}
+.offTrack .statusText {
+  color: var(--color-red-700);
+}
+.offTrack .thumb {
+  border-color: var(--color-red-500);
+}

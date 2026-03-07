@@ -114,3 +114,14 @@
   color: var(--color-neutral-500);
   font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
 }
+
+@media (max-width: 768px) {
+  .matrixHeader,
+  .matrixRow {
+    grid-template-columns: 80px repeat(3, 1fr);
+  }
+
+  .statesRow {
+    flex-wrap: wrap;
+  }
+}

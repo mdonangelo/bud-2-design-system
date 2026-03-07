@@ -1,0 +1,57 @@
+/* ——— Container ——— */
+.breadcrumb {
+  border-bottom: 1px solid var(--color-caramel-200);
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2xs);
+  padding: var(--sp-xs) var(--sp-sm);
+  list-style: none;
+}
+
+/* ——— Step (li) ——— */
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2xs);
+}
+
+/* ——— Item ——— */
+.item {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  line-height: 1.05;
+  color: var(--color-neutral-400);
+  white-space: nowrap;
+}
+
+.itemCompleted {
+  font-weight: 600;
+  color: var(--color-neutral-600);
+}
+
+a.item {
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+
+a.item:hover {
+  color: var(--color-neutral-950);
+}
+
+/* ——— Separator ——— */
+.separator {
+  flex-shrink: 0;
+  color: var(--color-neutral-400);
+  display: flex;
+}
+
+/* ——— Mobile ——— */
+@media (max-width: 768px) {
+  .list {
+    overflow-x: auto;
+  }
+}

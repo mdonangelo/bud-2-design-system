@@ -132,3 +132,9 @@
   color: var(--color-neutral-800);
   margin-bottom: var(--sp-sm);
 }
+
+@media (max-width: 768px) {
+  .specimens {
+    grid-template-columns: 1fr;
+  }
+}

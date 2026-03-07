@@ -3,6 +3,7 @@ import {
   type KeyboardEvent,
   useEffect,
   useRef,
+  useState,
   useCallback,
 } from "react";
 import { createPortal } from "react-dom";
@@ -19,11 +20,17 @@ interface ModalProps {
   onClose: () => void;
   size?: ModalSize;
   children: ReactNode;
+  sidePanel?: ReactNode;
 }
 
-export function Modal({ open, onClose, size = "md", children }: ModalProps) {
+export function Modal({ open, onClose, size = "md", children, sidePanel }: ModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [everOpened, setEverOpened] = useState(false);
+
+  useEffect(() => {
+    if (open && !everOpened) setEverOpened(true);
+  }, [open, everOpened]);
 
   // Trap focus inside modal
   const handleKeyDown = useCallback(
@@ -82,25 +89,40 @@ export function Modal({ open, onClose, size = "md", children }: ModalProps) {
     };
   }, [open]);
 
-  if (!open) return null;
+  if (!everOpened) return null;
+
+  const content = (
+    <div className={`${s.container} ${s[size]}`}>
+      {children}
+    </div>
+  );
 
   return createPortal(
     <div
       ref={overlayRef}
-      className={s.overlay}
+      className={`${s.overlay} ${open ? "" : s.hidden}`}
       onMouseDown={(e) => {
-        if (e.target === overlayRef.current) onClose();
+        if (open && e.target === overlayRef.current) onClose();
       }}
-      onKeyDown={handleKeyDown}
+      onKeyDown={open ? handleKeyDown : undefined}
     >
-      <div
-        ref={containerRef}
-        className={`${s.container} ${s[size]}`}
-        role="dialog"
-        aria-modal="true"
-      >
-        {children}
-      </div>
+      {sidePanel !== undefined ? (
+        <div ref={containerRef} className={s.doubleLayout} role="dialog" aria-modal="true">
+          {content}
+          <div className={`${s.sidePanel} ${sidePanel ? s.sidePanelOpen : ""}`}>
+            {sidePanel}
+          </div>
+        </div>
+      ) : (
+        <div
+          ref={containerRef}
+          className={`${s.container} ${s[size]}`}
+          role="dialog"
+          aria-modal="true"
+        >
+          {children}
+        </div>
+      )}
     </div>,
     document.body
   );
@@ -155,8 +177,13 @@ export function ModalBody({ children }: ModalBodyProps) {
 
 interface ModalFooterProps {
   children: ReactNode;
+  align?: "end" | "between";
 }
 
-export function ModalFooter({ children }: ModalFooterProps) {
-  return <div className={s.footer}>{children}</div>;
+export function ModalFooter({ children, align = "end" }: ModalFooterProps) {
+  return (
+    <div className={`${s.footer} ${align === "between" ? s.footerBetween : ""}`}>
+      {children}
+    </div>
+  );
 }

@@ -1,0 +1,51 @@
+.subsectionTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--sp-2xs);
+}
+
+.subsectionDescription {
+  font-size: var(--text-sm);
+  color: var(--color-neutral-500);
+  line-height: 1.6;
+  margin-bottom: var(--sp-sm);
+}
+
+.subsectionDescription code {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: var(--text-xs);
+  background-color: var(--color-neutral-100);
+  padding: 2px 6px;
+  border-radius: var(--radius-2xs);
+}
+
+.demoContainer {
+  max-width: 360px;
+}
+
+.actionLog {
+  margin-top: var(--sp-2xs);
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 11px;
+  color: var(--color-neutral-500);
+}
+
+.anatomyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2xs);
+  padding-left: var(--sp-lg);
+  font-size: var(--text-sm);
+  color: var(--color-neutral-600);
+  line-height: 1.6;
+}
+
+.anatomyList code {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: var(--text-xs);
+  background-color: var(--color-neutral-100);
+  padding: 2px 6px;
+  border-radius: var(--radius-2xs);
+}

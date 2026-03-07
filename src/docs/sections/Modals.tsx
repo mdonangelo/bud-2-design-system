@@ -5,7 +5,9 @@ import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Select } from "../../components/Select";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "../../components/Modal";
-import { Users } from "@phosphor-icons/react";
+import { AiAssistant, type MissionItem } from "../../components/AiAssistant";
+import { Users, FloppyDisk, ArrowRight, SidebarSimple, Lightning, X } from "@phosphor-icons/react";
+import buttonStyles from "../../components/Button.module.css";
 import s from "./Modals.module.css";
 
 const usageCode = `import {
@@ -17,6 +19,7 @@ const [open, setOpen] = useState(false);
 
 <Button onClick={() => setOpen(true)}>Abrir modal</Button>
 
+{/* Modal padrão — footer à direita */}
 <Modal open={open} onClose={() => setOpen(false)} size="md">
   <ModalHeader
     title="Criar missão"
@@ -27,10 +30,25 @@ const [open, setOpen] = useState(false);
     {/* Conteúdo do modal */}
   </ModalBody>
   <ModalFooter>
-    <Button variant="tertiary" onClick={() => setOpen(false)}>
-      Cancelar
-    </Button>
+    <Button variant="tertiary" onClick={handleClose}>Cancelar</Button>
     <Button variant="primary">Salvar</Button>
+  </ModalFooter>
+</Modal>
+
+{/* Modal wizard — footer com align="between" */}
+<Modal open={open} onClose={handleClose} size="md">
+  <ModalHeader title="Construir missão" onClose={handleClose} />
+  <ModalBody>{/* ... */}</ModalBody>
+  <ModalFooter align="between">
+    <Button variant="tertiary" onClick={handleClose}>Cancelar</Button>
+    <div style={{ display: "flex", gap: 8 }}>
+      <Button variant="secondary" leftIcon={FloppyDisk}>
+        Salvar rascunho
+      </Button>
+      <Button variant="primary" rightIcon={ArrowRight}>
+        Próximo
+      </Button>
+    </div>
   </ModalFooter>
 </Modal>`;
 
@@ -41,11 +59,97 @@ const departmentOptions = [
   { value: "marketing", label: "Marketing" },
 ];
 
+const MOCK_MISSIONS: MissionItem[] = [
+  { id: "1", label: "OKR Q1 — Aumentar vendas" },
+  { id: "2", label: "PDI João Silva" },
+  { id: "3", label: "Meta NPS 80" },
+  { id: "4", label: "Projeto Expansão Regional" },
+];
+
+function DoubleDemo() {
+  const [open, setOpen] = useState(false);
+  const [showAssistant, setShowAssistant] = useState(true);
+  const [selectedMissions, setSelectedMissions] = useState<string[]>([]);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div>
+      <h3 className={s.subsectionTitle}>Modal duplo</h3>
+      <p className={s.subsectionDescription}>
+        Use a prop <code>sidePanel</code> para acoplar um painel lateral ao
+        modal. O botão "Assistente" no header alterna a exibição do painel. No
+        mobile, empilha verticalmente.
+      </p>
+      <div className={s.buttonRow}>
+        <Button
+          variant="secondary"
+          size="sm"
+          onClick={() => setOpen(true)}
+        >
+          Abrir modal duplo
+        </Button>
+      </div>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        size="md"
+        sidePanel={showAssistant ? (
+          <AiAssistant
+            onClose={() => setShowAssistant(false)}
+            allowUpload
+            missions={MOCK_MISSIONS}
+            selectedMissions={selectedMissions}
+            onMissionsChange={setSelectedMissions}
+          />
+        ) : null}
+      >
+        <ModalHeader
+          title="Criar missão"
+          description="Defina o nome e os detalhes da nova missão para o time."
+          onClose={handleClose}
+        >
+          <Button
+            variant="tertiary"
+            size="md"
+            leftIcon={showAssistant ? SidebarSimple : Lightning}
+            onClick={() => setShowAssistant((v) => !v)}
+            className={showAssistant ? buttonStyles.active : undefined}
+          >
+            Assistente
+          </Button>
+        </ModalHeader>
+        <ModalBody>
+          <div className={s.demoForm}>
+            <Input label="Nome da missão" placeholder="Ex: Lançar v2.0" />
+            <Input
+              label="Descrição"
+              placeholder="Descreva brevemente o objetivo"
+            />
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <Button variant="tertiary" onClick={handleClose}>
+            Cancelar
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Criar missão
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+}
+
 export function Modals() {
   const [defaultOpen, setDefaultOpen] = useState(false);
   const [smallOpen, setSmallOpen] = useState(false);
   const [largeOpen, setLargeOpen] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
+  const [wizardOpen, setWizardOpen] = useState(false);
 
   return (
     <DocSection
@@ -220,6 +324,64 @@ export function Modals() {
           </ModalFooter>
         </Modal>
       </div>
+
+      <div>
+        <h3 className={s.subsectionTitle}>Footer com alinhamento wizard</h3>
+        <p className={s.subsectionDescription}>
+          Use <code>align="between"</code> no ModalFooter para posicionar ações
+          secundárias à esquerda e primárias à direita — padrão de modais
+          multi-step.
+        </p>
+        <div className={s.buttonRow}>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => setWizardOpen(true)}
+          >
+            Abrir wizard
+          </Button>
+        </div>
+
+        <Modal open={wizardOpen} onClose={() => setWizardOpen(false)} size="md">
+          <ModalHeader
+            title="Construir missão"
+            description="Passo 2 de 3 — defina os indicadores da missão."
+            onClose={() => setWizardOpen(false)}
+          />
+          <ModalBody>
+            <div className={s.demoForm}>
+              <Input label="Nome da missão" defaultValue="Expandir para o Nordeste" />
+              <Input
+                label="Descrição"
+                placeholder="Adicionar breve descrição"
+              />
+            </div>
+          </ModalBody>
+          <ModalFooter align="between">
+            <Button variant="tertiary" onClick={() => setWizardOpen(false)}>
+              Cancelar
+            </Button>
+            <div className={s.footerActions}>
+              <Button
+                variant="secondary"
+                leftIcon={FloppyDisk}
+                onClick={() => setWizardOpen(false)}
+              >
+                Salvar rascunho
+              </Button>
+              <Button
+                variant="primary"
+                rightIcon={ArrowRight}
+                onClick={() => setWizardOpen(false)}
+              >
+                Próximo
+              </Button>
+            </div>
+          </ModalFooter>
+        </Modal>
+      </div>
+
+      <DoubleDemo />
 
       <div>
         <h3 className={s.subsectionTitle}>Comportamento</h3>

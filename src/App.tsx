@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { List } from "@phosphor-icons/react";
 import { Sidebar } from "./docs/Sidebar";
 import { Overview } from "./docs/sections/Overview";
 import { Logos } from "./docs/sections/Logos";
@@ -10,65 +11,95 @@ import { Shadows } from "./docs/sections/Shadows";
 import { Icons } from "./docs/sections/Icons";
 import { Buttons } from "./docs/sections/Buttons";
 import { Inputs } from "./docs/sections/Inputs";
+import { Textareas } from "./docs/sections/Textareas";
 import { Selects } from "./docs/sections/Selects";
+import { DatePickers } from "./docs/sections/DatePickers";
 import { Checkboxes } from "./docs/sections/Checkboxes";
 import { Radios } from "./docs/sections/Radios";
+import { ChoiceBoxes } from "./docs/sections/ChoiceBoxes";
 import { Badges } from "./docs/sections/Badges";
+import { Breadcrumbs } from "./docs/sections/Breadcrumbs";
+import { Avatars } from "./docs/sections/Avatars";
 import { Toggles } from "./docs/sections/Toggles";
 import { Modals } from "./docs/sections/Modals";
 import { Toasts } from "./docs/sections/Toasts";
+import { GoalProgress } from "./docs/sections/GoalProgress";
+import { Charts } from "./docs/sections/Charts";
+import { Popovers } from "./docs/sections/Popovers";
+import { AiAssistantSection } from "./docs/sections/AiAssistant";
 import { Toaster } from "./components/Toast";
 import s from "./App.module.css";
 
+const SECTIONS: Record<string, React.ComponentType> = {
+  "visao-geral": Overview,
+  "logos": Logos,
+  "cores": Colors,
+  "tipografia": Typography,
+  "espacamento": Spacing,
+  "border-radius": Radius,
+  "sombras": Shadows,
+  "icones": Icons,
+  "botoes": Buttons,
+  "inputs": Inputs,
+  "textareas": Textareas,
+  "selects": Selects,
+  "date-picker": DatePickers,
+  "checkboxes": Checkboxes,
+  "radios": Radios,
+  "choice-boxes": ChoiceBoxes,
+  "badges": Badges,
+  "breadcrumbs": Breadcrumbs,
+  "avatars": Avatars,
+  "toggles": Toggles,
+  "modals": Modals,
+  "toasts": Toasts,
+  "goal-progress": GoalProgress,
+  "charts": Charts,
+  "popovers": Popovers,
+  "ai-assistant": AiAssistantSection,
+};
+
+function getInitialSection(): string {
+  const hash = window.location.hash.slice(1);
+  return hash && hash in SECTIONS ? hash : "visao-geral";
+}
+
 function App() {
-  const [activeSection, setActiveSection] = useState("visao-geral");
+  const [activePage, setActivePage] = useState(getInitialSection);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    const sections = document.querySelectorAll("[data-section]");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-        if (visible.length > 0) {
-          setActiveSection(visible[0].target.id);
-        }
-      },
-      {
-        rootMargin: "-10% 0px -80% 0px",
-        threshold: [0, 0.1, 0.25, 0.5],
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
+    const onHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash in SECTIONS) setActivePage(hash);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
+
+  const ActiveSection = SECTIONS[activePage];
 
   return (
     <>
       <div className={s.layout}>
-        <Sidebar activeSection={activeSection} />
+        <button
+          className={s.hamburger}
+          onClick={() => setSidebarOpen(true)}
+          aria-label="Abrir menu"
+        >
+          <List size={20} />
+        </button>
+        <Sidebar
+          activeSection={activePage}
+          onNavigate={(id) => {
+            window.location.hash = id;
+            window.scrollTo(0, 0);
+          }}
+          open={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
         <main className={s.main}>
-          <Overview />
-          <Logos />
-          <Colors />
-          <Typography />
-          <Spacing />
-          <Radius />
-          <Shadows />
-          <Icons />
-          <Buttons />
-          <Inputs />
-          <Selects />
-          <Checkboxes />
-          <Radios />
-          <Badges />
-          <Toggles />
-          <Modals />
-          <Toasts />
+          <ActiveSection />
         </main>
       </div>
       <Toaster />

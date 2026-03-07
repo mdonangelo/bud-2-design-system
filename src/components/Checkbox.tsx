@@ -60,9 +60,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           }}
         >
           {indeterminate ? (
-            <Minus size={iSize} weight="bold" className={s.icon} />
+            <Minus size={iSize}  className={s.icon} />
           ) : (
-            <Check size={iSize} weight="bold" className={s.icon} />
+            <Check size={iSize}  className={s.icon} />
           )}
         </span>
         {label && (

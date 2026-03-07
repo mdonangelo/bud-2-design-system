@@ -28,28 +28,55 @@ const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
-    label: "Componentes",
+    label: "Formulários",
     items: [
       { id: "botoes", label: "Botões" },
-      { id: "inputs", label: "Inputs" },
-      { id: "selects", label: "Selects" },
       { id: "checkboxes", label: "Checkboxes" },
+      { id: "choice-boxes", label: "Choice Boxes" },
+      { id: "date-picker", label: "Date Picker" },
+      { id: "inputs", label: "Inputs" },
       { id: "radios", label: "Radio Buttons" },
-      { id: "badges", label: "Badges" },
+      { id: "selects", label: "Selects" },
+      { id: "textareas", label: "Textareas" },
       { id: "toggles", label: "Toggles" },
+    ],
+  },
+  {
+    label: "Dados & Navegação",
+    items: [
+      { id: "avatars", label: "Avatars" },
+      { id: "badges", label: "Badges" },
+      { id: "breadcrumbs", label: "Breadcrumbs" },
+      { id: "charts", label: "Charts" },
+      { id: "goal-progress", label: "Goal Progress" },
+      { id: "popovers", label: "Popovers" },
+    ],
+  },
+  {
+    label: "Feedback",
+    items: [
       { id: "modals", label: "Modals" },
       { id: "toasts", label: "Toasts" },
     ],
+  },
+  {
+    label: "Inteligência Artificial",
+    items: [{ id: "ai-assistant", label: "AI Assistant" }],
   },
 ];
 
 interface SidebarProps {
   activeSection: string;
+  onNavigate: (id: string) => void;
+  open?: boolean;
+  onClose?: () => void;
 }
 
-export function Sidebar({ activeSection }: SidebarProps) {
+export function Sidebar({ activeSection, onNavigate, open, onClose }: SidebarProps) {
   return (
-    <aside className={s.sidebar}>
+    <>
+      {open && <div className={s.overlay} onClick={onClose} />}
+      <aside className={`${s.sidebar} ${open ? s.sidebarOpen : ""}`}>
       <div className={s.logo}>
         <BudLogo />
         <span className={s.version}>v0.1</span>
@@ -68,6 +95,11 @@ export function Sidebar({ activeSection }: SidebarProps) {
                 className={`${s.navItem} ${
                   activeSection === item.id ? s.navItemActive : ""
                 }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate(item.id);
+                  onClose?.();
+                }}
               >
                 {item.label}
               </a>
@@ -81,6 +113,7 @@ export function Sidebar({ activeSection }: SidebarProps) {
         <span className={s.footerText}>Design System</span>
       </div>
     </aside>
+    </>
   );
 }
 

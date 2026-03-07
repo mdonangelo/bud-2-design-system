@@ -29,3 +29,11 @@
   color: var(--color-neutral-500);
   line-height: 1.5;
 }
+
+@media (max-width: 768px) {
+  .card {
+    width: auto;
+    flex: 1;
+    min-width: 140px;
+  }
+}

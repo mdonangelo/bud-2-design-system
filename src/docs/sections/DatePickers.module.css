@@ -1,0 +1,70 @@
+.subsectionTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--sp-2xs);
+}
+
+.subsectionDescription {
+  font-size: var(--text-sm);
+  color: var(--color-neutral-500);
+  line-height: 1.6;
+  margin-bottom: var(--sp-sm);
+}
+
+/* ——— States ——— */
+
+.statesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-lg);
+}
+
+.stateItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2xs);
+}
+
+.stateLabel {
+  font-size: 11px;
+  color: var(--color-neutral-500);
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+}
+
+/* ——— Messages ——— */
+
+.messagesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-lg);
+}
+
+.messageItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2xs);
+}
+
+/* ——— Variations ——— */
+
+.variationsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-lg);
+}
+
+.variationItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2xs);
+}
+
+@media (max-width: 768px) {
+  .statesGrid,
+  .messagesGrid,
+  .variationsGrid {
+    grid-template-columns: 1fr;
+  }
+}

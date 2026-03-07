@@ -45,7 +45,7 @@ export function ColorSwatch({ token, hex, name, brandName }: ColorSwatchProps) {
       >
         {copied && (
           <span className={s.copied}>
-            <Check size={16} weight="bold" />
+            <Check size={16}  />
           </span>
         )}
       </div>

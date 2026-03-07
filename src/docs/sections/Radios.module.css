@@ -51,3 +51,13 @@
   flex-direction: column;
   gap: var(--sp-xs);
 }
+
+@media (max-width: 768px) {
+  .statesGrid {
+    flex-wrap: wrap;
+  }
+
+  .labelsGrid {
+    grid-template-columns: 1fr;
+  }
+}

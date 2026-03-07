@@ -1,0 +1,108 @@
+/* ——— Popover container ——— */
+.popover {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-caramel-200);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-sm);
+  padding: var(--sp-3xs);
+  z-index: 9100;
+  animation: popoverIn 150ms ease both;
+  transform-origin: bottom left;
+}
+
+@keyframes popoverIn {
+  from {
+    opacity: 0;
+    transform: scaleY(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* ——— Popover item ——— */
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2xs);
+  width: 100%;
+  padding: var(--sp-2xs) var(--sp-xs);
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-2xs);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-800);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 120ms ease;
+}
+
+.item:hover {
+  background-color: var(--color-caramel-100);
+}
+
+.itemIcon {
+  color: var(--color-neutral-500);
+  flex-shrink: 0;
+}
+
+.itemLabel {
+  flex: 1;
+}
+
+.itemBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 var(--sp-3xs);
+  background-color: var(--color-orange-500);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.itemCaret {
+  color: var(--color-neutral-400);
+  flex-shrink: 0;
+  margin-left: var(--sp-2xs);
+}
+
+/* ——— Submenu wrapper (for flyout) ——— */
+.submenuWrapper {
+  position: relative;
+}
+
+.submenuWrapper .submenu {
+  display: none;
+}
+
+.submenuWrapper:hover .submenu {
+  display: block;
+}
+
+/* ——— Submenu flyout ——— */
+.submenu {
+  position: absolute;
+  left: calc(100% + var(--sp-3xs));
+  top: 0;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-caramel-200);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-sm);
+  z-index: 9101;
+  animation: popoverIn 150ms ease both;
+}
+
+.submenuFlip .submenu {
+  left: auto;
+  right: calc(100% + var(--sp-3xs));
+}

@@ -53,3 +53,9 @@
   letter-spacing: 0.05em;
   font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
 }
+
+@media (max-width: 768px) {
+  .pre {
+    padding: var(--sp-sm) var(--sp-xs);
+  }
+}

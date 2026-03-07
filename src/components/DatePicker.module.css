@@ -1,0 +1,459 @@
+/* ——— Wrapper ——— */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3xs);
+  width: 100%;
+}
+
+/* ——— Label ——— */
+.label {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: 1.05;
+  color: var(--color-neutral-950);
+}
+
+/* ——— Anchor ——— */
+.anchor {
+  position: relative;
+}
+
+/* ——— Trigger (looks like Input) ——— */
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3xs);
+  width: 100%;
+  min-height: 40px;
+  padding: var(--sp-xs);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-caramel-300);
+  border-radius: var(--radius-2xs);
+  color: var(--color-neutral-500);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+  text-align: left;
+}
+
+.trigger:hover:not(.disabled),
+.hovered .trigger:not(.disabled) {
+  border-color: var(--color-caramel-500);
+}
+
+.trigger:focus-within:not(.disabled),
+.trigger.open:not(.disabled),
+.focused .trigger:not(.disabled) {
+  border-color: var(--color-caramel-700);
+  box-shadow: 0 0 0 2px var(--color-caramel-300);
+}
+
+.trigger.error {
+  border-color: var(--color-red-300);
+}
+
+.trigger.error:hover:not(.disabled),
+.hovered .trigger.error:not(.disabled) {
+  border-color: var(--color-red-500);
+}
+
+.trigger.error:focus-within:not(.disabled),
+.trigger.error.open:not(.disabled),
+.focused .trigger.error:not(.disabled) {
+  border-color: var(--color-red-700);
+  box-shadow: 0 0 0 2px var(--color-red-200);
+}
+
+.trigger.disabled {
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-neutral-300);
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+/* ——— Value / Placeholder ——— */
+.value {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: normal;
+  color: var(--color-neutral-950);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: normal;
+  color: var(--color-neutral-500);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.disabled .value {
+  color: var(--color-neutral-400);
+}
+
+/* ——— Range trigger (div with inline inputs) ——— */
+.rangeTrigger {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3xs);
+  width: 100%;
+  min-height: 40px;
+  padding: 0 var(--sp-xs);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-caramel-300);
+  border-radius: var(--radius-2xs);
+  color: var(--color-neutral-500);
+  cursor: text;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.rangeTrigger:hover:not(.disabled),
+.hovered .rangeTrigger:not(.disabled) {
+  border-color: var(--color-caramel-500);
+}
+
+.rangeTrigger:focus-within:not(.disabled),
+.rangeTrigger.open:not(.disabled),
+.focused .rangeTrigger:not(.disabled) {
+  border-color: var(--color-caramel-700);
+  box-shadow: 0 0 0 2px var(--color-caramel-300);
+}
+
+.rangeTrigger.error {
+  border-color: var(--color-red-300);
+}
+
+.rangeTrigger.error:hover:not(.disabled),
+.hovered .rangeTrigger.error:not(.disabled) {
+  border-color: var(--color-red-500);
+}
+
+.rangeTrigger.error:focus-within:not(.disabled),
+.rangeTrigger.error.open:not(.disabled),
+.focused .rangeTrigger.error:not(.disabled) {
+  border-color: var(--color-red-700);
+  box-shadow: 0 0 0 2px var(--color-red-200);
+}
+
+.rangeTrigger.disabled {
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-neutral-300);
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+.rangeTriggerInput {
+  flex: 1;
+  min-width: 0;
+  width: 88px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: normal;
+  color: var(--color-neutral-950);
+  padding: var(--sp-xs) 0;
+  text-align: center;
+}
+
+.rangeTriggerInput::placeholder {
+  color: var(--color-neutral-500);
+}
+
+.rangeTriggerInput:disabled {
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+.rangeSeparator {
+  flex-shrink: 0;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-400);
+  user-select: none;
+}
+
+/* ——— Caret ——— */
+.caret {
+  flex-shrink: 0;
+  transition: transform 120ms ease;
+}
+
+.caretOpen {
+  transform: rotate(180deg);
+}
+
+/* ——— Popover ——— */
+.popover {
+  z-index: 9500;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-caramel-300);
+  border-radius: var(--radius-2xs);
+  box-shadow: var(--shadow-sm);
+  width: 320px;
+  overflow: hidden;
+}
+
+/* ——— Popover Header (text inputs) ——— */
+.popoverHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2xs);
+  padding: var(--sp-xs);
+  border-bottom: 1px solid var(--color-caramel-300);
+}
+
+.headerInput {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--color-caramel-300);
+  border-radius: var(--radius-2xs);
+  padding: var(--sp-2xs) var(--sp-xs);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: normal;
+  color: var(--color-neutral-950);
+  background: transparent;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.headerInput::placeholder {
+  color: var(--color-neutral-500);
+}
+
+.headerInput:focus {
+  border-color: var(--color-caramel-700);
+  box-shadow: 0 0 0 2px var(--color-caramel-300);
+}
+
+.headerSeparator {
+  flex-shrink: 0;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-400);
+}
+
+/* ——— Calendar Nav ——— */
+.calendarNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-2xs) var(--sp-xs);
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-2xs);
+  background: transparent;
+  color: var(--color-neutral-700);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.navBtn:hover {
+  background-color: var(--color-caramel-100);
+}
+
+.monthYear {
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-950);
+}
+
+/* ——— Weekdays row ——— */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0 var(--sp-2xs);
+}
+
+.weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-500);
+}
+
+/* ——— Days grid ——— */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0 var(--sp-2xs);
+  padding-bottom: var(--sp-2xs);
+}
+
+/* ——— Day cell ——— */
+.day {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-950);
+  cursor: pointer;
+  border-radius: var(--radius-2xs);
+  transition: background-color 100ms ease, color 100ms ease;
+  outline: none;
+}
+
+.day:hover:not(.dayDisabled):not(.daySelected):not(.dayRangeStart):not(.dayRangeEnd) {
+  background-color: var(--color-caramel-100);
+}
+
+.day:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-caramel-700);
+  z-index: 1;
+}
+
+/* ——— Day: today indicator ——— */
+.dayToday {
+  font-weight: 600;
+}
+
+.dayToday::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-orange-500);
+}
+
+/* ——— Day: selected (single or range endpoints) ——— */
+.daySelected {
+  background-color: var(--color-orange-500);
+  color: var(--color-white);
+  border-radius: var(--radius-2xs);
+}
+
+.daySelected.dayToday::after {
+  background-color: var(--color-white);
+}
+
+/* ——— Day: in-range ——— */
+.dayInRange {
+  background-color: var(--color-orange-50);
+  color: var(--color-orange-700);
+  border-radius: 0;
+}
+
+/* ——— Day: range start ——— */
+.dayRangeStart {
+  background-color: var(--color-orange-500);
+  color: var(--color-white);
+  border-radius: var(--radius-2xs) 0 0 var(--radius-2xs);
+}
+
+.dayRangeStart.dayRangeEnd {
+  border-radius: var(--radius-2xs);
+}
+
+/* ——— Day: range end ——— */
+.dayRangeEnd {
+  background-color: var(--color-orange-500);
+  color: var(--color-white);
+  border-radius: 0 var(--radius-2xs) var(--radius-2xs) 0;
+}
+
+/* ——— Day: other month ——— */
+.dayOtherMonth {
+  color: var(--color-neutral-300);
+}
+
+/* ——— Day: disabled ——— */
+.dayDisabled {
+  color: var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+/* ——— Popover Footer ——— */
+.popoverFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-2xs) var(--sp-xs);
+  border-top: 1px solid var(--color-caramel-300);
+}
+
+.todayBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3xs);
+  padding: var(--sp-3xs) var(--sp-xs);
+  border: none;
+  border-radius: var(--radius-2xs);
+  background: transparent;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-orange-500);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.todayBtn:hover {
+  background-color: var(--color-orange-50);
+}
+
+/* ——— Message ——— */
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3xs);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  line-height: 1.05;
+}
+
+.message.error {
+  color: var(--color-red-600);
+}
+
+.message.attention {
+  color: var(--color-yellow-600);
+}
+
+.message.success {
+  color: var(--color-green-600);
+}
