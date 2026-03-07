@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { List } from "@phosphor-icons/react";
 import { Sidebar } from "./docs/Sidebar";
+import { SearchModal } from "./docs/SearchModal";
 import { Overview } from "./docs/sections/Overview";
 import { Logos } from "./docs/sections/Logos";
 import { Colors } from "./docs/sections/Colors";
@@ -67,6 +68,7 @@ function getInitialSection(): string {
 function App() {
   const [activePage, setActivePage] = useState(getInitialSection);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const onHashChange = () => {
@@ -75,6 +77,17 @@ function App() {
     };
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((v) => !v);
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const ActiveSection = SECTIONS[activePage];
@@ -95,6 +108,7 @@ function App() {
             window.location.hash = id;
             window.scrollTo(0, 0);
           }}
+          onSearchOpen={() => setSearchOpen(true)}
           open={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
         />
@@ -102,6 +116,15 @@ function App() {
           <ActiveSection />
         </main>
       </div>
+      <SearchModal
+        open={searchOpen}
+        onClose={() => setSearchOpen(false)}
+        onNavigate={(id) => {
+          window.location.hash = id;
+          window.scrollTo(0, 0);
+          setSearchOpen(false);
+        }}
+      />
       <Toaster />
     </>
   );

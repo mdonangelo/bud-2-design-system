@@ -1,78 +1,18 @@
+import { MagnifyingGlass } from "@phosphor-icons/react";
+import { NAV_GROUPS } from "./nav-data";
 import s from "./Sidebar.module.css";
-
-interface NavItem {
-  id: string;
-  label: string;
-}
-
-interface NavGroup {
-  label: string;
-  items: NavItem[];
-}
-
-const NAV_GROUPS: NavGroup[] = [
-  {
-    label: "",
-    items: [{ id: "visao-geral", label: "Visão Geral" }],
-  },
-  {
-    label: "Fundamentos",
-    items: [
-      { id: "logos", label: "Logos" },
-      { id: "cores", label: "Cores" },
-      { id: "tipografia", label: "Tipografia" },
-      { id: "espacamento", label: "Espaçamento" },
-      { id: "border-radius", label: "Border Radius" },
-      { id: "sombras", label: "Sombras" },
-      { id: "icones", label: "Ícones" },
-    ],
-  },
-  {
-    label: "Formulários",
-    items: [
-      { id: "botoes", label: "Botões" },
-      { id: "checkboxes", label: "Checkboxes" },
-      { id: "choice-boxes", label: "Choice Boxes" },
-      { id: "date-picker", label: "Date Picker" },
-      { id: "inputs", label: "Inputs" },
-      { id: "radios", label: "Radio Buttons" },
-      { id: "selects", label: "Selects" },
-      { id: "textareas", label: "Textareas" },
-      { id: "toggles", label: "Toggles" },
-    ],
-  },
-  {
-    label: "Dados & Navegação",
-    items: [
-      { id: "avatars", label: "Avatars" },
-      { id: "badges", label: "Badges" },
-      { id: "breadcrumbs", label: "Breadcrumbs" },
-      { id: "charts", label: "Charts" },
-      { id: "goal-progress", label: "Goal Progress" },
-      { id: "popovers", label: "Popovers" },
-    ],
-  },
-  {
-    label: "Feedback",
-    items: [
-      { id: "modals", label: "Modals" },
-      { id: "toasts", label: "Toasts" },
-    ],
-  },
-  {
-    label: "Inteligência Artificial",
-    items: [{ id: "ai-assistant", label: "AI Assistant" }],
-  },
-];
 
 interface SidebarProps {
   activeSection: string;
   onNavigate: (id: string) => void;
+  onSearchOpen?: () => void;
   open?: boolean;
   onClose?: () => void;
 }
 
-export function Sidebar({ activeSection, onNavigate, open, onClose }: SidebarProps) {
+const isMac = typeof navigator !== "undefined" && /Mac|iPhone|iPad/.test(navigator.userAgent);
+
+export function Sidebar({ activeSection, onNavigate, onSearchOpen, open, onClose }: SidebarProps) {
   return (
     <>
       {open && <div className={s.overlay} onClick={onClose} />}
@@ -81,6 +21,12 @@ export function Sidebar({ activeSection, onNavigate, open, onClose }: SidebarPro
         <BudLogo />
         <span className={s.version}>v0.1</span>
       </div>
+
+      <button className={s.searchButton} onClick={onSearchOpen} type="button">
+        <MagnifyingGlass size={14} />
+        <span className={s.searchButtonLabel}>Buscar...</span>
+        <span className={s.searchButtonKbd}>{isMac ? "⌘" : "Ctrl"} K</span>
+      </button>
 
       <nav className={s.nav}>
         {NAV_GROUPS.map((group) => (

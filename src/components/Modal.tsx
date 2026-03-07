@@ -32,15 +32,21 @@ export function Modal({ open, onClose, size = "md", children, sidePanel }: Modal
     if (open && !everOpened) setEverOpened(true);
   }, [open, everOpened]);
 
+  // Close on Escape (document-level so it works regardless of focus)
+  useEffect(() => {
+    if (!open) return;
+    function onEsc(e: globalThis.KeyboardEvent) {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    }
+    document.addEventListener("keydown", onEsc);
+    return () => document.removeEventListener("keydown", onEsc);
+  }, [open, onClose]);
+
   // Trap focus inside modal
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLDivElement>) => {
-      if (e.key === "Escape") {
-        e.stopPropagation();
-        onClose();
-        return;
-      }
-
       if (e.key === "Tab") {
         const container = containerRef.current;
         if (!container) return;
@@ -62,7 +68,7 @@ export function Modal({ open, onClose, size = "md", children, sidePanel }: Modal
         }
       }
     },
-    [onClose]
+    []
   );
 
   // Focus first focusable element on open
@@ -70,10 +76,9 @@ export function Modal({ open, onClose, size = "md", children, sidePanel }: Modal
     if (!open) return;
 
     const prev = document.activeElement as HTMLElement | null;
-    const container = containerRef.current;
 
     requestAnimationFrame(() => {
-      const first = container?.querySelector<HTMLElement>(
+      const first = containerRef.current?.querySelector<HTMLElement>(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
       first?.focus();
