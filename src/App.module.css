@@ -10,6 +10,7 @@
   max-width: 1280px;
   background-color: var(--color-white);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ——— Hamburger (mobile only) ——— */
