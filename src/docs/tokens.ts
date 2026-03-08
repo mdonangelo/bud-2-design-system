@@ -641,12 +641,27 @@ export interface ShadowToken {
 export const shadowTokens: ShadowToken[] = [
   {
     token: "--shadow-xs",
-    value: "0 1px 2px rgba(10,13,18,0.05)",
-    usage: "Elevação sutil: cards, inputs com foco",
+    value: "0 1px 2px 0 rgba(24,18,12,0.06)",
+    usage: "Elevação mínima: cards, tabelas, inputs com foco",
   },
   {
     token: "--shadow-sm",
-    value: "0 1px 3px rgba(10,13,18,0.1), 0 1px 2px rgba(10,13,18,0.06)",
-    usage: "Elevação média: dropdowns, popovers",
+    value: "0 1px 3px 0 rgba(24,18,12,0.04), 0 4px 8px -2px rgba(24,18,12,0.06)",
+    usage: "Elevação baixa: dropdowns, selects, toasts, toggle thumb",
+  },
+  {
+    token: "--shadow-md",
+    value: "0 2px 4px -1px rgba(24,18,12,0.04), 0 6px 16px -4px rgba(24,18,12,0.08)",
+    usage: "Elevação média: modais, popovers, search modal",
+  },
+  {
+    token: "--shadow-lg",
+    value: "0 2px 6px -2px rgba(24,18,12,0.04), 0 12px 32px -4px rgba(24,18,12,0.10)",
+    usage: "Elevação alta: modais com backdrop, elementos dominantes",
+  },
+  {
+    token: "--shadow-xl",
+    value: "0 4px 8px -2px rgba(24,18,12,0.04), 0 20px 48px -8px rgba(24,18,12,0.12)",
+    usage: "Elevação máxima: casos excepcionais de destaque",
   },
 ];

@@ -9,7 +9,7 @@ export function Shadows() {
     <DocSection
       id="sombras"
       title="Sombras"
-      description="Dois níveis de elevação para criar profundidade sutil. Use shadow-xs para cards e shadow-sm para elementos flutuantes."
+      description="Cinco níveis de elevação com sombras multi-layer e cor quente. A base rgba(24, 18, 12) harmoniza com a paleta caramel do Bud — sombras são sentidas, não vistas."
       category={getCategoryForPage("sombras")}
     >
       <div className={s.showcase}>
