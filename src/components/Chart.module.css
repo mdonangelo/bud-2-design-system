@@ -9,7 +9,7 @@
   display: inline-flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 13px 7px;
+  padding: var(--sp-xs) var(--sp-2xs);
   flex-shrink: 0;
 }
 
