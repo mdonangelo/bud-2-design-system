@@ -263,6 +263,18 @@
   text-overflow: ellipsis;
 }
 
+.chipLabelBtn {
+  all: unset;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.chipStatic {
+  cursor: default;
+}
+
 .chipRemove {
   display: inline-flex;
   align-items: center;
@@ -534,7 +546,7 @@
   }
 
   .addSearchInput {
-    font-size: 16px; /* prevent iOS zoom */
+    font-size: var(--text-md); /* prevent iOS zoom — 16px via token */
   }
 
   .addList {
@@ -586,7 +598,7 @@
   }
 
   .dropdownSearchInput {
-    font-size: 16px; /* prevent iOS zoom */
+    font-size: var(--text-md); /* prevent iOS zoom — 16px via token */
   }
 
   .dropdownBody {

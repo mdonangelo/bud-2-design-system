@@ -35,6 +35,7 @@ import { Tables } from "./docs/sections/Tables";
 import { Tooltips } from "./docs/sections/Tooltips";
 import { Cards } from "./docs/sections/Cards";
 import { Sidebars } from "./docs/sections/Sidebars";
+import { PageHeaders } from "./docs/sections/PageHeaders";
 import { AiAssistantSection } from "./docs/sections/AiAssistant";
 import { PagePagination } from "./docs/PagePagination";
 import { getAdjacentPages } from "./docs/nav-data";
@@ -75,6 +76,7 @@ const SECTIONS: Record<string, React.ComponentType> = {
   "tables": Tables,
   "tooltips": Tooltips,
   "cards": Cards,
+  "page-header": PageHeaders,
   "ai-assistant": AiAssistantSection,
 };
 

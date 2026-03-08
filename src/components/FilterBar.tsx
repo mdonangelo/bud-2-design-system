@@ -1,13 +1,14 @@
 import {
   type ComponentType,
   type ReactNode,
-  type KeyboardEvent,
+  type KeyboardEvent as ReactKeyboardEvent,
   useState,
   useRef,
   useEffect,
   useCallback,
   useLayoutEffect,
   useMemo,
+  useId,
 } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -51,31 +52,29 @@ export function FilterChip({
   active = false,
   className,
 }: FilterChipProps) {
-  const chipClasses = [s.chip, active ? s.chipActive : "", className ?? ""]
+  const chipClasses = [
+    s.chip,
+    active ? s.chipActive : "",
+    onClick ? "" : s.chipStatic,
+    className ?? "",
+  ]
     .filter(Boolean)
     .join(" ");
 
   return (
     <div className={chipClasses}>
       {Icon && <Icon size={14} className={s.chipIcon} />}
-      <span
-        className={s.chipLabel}
-        role={onClick ? "button" : undefined}
-        tabIndex={onClick ? 0 : undefined}
-        onClick={onClick}
-        onKeyDown={
-          onClick
-            ? (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  onClick();
-                }
-              }
-            : undefined
-        }
-      >
-        {label}
-      </span>
+      {onClick ? (
+        <button
+          type="button"
+          className={s.chipLabelBtn}
+          onClick={onClick}
+        >
+          {label}
+        </button>
+      ) : (
+        <span className={s.chipLabel}>{label}</span>
+      )}
       {onRemove && (
         <button
           type="button"
@@ -179,7 +178,7 @@ export function FilterDropdown({
 
   useEffect(() => {
     if (!open) return;
-    function handleKeyDown(e: KeyboardEvent) {
+    function handleKeyDown(e: globalThis.KeyboardEvent) {
       if (e.key === "Escape") onClose();
     }
     document.addEventListener("keydown", handleKeyDown);
@@ -192,7 +191,7 @@ export function FilterDropdown({
 
   return createPortal(
     <>
-      <div className={s.overlay} onClick={onClose} />
+      <div className={s.overlay} role="presentation" onClick={onClose} />
       <div
         ref={dropdownRef}
         className={classes}
@@ -249,10 +248,14 @@ export function FilterBar({
   const [search, setSearch] = useState("");
   const [focusedIndex, setFocusedIndex] = useState(-1);
 
+  const instanceId = useId();
+  const listboxId = `${instanceId}-listbox`;
+  const getOptionId = (index: number) => `${instanceId}-option-${index}`;
+
   const triggerRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
 
   const hasChildren =
     children !== null && children !== undefined && children !== false;
@@ -354,18 +357,17 @@ export function FilterBar({
         popoverRef.current &&
         !popoverRef.current.contains(target)
       ) {
-        setOpen(false);
-        setSearch("");
+        closePopover();
       }
     }
     document.addEventListener("mousedown", handleMouseDown);
     return () => document.removeEventListener("mousedown", handleMouseDown);
-  }, [open]);
+  }, [open, closePopover]);
 
   /* ——— Keyboard ——— */
 
   const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
+    (e: ReactKeyboardEvent) => {
       if (!open) {
         if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -411,13 +413,11 @@ export function FilterBar({
 
   useEffect(() => {
     if (focusedIndex < 0 || !listRef.current) return;
-    const items = listRef.current.children;
-    if (items[focusedIndex]) {
-      (items[focusedIndex] as HTMLElement).scrollIntoView({
-        block: "nearest",
-      });
-    }
-  }, [focusedIndex]);
+    const el = listRef.current.querySelector<HTMLElement>(
+      `#${CSS.escape(getOptionId(focusedIndex))}`
+    );
+    el?.scrollIntoView({ block: "nearest" });
+  }, [focusedIndex, getOptionId]);
 
   /* ——— Render ——— */
 
@@ -439,6 +439,7 @@ export function FilterBar({
           onKeyDown={handleKeyDown}
           aria-haspopup="listbox"
           aria-expanded={open}
+          aria-controls={open ? listboxId : undefined}
         >
           <Plus size={14} />
           <span>Adicionar filtro</span>
@@ -451,7 +452,7 @@ export function FilterBar({
         {open &&
           createPortal(
             <>
-              <div className={s.overlay} onClick={closePopover} />
+              <div className={s.overlay} role="presentation" onClick={closePopover} />
               <div
                 ref={popoverRef}
                 className={s.addPopover}
@@ -469,30 +470,41 @@ export function FilterBar({
                     onChange={(e) => setSearch(e.target.value)}
                     onKeyDown={handleKeyDown}
                     aria-label="Buscar filtro"
+                    aria-controls={listboxId}
+                    aria-activedescendant={
+                      focusedIndex >= 0 ? getOptionId(focusedIndex) : undefined
+                    }
                   />
                 </div>
-                <ul ref={listRef} className={s.addList} role="listbox">
+                <div
+                  ref={listRef}
+                  id={listboxId}
+                  className={s.addList}
+                  role="listbox"
+                  aria-label="Filtros disponíveis"
+                >
                   {filtered.map((f, i) => (
-                    <li key={f.id}>
-                      <button
-                        type="button"
-                        className={`${s.addItem} ${i === focusedIndex ? s.addItemFocused : ""}`}
-                        role="option"
-                        aria-selected={i === focusedIndex}
-                        onMouseEnter={() => setFocusedIndex(i)}
-                        onClick={() => handleSelectFilter(f.id)}
-                      >
-                        {f.icon && (
-                          <f.icon size={16} className={s.addItemIcon} />
-                        )}
-                        <span>{f.label}</span>
-                      </button>
-                    </li>
+                    <div
+                      key={f.id}
+                      id={getOptionId(i)}
+                      className={`${s.addItem} ${i === focusedIndex ? s.addItemFocused : ""}`}
+                      role="option"
+                      aria-selected={i === focusedIndex}
+                      onMouseEnter={() => setFocusedIndex(i)}
+                      onClick={() => handleSelectFilter(f.id)}
+                    >
+                      {f.icon && (
+                        <f.icon size={16} className={s.addItemIcon} />
+                      )}
+                      <span>{f.label}</span>
+                    </div>
                   ))}
                   {filtered.length === 0 && (
-                    <li className={s.addEmpty}>Nenhum filtro encontrado</li>
+                    <div className={s.addEmpty} role="presentation">
+                      Nenhum filtro encontrado
+                    </div>
                   )}
-                </ul>
+                </div>
               </div>
             </>,
             document.body

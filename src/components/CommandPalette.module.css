@@ -1,0 +1,200 @@
+/* ——— Overlay ——— */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20vh; /* dialog vertical offset from top */
+  background-color: rgba(10, 10, 10, 0.4); /* neutral-950 with alpha — no token for rgba */
+  animation: overlayIn 150ms ease both;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ——— Container ——— */
+
+.container {
+  width: 520px;
+  max-height: 440px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-caramel-200);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: containerIn 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes containerIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ——— Input area ——— */
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2xs);
+  padding: var(--sp-xs) var(--sp-sm);
+  border-bottom: 1px solid var(--color-caramel-200);
+}
+
+.inputIcon {
+  color: var(--color-neutral-400);
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-neutral-950);
+  line-height: normal;
+}
+
+.input::placeholder {
+  color: var(--color-neutral-400);
+  font-weight: 400;
+}
+
+/* ——— Results list ——— */
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sp-3xs) 0;
+}
+
+/* ——— Group label ——— */
+
+.groupLabel {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-400);
+  padding: var(--sp-2xs) var(--sp-sm) var(--sp-3xs);
+}
+
+/* ——— Result item ——— */
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2xs);
+  padding: var(--sp-2xs) var(--sp-sm);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-800);
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  line-height: 1.05; /* controlled label text */
+  transition: background-color 120ms ease;
+}
+
+.item:hover,
+.itemSelected {
+  background-color: var(--color-caramel-100);
+  color: var(--color-neutral-950);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--color-caramel-700);
+  outline-offset: -2px;
+}
+
+.itemIcon {
+  flex-shrink: 0;
+  color: var(--color-neutral-500);
+}
+
+.itemSelected .itemIcon {
+  color: var(--color-neutral-700);
+}
+
+.itemHint {
+  margin-left: auto;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-400);
+}
+
+/* ——— Empty state ——— */
+
+.empty {
+  padding: var(--sp-xl) var(--sp-sm);
+  text-align: center;
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  color: var(--color-neutral-400);
+}
+
+/* ——— Footer ——— */
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: var(--sp-2xs) var(--sp-sm);
+  border-top: 1px solid var(--color-caramel-200);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  color: var(--color-neutral-400);
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px; /* component sizing */
+  height: 20px;
+  padding: 0 var(--sp-3xs);
+  font-family: var(--font-label);
+  font-size: 11px; /* no token below --text-xs (12px) — keyboard shortcut */
+  font-weight: 500;
+  color: var(--color-neutral-500);
+  background-color: var(--color-caramel-100);
+  border: 1px solid var(--color-caramel-200);
+  border-radius: var(--radius-2xs);
+}
+
+/* ——— Mobile ——— */
+
+@media (max-width: 480px) {
+  .overlay {
+    padding-top: var(--sp-xl);
+  }
+
+  .container {
+    width: calc(100vw - var(--sp-xl));
+    max-height: 60vh;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .input {
+    font-size: var(--text-md); /* prevent iOS zoom — 16px via token */
+  }
+}

@@ -8,9 +8,9 @@
 }
 
 .stateLabel {
-  font-size: 11px;
+  font-size: 11px; /* no token below --text-xs (12px) — demo-only label */
   color: var(--color-neutral-500);
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* demo-only monospace for state debug */
 }
 
 .hint {
@@ -131,7 +131,7 @@
 }
 
 .anatomyDesc code {
-  font-size: 11px;
+  font-size: 11px; /* no token below --text-xs (12px) — inline code label */
   background-color: var(--color-caramel-100);
   padding: 1px var(--sp-3xs);
   border-radius: var(--radius-2xs);
@@ -222,7 +222,7 @@
   }
 
   .dropdownSearchInput {
-    font-size: 16px; /* prevent iOS zoom */
+    font-size: var(--text-md); /* prevent iOS zoom — 16px via token */
   }
 
   .dropdownBody {

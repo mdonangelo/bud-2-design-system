@@ -68,6 +68,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { id: "badges", label: "Badges" },
       { id: "breadcrumbs", label: "Breadcrumbs" },
       { id: "cards", label: "Cards" },
+      { id: "page-header", label: "Page Header" },
       { id: "charts", label: "Charts" },
       { id: "goal-progress", label: "Goal Progress" },
       { id: "pagination", label: "Pagination" },
