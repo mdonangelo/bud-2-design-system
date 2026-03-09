@@ -147,7 +147,7 @@
   font-family: var(--font-label);
   font-weight: 500;
   font-size: 10px; /* no token below --text-xs (12px) */
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-500);
   line-height: 1.05;
   white-space: nowrap;
 }
@@ -183,7 +183,7 @@
 .aiText {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: var(--color-neutral-800);
+  color: var(--color-neutral-950);
   line-height: 1.5;
   margin: 0;
   white-space: pre-wrap;
@@ -228,7 +228,7 @@
   display: inline-block;
   width: 2px;
   height: 1em;
-  background-color: var(--color-neutral-800);
+  background-color: var(--color-neutral-950);
   margin-left: 1px;
   vertical-align: text-bottom;
   animation: blink 600ms step-end infinite;
@@ -389,7 +389,7 @@
   font-family: var(--font-label);
   font-weight: 500;
   font-size: var(--text-xs);
-  color: var(--color-neutral-700);
+  color: var(--color-neutral-950);
   line-height: 1.05;
   white-space: nowrap;
   overflow: hidden;
@@ -473,7 +473,7 @@
   font-family: var(--font-label);
   font-weight: 500;
   font-size: var(--text-xs);
-  color: var(--color-neutral-800);
+  color: var(--color-neutral-950);
   line-height: 1.25;
   min-width: 0;
   overflow: hidden;

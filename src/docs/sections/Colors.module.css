@@ -72,3 +72,139 @@
 .tableSection {
   margin-top: var(--sp-sm);
 }
+
+/* ═══════════════════════════════════════════
+   Semantic colors
+   ═══════════════════════════════════════════ */
+
+.semanticGroups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-lg);
+}
+
+.semanticGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+.semanticGroupHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3xs);
+}
+
+.semanticGroupTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-800);
+}
+
+.semanticGroupDesc {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-neutral-500);
+  line-height: 1.5;
+}
+
+/* ——— Table ——— */
+
+.semanticTable {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-caramel-200);
+  border-radius: var(--radius-2xs);
+  overflow: hidden;
+}
+
+.semanticHead {
+  display: grid;
+  grid-template-columns: 140px 260px 1fr;
+  gap: var(--sp-xs);
+  padding: var(--sp-2xs) var(--sp-sm);
+  background-color: var(--color-caramel-50);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-500);
+  border-bottom: 1px solid var(--color-caramel-200);
+}
+
+.semanticRow {
+  display: grid;
+  grid-template-columns: 140px 260px 1fr;
+  gap: var(--sp-xs);
+  padding: var(--sp-2xs) var(--sp-sm);
+  border-bottom: 1px solid var(--color-caramel-200);
+  align-items: center;
+}
+
+.semanticRow:last-child {
+  border-bottom: none;
+}
+
+.semanticRole {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-neutral-950);
+}
+
+.semanticToken {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2xs);
+  min-width: 0;
+}
+
+.semanticDot {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-caramel-200);
+}
+
+.semanticToken code {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
+  font-size: var(--text-xs);
+  color: var(--color-neutral-700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.semanticUsage {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-neutral-500);
+  line-height: 1.4;
+}
+
+/* ——— Responsive ——— */
+
+@media (max-width: 768px) {
+  .semanticHead,
+  .semanticRow {
+    grid-template-columns: 100px 1fr;
+  }
+
+  .semanticUsage {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .semanticHead,
+  .semanticRow {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3xs);
+  }
+
+  .semanticHead span:first-child,
+  .semanticRole {
+    display: none;
+  }
+}

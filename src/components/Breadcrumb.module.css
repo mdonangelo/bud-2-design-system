@@ -24,13 +24,13 @@
   font-weight: 500;
   font-size: var(--text-xs);
   line-height: 1.05;
-  color: var(--color-neutral-400);
+  color: var(--color-neutral-500);
   white-space: nowrap;
 }
 
 .itemCompleted {
   font-weight: 600;
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-950);
 }
 
 a.item {

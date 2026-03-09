@@ -81,7 +81,7 @@
   font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 600;
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-500);
   line-height: 1.05;
   white-space: nowrap;
   height: 44px;

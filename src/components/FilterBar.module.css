@@ -43,7 +43,7 @@
   font-weight: 500;
   font-size: var(--text-xs);
   line-height: 1.05;
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-500);
   cursor: pointer;
   white-space: nowrap;
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
@@ -52,13 +52,13 @@
 .addTrigger:hover {
   background-color: var(--color-caramel-100);
   border-color: var(--color-caramel-500);
-  color: var(--color-neutral-800);
+  color: var(--color-neutral-950);
 }
 
 .addTrigger.addOpen {
   background-color: var(--color-caramel-100);
   border-color: var(--color-caramel-500);
-  color: var(--color-neutral-800);
+  color: var(--color-neutral-950);
 }
 
 .addTrigger:focus-visible {
@@ -82,7 +82,7 @@
   font-weight: 500;
   font-size: var(--text-xs);
   line-height: 1.05;
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-500);
   cursor: pointer;
   white-space: nowrap;
   transition: background-color 120ms ease, color 120ms ease;
@@ -90,7 +90,7 @@
 
 .actionBtn:hover {
   background-color: var(--color-caramel-100);
-  color: var(--color-neutral-800);
+  color: var(--color-neutral-950);
 }
 
 .actionBtn:focus-visible {
@@ -190,7 +190,7 @@
   font-family: var(--font-label);
   font-weight: 500;
   font-size: var(--text-xs);
-  color: var(--color-neutral-800);
+  color: var(--color-neutral-950);
   cursor: pointer;
   white-space: nowrap;
   transition: background-color 120ms ease;
@@ -373,7 +373,7 @@
   font-family: var(--font-label);
   font-weight: 500;
   font-size: var(--text-xs);
-  color: var(--color-neutral-800);
+  color: var(--color-neutral-950);
   cursor: pointer;
   white-space: nowrap;
   transition: background-color 120ms ease;
@@ -566,7 +566,7 @@
   }
 
   .addItemIcon {
-    color: var(--color-neutral-600);
+    color: var(--color-neutral-500);
   }
 
   .addEmpty {

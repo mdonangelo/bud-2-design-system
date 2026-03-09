@@ -398,7 +398,7 @@
   font-weight: 500;
   font-size: var(--text-xs);
   line-height: 1.05;
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-500);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

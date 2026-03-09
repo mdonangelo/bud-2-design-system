@@ -61,7 +61,7 @@
 
 .icon {
   flex-shrink: 0;
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-500);
   /* align with title first line: text-sm (14px) × 1.25 line-height ≈ 18px */
   height: 18px; /* matches title line-height */
 }

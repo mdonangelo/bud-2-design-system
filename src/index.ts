@@ -47,6 +47,7 @@ export {
 export { Textarea } from "./components/Textarea";
 export { toast, Toaster } from "./components/Toast";
 export { Toggle } from "./components/Toggle";
+export { Tooltip } from "./components/Tooltip";
 
 // Types
 export type { MissionItem } from "./components/AiAssistant";

@@ -45,18 +45,149 @@ Todos os valores de espaçamento devem ser múltiplos de 4px. Se o Figma propor 
 
 Tokens de escala usam padrão **t-shirt size**: `3xs` (4px), `2xs` (8px), `xs` (12px), `sm` (16px), `md` (20px), `lg` (24px), `xl` (32px), `2xl` (40px), `3xl` (48px), `4xl` (64px).
 
-## Semântica das cores
+## Cores semânticas — LEITURA OBRIGATÓRIA
 
-| Grupo | Papel |
-|---|---|
-| **Orange** | Cor primária da marca. Botões, CTAs, links ativos, decorações |
-| **Wine** | Cor de suporte da marca. Destaques institucionais, ilustrações, variações do logo |
-| **Green** | Feedback de sucesso, progresso positivo, estados concluídos |
-| **Red** | Estados de erro, ações destrutivas, alertas críticos |
-| **Yellow** | Alertas, estados de atenção |
-| **Neutral** | Textos e backgrounds. Hierarquia visual e estrutura de conteúdo |
-| **Caramel** | Backgrounds quentes, bordas padrão (`caramel-300`), hover em superfícies |
-| **Chart** | Paleta para gráficos: `chart-1` (orange-600), `chart-2` (neutral-800), `chart-3` (neutral-400), `chart-4` (wine-600), `chart-5` (caramel-900) |
+**IMPORTANTE**: Antes de implementar qualquer componente ou tela que use cores, esta seção DEVE ser lida e seguida. O uso incorreto de cores é um bug. Não escolha cores pela aparência — siga o mapeamento semântico abaixo.
+
+### Texto
+
+| Papel | Token | Quando usar |
+|---|---|---|
+| Primário | `--color-neutral-950` | Títulos, corpo de texto, valores, labels de controle |
+| Secundário | `--color-neutral-500` | Descrições, placeholders, labels auxiliares, carets |
+| Terciário | `--color-neutral-400` | Texto desabilitado, timestamps, hints |
+| Invertido | `--color-white` | Texto sobre fundos escuros (botões primários, badges preenchidos) |
+| Link / Ação | `--color-orange-500` | Links inline, ações textuais, "ver mais" |
+
+### Superfícies (backgrounds)
+
+| Papel | Token | Quando usar |
+|---|---|---|
+| Padrão | `--color-white` | Fundo de página, cards, modais, popovers, toasts |
+| Sutil | `--color-caramel-50` | Headers de accordion, hover em superfícies, linhas zebradas |
+| Elevada | `--color-neutral-100` | Badges neutros, inputs desabilitados, header toast neutro |
+| Invertida | `--color-neutral-800` | Toast dark, tooltips |
+
+### Bordas & Divisores
+
+| Papel | Token | Quando usar |
+|---|---|---|
+| Padrão | `--color-caramel-300` | Bordas de inputs, cards, popovers, dropdowns, divisores principais |
+| Sutil | `--color-caramel-200` | Divisores internos (cards, listas, tabelas, accordion items) |
+| Hover | `--color-caramel-500` | Borda ao passar o mouse sobre controles |
+| Foco | `--color-caramel-700` | Borda de controles em foco |
+| Ring de foco | `--color-caramel-200` | `box-shadow: 0 0 0 2px` em controles focados (padrão) |
+
+### Cor primária (Orange) — ações e seleção
+
+| Papel | Token | Quando usar |
+|---|---|---|
+| Preenchimento | `--color-orange-500` | Botões primários, checkboxes checked, radios checked, seleção ativa, today dot |
+| Preenchimento hover | `--color-orange-600` | Hover de botões primários, borda de controles checked |
+| Fundo sutil | `--color-orange-50` | Badges orange, notificações não lidas, hover de dia "hoje", day in-range |
+| Fundo hover | `--color-orange-100` | Hover em itens não lidos |
+| Texto sobre fundo | `--color-orange-800` | Texto de badges orange (WCAG AA) |
+| Ring de foco checked | `--color-orange-200` | `box-shadow: 0 0 0 2px` em controles checked + focados |
+
+### Cor de suporte (Wine) — institucional
+
+| Papel | Token | Quando usar |
+|---|---|---|
+| Fundo sutil | `--color-wine-50` | Badges wine |
+| Texto | `--color-wine-600` | Texto de badges wine, destaques institucionais |
+
+### Sucesso (Green) — feedback positivo
+
+Usar para: alerts de sucesso, toasts de sucesso, badges de sucesso, gauge de progresso, mensagens de confirmação.
+
+| Papel | Token | Quando usar |
+|---|---|---|
+| Fundo | `--color-green-50` | Background de alerts, toasts, banners, cards de sucesso |
+| Borda | `--color-green-200` | Borda de alerts de sucesso |
+| Ícone / Destaque | `--color-green-700` | Ícones, links e textos de ação em contexto de sucesso |
+| Título | `--color-green-900` | Título de alerts de sucesso |
+| Header toast | `--color-green-800` | Texto do header de toast de sucesso |
+| Dismiss | `--color-green-400` | Ícone de fechar em alerts de sucesso |
+| Dismiss hover | `--color-green-100` | Background hover do botão fechar |
+| Gauge | `--color-green-500` | Anel de progresso do Chart gauge |
+| Badge texto | `--color-green-700` | Texto de badges de sucesso (WCAG AA) |
+| Mensagem inline | `--color-green-600` | Mensagens de sucesso em inputs/formulários |
+
+### Erro (Red) — estados críticos
+
+Usar para: alerts de erro, toasts de erro, badges de erro, validação de inputs, ações destrutivas, mensagens de erro inline.
+
+| Papel | Token | Quando usar |
+|---|---|---|
+| Fundo | `--color-red-50` | Background de alerts, toasts, banners, cards de erro |
+| Borda | `--color-red-200` | Borda de alerts de erro |
+| Borda input | `--color-red-300` | Borda de inputs com erro (repouso) |
+| Borda input hover | `--color-red-500` | Hover em inputs com erro |
+| Borda input foco | `--color-red-700` | Foco em inputs com erro |
+| Ring de foco | `--color-red-200` | `box-shadow: 0 0 0 2px` em inputs com erro focados |
+| Ícone / Destaque | `--color-red-700` | Ícones e links em contexto de erro |
+| Título | `--color-red-900` | Título de alerts de erro |
+| Header toast | `--color-red-800` | Texto do header de toast de erro |
+| Mensagem inline | `--color-red-600` | Mensagens de erro em inputs, DatePicker, formulários |
+| Dismiss | `--color-red-400` | Ícone de fechar em alerts de erro |
+| Dismiss hover | `--color-red-100` | Background hover do botão fechar |
+| Badge texto | `--color-red-700` | Texto de badges de erro (WCAG AA) |
+
+### Alerta (Yellow) — atenção
+
+Usar para: alerts de warning, toasts de warning, badges de atenção, mensagens de cuidado.
+
+| Papel | Token | Quando usar |
+|---|---|---|
+| Fundo | `--color-yellow-50` | Background de alerts, toasts, banners, cards de alerta |
+| Borda | `--color-yellow-200` | Borda de alerts de alerta |
+| Ícone / Destaque | `--color-yellow-700` | Ícones e links em contexto de alerta |
+| Título | `--color-yellow-900` | Título de alerts de alerta |
+| Header toast | `--color-yellow-800` | Texto do header de toast de alerta |
+| Mensagem inline | `--color-yellow-600` | Mensagens de atenção em inputs, formulários |
+| Dismiss | `--color-yellow-400` | Ícone de fechar em alerts de alerta |
+| Dismiss hover | `--color-yellow-100` | Background hover do botão fechar |
+| Badge texto | `--color-yellow-700` | Texto de badges de alerta (WCAG AA) |
+
+### Neutro (Info) — informações gerais e estados desabilitados
+
+Usar para: alerts informativos, toasts neutros, badges neutros, estados desabilitados de qualquer componente.
+
+| Papel | Token | Quando usar |
+|---|---|---|
+| Fundo info | `--color-neutral-50` | Background de alerts e banners informativos |
+| Fundo toast/badge | `--color-neutral-100` | Header de toast neutro, badges neutros |
+| Borda info | `--color-neutral-200` | Borda de alerts informativos, track do gauge |
+| Ícone info | `--color-neutral-600` | Ícones em contexto informativo |
+| Título info | `--color-neutral-900` | Título de alerts informativos |
+| Header toast | `--color-neutral-800` | Texto do header de toast neutro |
+| Badge texto | `--color-neutral-700` | Texto de badges neutros |
+| Desabilitado fundo | `--color-neutral-100` | Background de inputs e controles desabilitados |
+| Desabilitado borda | `--color-neutral-300` | Borda de controles desabilitados |
+| Desabilitado texto | `--color-neutral-400` | Texto e ícones desabilitados |
+
+### Padrão de cores para componentes de feedback (Alert, Toast, Badge, Card)
+
+O DS segue um padrão consistente por status. Ao criar novos componentes de feedback, seguir esta fórmula:
+
+| Status | Background | Borda | Ícone/Link | Título | Badge texto | Dismiss | Dismiss hover |
+|---|---|---|---|---|---|---|---|
+| Sucesso | green-50 | green-200 | green-700 | green-900 | green-700 | green-400 | green-100 |
+| Erro | red-50 | red-200 | red-700 | red-900 | red-700 | red-400 | red-100 |
+| Alerta | yellow-50 | yellow-200 | yellow-700 | yellow-900 | yellow-700 | yellow-400 | yellow-100 |
+| Info/Neutro | neutral-50 | neutral-200 | neutral-600 | neutral-900 | neutral-700 | neutral-400 | neutral-100 |
+
+**Regra**: fundo sempre `-50`, borda `-200`, ícone/link `-700`, título `-900`, dismiss `-400`, dismiss hover `-100`. Textos de badges usam `-700` ou `-800` para garantir WCAG AA (4.5:1 mínimo).
+
+### Gráficos (Chart)
+
+| Token | Cor base | Uso |
+|---|---|---|
+| `--color-chart-1` | orange-600 | Série primária |
+| `--color-chart-2` | neutral-800 | Série secundária |
+| `--color-chart-3` | neutral-400 | Série terciária |
+| `--color-chart-4` | wine-600 | Série quaternária |
+| `--color-chart-5` | caramel-900 | Série quinária |
 
 ## Iconografia
 

@@ -90,7 +90,7 @@
   font-family: var(--font-label);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-neutral-700);
+  color: var(--color-neutral-500);
   line-height: 1.05; /* label line-height */
 }
 
