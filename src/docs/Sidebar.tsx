@@ -1,4 +1,5 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
+import pkg from "../../package.json";
 import { NAV_GROUPS } from "./nav-data";
 import s from "./Sidebar.module.css";
 
@@ -19,7 +20,7 @@ export function Sidebar({ activeSection, onNavigate, onSearchOpen, open, onClose
       <aside className={`${s.sidebar} ${open ? s.sidebarOpen : ""}`}>
       <div className={s.logo}>
         <BudLogo />
-        <span className={s.version}>v0.1</span>
+        <span className={s.version}>v{pkg.version}</span>
       </div>
 
       <button className={s.searchButton} onClick={onSearchOpen} type="button">

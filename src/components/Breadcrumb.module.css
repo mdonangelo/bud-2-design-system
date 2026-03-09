@@ -33,9 +33,11 @@
   color: var(--color-neutral-950);
 }
 
+/* ——— Clickable past steps ——— */
 a.item,
 .clickable {
   text-decoration: none;
+  color: var(--color-orange-600);
   transition: color 120ms ease;
 }
 
@@ -48,7 +50,7 @@ a.item,
 
 a.item:hover,
 .clickable:hover {
-  color: var(--color-neutral-950);
+  color: var(--color-orange-700);
 }
 
 /* ——— Separator ——— */
