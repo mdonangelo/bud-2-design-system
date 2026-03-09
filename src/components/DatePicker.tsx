@@ -19,6 +19,7 @@ import {
   WarningCircle,
   CheckCircle,
 } from "@phosphor-icons/react";
+import { Button } from "./Button";
 import {
   type CalendarDate,
   WEEKDAY_LABELS,
@@ -741,25 +742,23 @@ export function DatePicker(props: DatePickerProps) {
 
             {/* ——— Calendar nav ——— */}
             <div className={s.calendarNav}>
-              <button
-                type="button"
-                className={s.navBtn}
+              <Button
+                variant="tertiary"
+                size="sm"
+                leftIcon={CaretLeft}
                 onClick={goPrevMonth}
                 aria-label="Mês anterior"
-              >
-                <CaretLeft size={16} />
-              </button>
+              />
               <span className={s.monthYear} aria-live="polite">
                 {MONTH_LABELS[viewMonth.month - 1]} {viewMonth.year}
               </span>
-              <button
-                type="button"
-                className={s.navBtn}
+              <Button
+                variant="tertiary"
+                size="sm"
+                leftIcon={CaretRight}
                 onClick={goNextMonth}
                 aria-label="Próximo mês"
-              >
-                <CaretRight size={16} />
-              </button>
+              />
             </div>
 
             {/* ——— Weekday labels ——— */}
@@ -808,13 +807,14 @@ export function DatePicker(props: DatePickerProps) {
 
             {/* ——— Footer: Today ——— */}
             <div className={s.popoverFooter}>
-              <button
-                type="button"
+              <Button
+                variant="tertiary"
+                size="sm"
                 className={s.todayBtn}
                 onClick={handleToday}
               >
                 Hoje
-              </button>
+              </Button>
             </div>
           </div>,
           document.body,

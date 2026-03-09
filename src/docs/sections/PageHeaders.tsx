@@ -197,6 +197,7 @@ function createAlternateNotifications(): NotificationItem[] {
 function FullDemo() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
+  const [assistantOpen, setAssistantOpen] = useState(false);
   const notifBtnRef = useRef<HTMLButtonElement>(null);
 
   const [notifications, setNotifications] = useState(createMockNotifications);
@@ -215,7 +216,13 @@ function FullDemo() {
           hasUnread={hasUnread}
           onClick={() => setNotifOpen((v) => !v)}
         />
-        <AssistantButton onClick={() => toast("Assistente IA aberto")} />
+        <AssistantButton
+          active={assistantOpen}
+          onClick={() => {
+            setAssistantOpen((v) => !v);
+            if (!assistantOpen) toast("Painel do assistente aberto");
+          }}
+        />
       </PageHeader>
 
       <CommandPalette
@@ -547,22 +554,29 @@ function SearchButtonDemo() {
    ═══════════════════════════════════════════════════════════════ */
 
 function AssistantButtonDemo() {
-  return (
-    <div className={s.demoRow}>
-      <AssistantButton onClick={() => toast("Painel do Assistente IA aberto")} />
-      <span className={s.stateLabel}>Abre o painel lateral do assistente</span>
-    </div>
-  );
-}
+  const [open, setOpen] = useState(false);
 
-function AssistantButtonCustomDemo() {
   return (
-    <div className={s.demoRow}>
-      <AssistantButton
-        label="Copilot"
-        onClick={() => toast("Copilot aberto")}
-      />
-      <span className={s.stateLabel}>Label customizado</span>
+    <div className={s.demoStack}>
+      <div className={s.demoRow}>
+        <AssistantButton />
+        <span className={s.stateLabel}>Default — painel fechado</span>
+      </div>
+      <div className={s.demoRow}>
+        <AssistantButton active />
+        <span className={s.stateLabel}>Active — painel aberto (ícone SidebarSimple)</span>
+      </div>
+      <div className={s.demoRow}>
+        <AssistantButton
+          active={open}
+          onClick={() => setOpen((v) => !v)}
+        />
+        <span className={s.stateLabel}>Interativo — clique para alternar</span>
+      </div>
+      <div className={s.demoRow}>
+        <AssistantButton label="Copilot" />
+        <span className={s.stateLabel}>Label customizado</span>
+      </div>
     </div>
   );
 }
@@ -585,7 +599,7 @@ export function PageHeaders() {
         <p className={s.hint}>
           Clique nos botões para experimentar o comportamento real. A lupa abre
           a Command Palette, o sino abre o painel de notificações e o
-          assistente dispara um toast.
+          assistente alterna o estado active.
         </p>
         <div className={s.demoStack}>
           <FullDemo />
@@ -598,7 +612,7 @@ export function PageHeaders() {
     hasUnread={hasUnread}
     onClick={() => setNotifOpen(v => !v)}
   />
-  <AssistantButton onClick={onOpenAssistant} />
+  <AssistantButton active={assistantOpen} onClick={() => setAssistantOpen(v => !v)} />
 </PageHeader>
 
 <CommandPalette open={searchOpen} onClose={closeSearch} ... />
@@ -683,19 +697,24 @@ export function PageHeaders() {
 
       <SubSection id="page-header-assistant-btn" title="AssistantButton">
         <p className={s.hint}>
-          Botão com ícone <code>Lightning</code> + label &quot;Assistente&quot;.
-          O label é ocultado no mobile. Na plataforma, abre o painel lateral
-          do assistente de IA.
+          Botão especial para o assistente de IA. Usa <code>Button tertiary md</code> internamente.
+          A prop <code>active</code> troca o ícone de <code>Lightning</code> para{" "}
+          <code>SidebarSimple</code> e aplica o estado ativo — indicando que o painel
+          do assistente está aberto. O label é ocultado no mobile.
         </p>
         <div className={s.demoStack}>
           <AssistantButtonDemo />
-          <AssistantButtonCustomDemo />
         </div>
         <CodeSnippet
-          code={`<AssistantButton onClick={onOpenAssistant} />
+          code={`const [open, setOpen] = useState(false);
+
+<AssistantButton
+  active={open}
+  onClick={() => setOpen(v => !v)}
+/>
 
 {/* Label customizado */}
-<AssistantButton label="Copilot" onClick={onOpenCopilot} />`}
+<AssistantButton label="Copilot" active={open} onClick={toggle} />`}
         />
       </SubSection>
 

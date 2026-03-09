@@ -1,0 +1,160 @@
+/* ——— Root ——— */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-caramel-300);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* ——— Item ——— */
+
+.item {
+  border-bottom: 1px solid var(--color-caramel-200);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+/* ——— Header variant ——— */
+
+.rootHeader .trigger {
+  background-color: var(--color-caramel-50);
+}
+
+.rootHeader .trigger:hover:not(:disabled) {
+  background-color: var(--color-caramel-100);
+}
+
+/* ——— Trigger ——— */
+
+.trigger {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2xs);
+  width: 100%;
+  padding: var(--sp-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 120ms ease;
+}
+
+.trigger:hover:not(:disabled) {
+  background-color: var(--color-caramel-50);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-caramel-700);
+  outline-offset: -2px;
+  border-radius: var(--radius-xs);
+}
+
+.trigger:disabled {
+  cursor: not-allowed;
+}
+
+/* ——— Icon ——— */
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-neutral-600);
+  /* align with title first line: text-sm (14px) × 1.25 line-height ≈ 18px */
+  height: 18px; /* matches title line-height */
+}
+
+.itemDisabled .icon {
+  color: var(--color-neutral-300);
+}
+
+/* ——— Trigger content ——— */
+
+.triggerContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3xs);
+}
+
+.title {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: 1.25; /* heading-like line-height */
+  color: var(--color-neutral-950);
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  line-height: 1.4; /* body text line-height */
+  color: var(--color-neutral-500);
+}
+
+/* ——— Action slot ——— */
+
+.action {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ——— Caret ——— */
+
+.caret {
+  flex-shrink: 0;
+  color: var(--color-neutral-500);
+  /* align with title first line: text-sm (14px) × 1.25 line-height ≈ 18px */
+  height: 18px; /* matches title line-height */
+  transition: transform 200ms ease;
+}
+
+.itemOpen .caret {
+  transform: rotate(180deg);
+}
+
+/* ——— Panel (collapsible content) ——— */
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms ease;
+}
+
+.itemOpen .panel {
+  grid-template-rows: 1fr;
+}
+
+.panelInner {
+  overflow: hidden;
+}
+
+.panelInner > :first-child {
+  padding: 0 var(--sp-sm) var(--sp-sm);
+}
+
+.rootHeader .panelInner > :first-child {
+  padding-top: var(--sp-sm);
+}
+
+/* ——— Disabled ——— */
+
+.itemDisabled .title {
+  color: var(--color-neutral-500);
+}
+
+.itemDisabled .description {
+  color: var(--color-neutral-400);
+}
+
+.itemDisabled .icon {
+  color: var(--color-neutral-400);
+}
+
+.itemDisabled .caret {
+  color: var(--color-neutral-400);
+}

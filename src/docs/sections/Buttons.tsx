@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Plus, ArrowRight, PaperPlaneTilt, PencilSimple, Trash, MagnifyingGlass } from "@phosphor-icons/react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
 import { Button } from "../../components/Button";
+import { AssistantButton } from "../../components/PageHeader";
 import btnStyles from "../../components/Button.module.css";
 import s from "./Buttons.module.css";
 
@@ -34,6 +36,19 @@ import { Plus, ArrowRight } from "@phosphor-icons/react";
 <Button variant="tertiary" size="sm" leftIcon={Trash} aria-label="Excluir" />
 <Button variant="secondary" size="md" leftIcon={PencilSimple} aria-label="Editar" />`;
 
+const assistantUsageCode = `import { AssistantButton } from "@mdonangelo/bud-ds";
+
+const [open, setOpen] = useState(false);
+
+{/* Default — painel do assistente fechado */}
+<AssistantButton onClick={() => setOpen(true)} />
+
+{/* Active — painel do assistente aberto */}
+<AssistantButton active onClick={() => setOpen(false)} />
+
+{/* Label customizado */}
+<AssistantButton label="IA" active={open} onClick={() => setOpen(!open)} />`;
+
 const variants = ["primary", "secondary", "tertiary"] as const;
 const sizes = ["sm", "md", "lg"] as const;
 
@@ -48,6 +63,36 @@ const sizeLabel: Record<string, string> = {
   md: "Medium",
   lg: "Big",
 };
+
+function AssistantButtonDemo() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className={s.statesGrid}>
+      <div className={s.statesRow}>
+        <div className={s.stateItem}>
+          <span className={s.stateLabel}>Default</span>
+          <AssistantButton />
+        </div>
+        <div className={s.stateItem}>
+          <span className={s.stateLabel}>Active / Open</span>
+          <AssistantButton active />
+        </div>
+        <div className={s.stateItem}>
+          <span className={s.stateLabel}>Interativo</span>
+          <AssistantButton
+            active={open}
+            onClick={() => setOpen(!open)}
+          />
+        </div>
+        <div className={s.stateItem}>
+          <span className={s.stateLabel}>Label customizado</span>
+          <AssistantButton label="IA" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Buttons() {
   return (
@@ -185,8 +230,19 @@ export function Buttons() {
         </div>
       </SubSection>
 
+      <SubSection
+        id="assistant-button"
+        title="AssistantButton"
+        description="Botão especial para abrir o assistente de IA. Usa o componente Button internamente (tertiary md). Quando o painel está aberto, a prop active troca o ícone de Lightning para X e aplica o estado ativo."
+      >
+        <AssistantButtonDemo />
+      </SubSection>
+
       <SubSection id="como-usar" title="Como usar">
         <CodeSnippet code={usageCode} language="tsx" />
+        <div style={{ marginTop: "var(--sp-sm)" }}>
+          <CodeSnippet code={assistantUsageCode} language="tsx" />
+        </div>
       </SubSection>
     </DocSection>
   );

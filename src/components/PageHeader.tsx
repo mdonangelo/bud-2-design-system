@@ -3,7 +3,10 @@ import {
   MagnifyingGlass,
   Bell,
   Lightning,
+  SidebarSimple,
 } from "@phosphor-icons/react";
+import { Button } from "./Button";
+import btnStyles from "./Button.module.css";
 import s from "./PageHeader.module.css";
 
 /* ——— SearchButton ——— */
@@ -15,18 +18,16 @@ interface SearchButtonProps
 
 export const SearchButton = forwardRef<HTMLButtonElement, SearchButtonProps>(
   function SearchButton({ className, ...rest }, ref) {
-    const classes = [s.iconBtn, className ?? ""].filter(Boolean).join(" ");
-
     return (
-      <button
+      <Button
         ref={ref}
-        type="button"
-        className={classes}
+        variant="tertiary"
+        size="md"
+        leftIcon={MagnifyingGlass}
         aria-label="Buscar"
+        className={className}
         {...rest}
-      >
-        <MagnifyingGlass size={14} />
-      </button>
+      />
     );
   }
 );
@@ -44,19 +45,19 @@ export const NotificationButton = forwardRef<
   HTMLButtonElement,
   NotificationButtonProps
 >(function NotificationButton({ hasUnread = false, className, ...rest }, ref) {
-  const classes = [s.iconBtn, className ?? ""].filter(Boolean).join(" ");
-
   return (
-    <button
-      ref={ref}
-      type="button"
-      className={classes}
-      aria-label={hasUnread ? "Notificações (não lidas)" : "Notificações"}
-      {...rest}
-    >
-      <Bell size={14} />
+    <span className={s.notificationWrapper}>
+      <Button
+        ref={ref}
+        variant="tertiary"
+        size="md"
+        leftIcon={Bell}
+        aria-label={hasUnread ? "Notificações (não lidas)" : "Notificações"}
+        className={className}
+        {...rest}
+      />
       {hasUnread && <span className={s.badge} aria-hidden="true" />}
-    </button>
+    </span>
   );
 });
 
@@ -66,26 +67,35 @@ interface AssistantButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Label exibido ao lado do ícone (default: "Assistente") */
   label?: string;
+  /** Indica que o painel do assistente está aberto — troca ícone para X e aplica estado ativo */
+  active?: boolean;
   className?: string;
 }
 
 export const AssistantButton = forwardRef<
   HTMLButtonElement,
   AssistantButtonProps
->(function AssistantButton({ label = "Assistente", className, ...rest }, ref) {
-  const classes = [s.labelBtn, className ?? ""].filter(Boolean).join(" ");
+>(function AssistantButton({ label = "Assistente", active = false, className, ...rest }, ref) {
+  const classes = [
+    s.assistantBtn,
+    active ? btnStyles.active : "",
+    className ?? "",
+  ].filter(Boolean).join(" ") || undefined;
 
   return (
-    <button
+    <Button
       ref={ref}
-      type="button"
-      className={classes}
+      variant="tertiary"
+      size="md"
+      key={active ? "active" : "default"}
+      leftIcon={active ? SidebarSimple : Lightning}
       aria-label={label}
+      aria-expanded={active}
+      className={classes}
       {...rest}
     >
-      <Lightning size={14} />
       <span className={s.assistantLabel}>{label}</span>
-    </button>
+    </Button>
   );
 });
 

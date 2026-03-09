@@ -64,6 +64,7 @@ export const NAV_GROUPS: NavGroup[] = [
   {
     label: "Dados & Navegação",
     items: [
+      { id: "accordions", label: "Accordions" },
       { id: "avatars", label: "Avatars" },
       { id: "badges", label: "Badges" },
       { id: "breadcrumbs", label: "Breadcrumbs" },

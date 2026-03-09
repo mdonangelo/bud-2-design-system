@@ -1,0 +1,16 @@
+/* ——— Demo text ——— */
+
+.demoText {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.5; /* body text line-height */
+  color: var(--color-neutral-950);
+  margin: 0;
+}
+
+.demoText code {
+  font-size: 11px; /* no token below --text-xs (12px) — inline code */
+  background-color: var(--color-caramel-100);
+  padding: 1px var(--sp-3xs); /* 1px — structural micro-padding for inline code */
+  border-radius: var(--radius-2xs);
+}

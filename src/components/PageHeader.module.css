@@ -35,69 +35,12 @@
   flex-shrink: 0;
 }
 
-/* ——— Icon button (ghost, square) ——— */
-
-.iconBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 32px; /* component sizing, not spacing */
-  height: 32px;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  border-radius: var(--radius-xs);
-  color: var(--color-neutral-600);
-  cursor: pointer;
-  position: relative;
-  transition: background-color 120ms ease, color 120ms ease;
-}
-
-.iconBtn:hover {
-  background-color: var(--color-caramel-100);
-  color: var(--color-neutral-800);
-}
-
-.iconBtn:focus-visible {
-  outline: 2px solid var(--color-caramel-700);
-  outline-offset: 2px;
-}
-
-/* ——— Label button (icon + text) ——— */
-
-.labelBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-3xs);
-  flex-shrink: 0;
-  height: 32px; /* component sizing */
-  padding: 0 var(--sp-2xs);
-  padding-left: var(--sp-3xs); /* optical adjust: icon side */
-  background-color: transparent;
-  border: none;
-  border-radius: var(--radius-xs);
-  font-family: var(--font-label);
-  font-weight: 500;
-  font-size: var(--text-xs);
-  line-height: 1.05;
-  color: var(--color-neutral-600);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background-color 120ms ease, color 120ms ease;
-}
-
-.labelBtn:hover {
-  background-color: var(--color-caramel-100);
-  color: var(--color-neutral-800);
-}
-
-.labelBtn:focus-visible {
-  outline: 2px solid var(--color-caramel-700);
-  outline-offset: 2px;
-}
-
 /* ——— Notification badge ——— */
+
+.notificationWrapper {
+  position: relative;
+  display: inline-flex;
+}
 
 .badge {
   position: absolute;
@@ -109,6 +52,17 @@
   border: 2px solid var(--color-white);
   border-radius: var(--radius-full);
   pointer-events: none;
+}
+
+/* ——— AssistantButton icon swap ——— */
+
+.assistantBtn {
+  animation: iconIn 120ms ease;
+}
+
+@keyframes iconIn {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
 }
 
 /* ——— Mobile ——— */

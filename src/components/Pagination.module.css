@@ -22,42 +22,7 @@
   justify-content: flex-end;
 }
 
-/* ——— Prev / Next buttons ——— */
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-2xs);
-  background: var(--color-caramel-100);
-  border: 1px solid var(--color-caramel-300);
-  border-radius: var(--radius-xs);
-  padding: var(--sp-2xs);
-  min-height: 34px;
-  min-width: 44px;
-  justify-content: center;
-  font-family: var(--font-label);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-neutral-950);
-  cursor: pointer;
-  line-height: 1.05;
-  transition: background-color 120ms ease, border-color 120ms ease;
-}
-
-.button:hover:not(:disabled) {
-  background: var(--color-caramel-200);
-  border-color: var(--color-caramel-500);
-}
-
-.button:focus-visible {
-  outline: 2px solid var(--color-caramel-700);
-  outline-offset: 2px;
-}
-
-.button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
+/* ——— Button label (hidden on mobile) ——— */
 
 .buttonLabel {
   display: inline;
@@ -68,15 +33,15 @@
 .numbers {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 2px; /* structural micro-gap between page numbers */
 }
 
 .number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 40px;
-  min-height: 34px;
+  min-width: 40px; /* component sizing */
+  min-height: 34px; /* component sizing */
   padding: var(--sp-2xs);
   border: none;
   background: none;
@@ -86,7 +51,7 @@
   font-weight: 500;
   color: var(--color-neutral-950);
   cursor: pointer;
-  line-height: 1.05;
+  line-height: 1.05; /* label line-height */
   transition: background-color 120ms ease;
 }
 
@@ -110,8 +75,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 40px;
-  min-height: 34px;
+  min-width: 40px; /* component sizing */
+  min-height: 34px; /* component sizing */
   font-family: var(--font-label);
   font-size: var(--text-sm);
   font-weight: 500;
@@ -126,7 +91,7 @@
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-neutral-700);
-  line-height: 1.05;
+  line-height: 1.05; /* label line-height */
 }
 
 /* ——— Responsive ——— */

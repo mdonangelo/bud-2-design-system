@@ -8,8 +8,8 @@ import { Input } from "../../components/Input";
 import { Select } from "../../components/Select";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "../../components/Modal";
 import { AiAssistant, type MissionItem } from "../../components/AiAssistant";
-import { Users, FloppyDisk, ArrowRight, SidebarSimple, Lightning } from "@phosphor-icons/react";
-import buttonStyles from "../../components/Button.module.css";
+import { Users, FloppyDisk, ArrowRight } from "@phosphor-icons/react";
+import { AssistantButton } from "../../components/PageHeader";
 import s from "./Modals.module.css";
 
 const usageCode = `import {
@@ -112,15 +112,10 @@ function DoubleDemo() {
           description="Defina o nome e os detalhes da nova missão para o time."
           onClose={handleClose}
         >
-          <Button
-            variant="tertiary"
-            size="md"
-            leftIcon={showAssistant ? SidebarSimple : Lightning}
+          <AssistantButton
+            active={showAssistant}
             onClick={() => setShowAssistant((v) => !v)}
-            className={showAssistant ? buttonStyles.active : undefined}
-          >
-            Assistente
-          </Button>
+          />
         </ModalHeader>
         <ModalBody>
           <div className={s.demoForm}>

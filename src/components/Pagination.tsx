@@ -1,5 +1,6 @@
 import { type HTMLAttributes, useMemo } from "react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { Button } from "./Button";
 import s from "./Pagination.module.css";
 
 interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "onChange"> {
@@ -38,16 +39,16 @@ export function Pagination({
       {...rest}
     >
       <div className={s.prev}>
-        <button
-          type="button"
-          className={s.button}
+        <Button
+          variant="secondary"
+          size="md"
+          leftIcon={CaretLeft}
           disabled={currentPage === 1}
           onClick={() => onPageChange(currentPage - 1)}
           aria-label="Página anterior"
         >
-          <CaretLeft size={16} />
           <span className={s.buttonLabel}>Anterior</span>
-        </button>
+        </Button>
       </div>
 
       <div className={s.numbers}>
@@ -81,16 +82,16 @@ export function Pagination({
       </div>
 
       <div className={s.next}>
-        <button
-          type="button"
-          className={s.button}
+        <Button
+          variant="secondary"
+          size="md"
+          rightIcon={CaretRight}
           disabled={currentPage === totalPages}
           onClick={() => onPageChange(currentPage + 1)}
           aria-label="Próxima página"
         >
           <span className={s.buttonLabel}>Próximo</span>
-          <CaretRight size={16} />
-        </button>
+        </Button>
       </div>
     </nav>
   );

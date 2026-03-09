@@ -262,24 +262,6 @@
   padding: var(--sp-2xs) var(--sp-xs);
 }
 
-.navBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: none;
-  border-radius: var(--radius-2xs);
-  background: transparent;
-  color: var(--color-neutral-700);
-  cursor: pointer;
-  transition: background-color 120ms ease;
-}
-
-.navBtn:hover {
-  background-color: var(--color-caramel-100);
-}
-
 .monthYear {
   font-family: var(--font-label);
   font-weight: 600;
@@ -414,25 +396,14 @@
   border-top: 1px solid var(--color-caramel-300);
 }
 
+/* Override tertiary color for "Hoje" — uses primary color as accent link */
 .todayBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sp-3xs);
-  padding: var(--sp-3xs) var(--sp-xs);
-  border: none;
-  border-radius: var(--radius-2xs);
-  background: transparent;
-  font-family: var(--font-label);
-  font-weight: 500;
-  font-size: var(--text-sm);
   color: var(--color-orange-500);
-  cursor: pointer;
-  transition: background-color 120ms ease;
 }
 
-.todayBtn:hover {
+.todayBtn:hover:not(:disabled) {
   background-color: var(--color-orange-50);
+  color: var(--color-orange-500);
 }
 
 /* ——— Message ——— */

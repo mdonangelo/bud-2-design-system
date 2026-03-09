@@ -1,4 +1,4 @@
-import { type ComponentType, type ButtonHTMLAttributes } from "react";
+import { type ComponentType, type ButtonHTMLAttributes, forwardRef } from "react";
 import { CircleNotch } from "@phosphor-icons/react";
 import s from "./Button.module.css";
 
@@ -24,7 +24,7 @@ const iconSize: Record<ButtonSize, number> = {
   lg: 20,
 };
 
-export function Button({
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
   variant = "primary",
   size = "md",
   leftIcon: LeftIcon,
@@ -34,7 +34,7 @@ export function Button({
   children,
   className,
   ...rest
-}: ButtonProps) {
+}, ref) {
   const hasLeft = !loading && !!LeftIcon;
   const hasRight = !loading && !!RightIcon;
   const isIconOnly = !children && (hasLeft || hasRight);
@@ -56,6 +56,7 @@ export function Button({
 
   return (
     <button
+      ref={ref}
       className={classes}
       disabled={disabled || loading}
       {...rest}
@@ -71,4 +72,4 @@ export function Button({
       )}
     </button>
   );
-}
+});

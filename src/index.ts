@@ -1,6 +1,7 @@
 import "./styles/lib.css";
 
 // Components
+export { Accordion, AccordionItem } from "./components/Accordion";
 export { AiAssistant } from "./components/AiAssistant";
 export { Alert } from "./components/Alert";
 export { Avatar } from "./components/Avatar";
