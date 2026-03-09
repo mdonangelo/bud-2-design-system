@@ -63,3 +63,126 @@
   color: var(--color-neutral-700);
   line-height: 1.5;
 }
+
+/* ——— Mobile drawer demo ——— */
+
+.mobileDemo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.mobileFrame {
+  position: relative;
+  width: 375px;
+  height: 667px;
+  border: 1px solid var(--color-caramel-200);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-white);
+}
+
+.mobileOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0); /* scrim overlay — no translucent color token */
+  pointer-events: none;
+  transition: background-color 300ms ease;
+}
+
+.mobileOverlayVisible {
+  background-color: rgba(0, 0, 0, 0.4); /* scrim overlay — no translucent color token */
+  pointer-events: auto;
+}
+
+.mobileDrawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 280px;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: transform 300ms ease;
+  box-shadow: none;
+}
+
+.mobileDrawerOpen {
+  transform: translateX(0);
+  box-shadow: var(--shadow-lg);
+}
+
+.mobileDrawer > * {
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid var(--color-caramel-200);
+}
+
+.mobileContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mobileTopBar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: var(--sp-sm);
+  border-bottom: 1px solid var(--color-caramel-200);
+}
+
+.mobileHamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid var(--color-caramel-300);
+  border-radius: var(--radius-xs);
+  color: var(--color-neutral-700);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.mobileHamburger:hover {
+  background-color: var(--color-caramel-100);
+}
+
+.mobileHamburger:focus-visible {
+  outline: 2px solid var(--color-caramel-700);
+  outline-offset: 2px;
+}
+
+.mobileTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-neutral-950);
+}
+
+.mobilePlaceholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neutral-400);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+}
+
+.mobileCaption {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-neutral-500);
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .mobileFrame {
+    width: 100%;
+    height: 500px;
+  }
+}

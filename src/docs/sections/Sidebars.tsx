@@ -3,6 +3,7 @@ import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
+import { List } from "@phosphor-icons/react";
 import {
   Sidebar,
   SidebarHeader,
@@ -175,6 +176,41 @@ const USER_MENU_ITEMS: PopoverItem[] = [
   { id: "logout", label: "Sair", icon: SignOut, danger: true },
 ];
 
+/* ——— Código de uso mobile drawer ——— */
+
+const mobileDrawerCode = `import { useState } from "react";
+import { Sidebar, SidebarNav, SidebarItem, ... } from "@mdonangelo/bud-ds";
+import { Button } from "@mdonangelo/bud-ds";
+import { List } from "@phosphor-icons/react";
+
+function AppShell() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  return (
+    <>
+      {/* Hamburger — visível apenas em mobile */}
+      <Button
+        variant="tertiary"
+        iconOnly
+        onClick={() => setMobileOpen(true)}
+        aria-label="Abrir menu"
+      >
+        <List size={20} />
+      </Button>
+
+      <Sidebar
+        mobileOpen={mobileOpen}
+        onMobileClose={() => setMobileOpen(false)}
+      >
+        <SidebarNav>
+          <SidebarItem icon={HouseSimple} label="Início" />
+          ...
+        </SidebarNav>
+      </Sidebar>
+    </>
+  );
+}`;
+
 export function Sidebars() {
   const [selectedOrg, setSelectedOrg] = useState(ORGS[0]);
   const [orgPopoverOpen, setOrgPopoverOpen] = useState(false);
@@ -184,6 +220,7 @@ export function Sidebars() {
   const userRef = useRef<HTMLButtonElement>(null);
 
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const orgItems: PopoverItem[] = ORGS.filter((o) => o.id !== selectedOrg.id).map(
     (org) => ({
@@ -269,6 +306,77 @@ export function Sidebars() {
             </SidebarFooter>
           </Sidebar>
         </div>
+      </SubSection>
+
+      <SubSection
+        id="drawer-mobile"
+        title="Drawer mobile"
+        description="Em telas ≤768px o sidebar se transforma em drawer lateral com overlay. Use mobileOpen e onMobileClose para controlar a abertura. O botão de collapse é ocultado automaticamente. Touch targets expandem para 44px (Apple HIG)."
+      >
+        <div className={s.mobileDemo}>
+          <div className={s.mobileFrame}>
+            {/* Overlay dentro do frame */}
+            <div
+              className={`${s.mobileOverlay}${mobileOpen ? ` ${s.mobileOverlayVisible}` : ""}`}
+              onClick={() => setMobileOpen(false)}
+              aria-hidden="true"
+            />
+
+            {/* Sidebar drawer simulado */}
+            <div className={`${s.mobileDrawer}${mobileOpen ? ` ${s.mobileDrawerOpen}` : ""}`}>
+              <Sidebar>
+                <SidebarHeader>
+                  <BudLogo />
+                </SidebarHeader>
+                <SidebarDivider />
+                <SidebarNav>
+                  <SidebarItem icon={HouseSimple} label="Início" />
+                  <SidebarGroup label="Performance e Engajamento">
+                    <SidebarItem icon={ChartDonut} label="Missões" defaultExpanded>
+                      <SidebarSubItem active>Todas as missões</SidebarSubItem>
+                      <SidebarSubItem>+ Criar visualização</SidebarSubItem>
+                    </SidebarItem>
+                    <SidebarItem icon={Table} label="Pesquisas" />
+                  </SidebarGroup>
+                  <SidebarGroup label="Empresa">
+                    <SidebarItem icon={Users} label="Pessoas" />
+                    <SidebarItem icon={GearSix} label="Configurações" />
+                    <SidebarItem icon={Lifebuoy} label="Ajuda" />
+                  </SidebarGroup>
+                </SidebarNav>
+                <SidebarFooter>
+                  <SidebarUser
+                    name="Maria Soares"
+                    role="HR Manager"
+                    avatar={<Avatar initials="MS" size="md" />}
+                  />
+                </SidebarFooter>
+              </Sidebar>
+            </div>
+
+            {/* Conteúdo fake da "tela" */}
+            <div className={s.mobileContent}>
+              <div className={s.mobileTopBar}>
+                <button
+                  type="button"
+                  className={s.mobileHamburger}
+                  onClick={() => setMobileOpen(true)}
+                  aria-label="Abrir menu"
+                >
+                  <List size={20} />
+                </button>
+                <span className={s.mobileTitle}>Início</span>
+              </div>
+              <div className={s.mobilePlaceholder}>
+                <span>Conteúdo da página</span>
+              </div>
+            </div>
+          </div>
+          <p className={s.mobileCaption}>
+            Simulação do drawer em viewport mobile (375×667). Clique no ícone de menu para abrir.
+          </p>
+        </div>
+        <CodeSnippet code={mobileDrawerCode} language="tsx" />
       </SubSection>
 
       <SubSection

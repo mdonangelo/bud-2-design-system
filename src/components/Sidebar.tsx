@@ -6,9 +6,10 @@ import {
   forwardRef,
   useContext,
   useState,
+  useEffect,
   useId,
 } from "react";
-import { CaretDown, CaretLineLeft, CaretLineRight, DotsThree } from "@phosphor-icons/react";
+import { CaretDown, CaretLineLeft, CaretLineRight, DotsThree, X } from "@phosphor-icons/react";
 import { Tooltip } from "./Tooltip";
 import s from "./Sidebar.module.css";
 
@@ -24,16 +25,71 @@ interface SidebarProps extends HTMLAttributes<HTMLElement> {
   collapsed?: boolean;
   /** Callback ao clicar no botão de colapsar/expandir. Se omitido, o botão não aparece. */
   onCollapse?: () => void;
+  /** Drawer aberto em mobile (≤768px) */
+  mobileOpen?: boolean;
+  /** Callback ao fechar o drawer mobile */
+  onMobileClose?: () => void;
 }
 
-export function Sidebar({ children, className, collapsed = false, onCollapse, ...rest }: SidebarProps) {
-  const cls = [s.root, collapsed && s.rootCollapsed, className]
+export function Sidebar({
+  children,
+  className,
+  collapsed = false,
+  onCollapse,
+  mobileOpen = false,
+  onMobileClose,
+  ...rest
+}: SidebarProps) {
+  /* Bloqueia scroll do body quando drawer está aberto */
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [mobileOpen]);
+
+  /* Fecha com Escape */
+  useEffect(() => {
+    if (!mobileOpen || !onMobileClose) return;
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onMobileClose!();
+    }
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [mobileOpen, onMobileClose]);
+
+  const cls = [
+    s.root,
+    collapsed && s.rootCollapsed,
+    mobileOpen && s.rootMobileOpen,
+    className,
+  ]
     .filter(Boolean)
     .join(" ");
 
   return (
     <CollapsedContext.Provider value={collapsed}>
+      {/* Overlay */}
+      <div
+        className={`${s.overlay}${mobileOpen ? ` ${s.overlayVisible}` : ""}`}
+        onClick={onMobileClose}
+        aria-hidden="true"
+      />
+
       <aside className={cls} {...rest}>
+        {/* Botão fechar mobile */}
+        {onMobileClose && (
+          <button
+            type="button"
+            className={s.mobileClose}
+            onClick={onMobileClose}
+            aria-label="Fechar menu"
+          >
+            <X size={20} />
+          </button>
+        )}
+
+        {/* Botão collapse desktop */}
         {onCollapse && (
           <div className={s.collapseHitArea}>
             <Tooltip

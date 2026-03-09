@@ -256,6 +256,9 @@ A classe `.active` indica que o botão está associado a um elemento visível/at
 ### Sidebar — comportamento collapsed
 O Sidebar usa `CollapsedContext` (React Context) para compartilhar estado collapsed com sub-componentes. Quando colapsado (56px), labels e carets ficam `display: none`, ícones usam `flex-shrink: 0` para manter tamanho. Itens com sub-itens exibem flyout on hover (não tooltip) via `position: absolute; left: 100%` com padding bridge para manter hover. Itens simples não exibem flyout nem tooltip — UX consistente sem misturar padrões. O botão de collapse/expand aparece apenas em hover do sidebar via CSS (`.root:hover .collapseHitArea { opacity: 1 }`). O sidebar não possui bordas próprias — bordas pertencem ao layout da aplicação.
 
+### Sidebar — drawer mobile (≤768px)
+Em telas ≤768px o Sidebar se transforma em drawer lateral via CSS `@media`. Props: `mobileOpen` (controla visibilidade) e `onMobileClose` (callback de fechamento). Comportamento: `position: fixed` com `transform: translateX(-100%)`, slide via `translateX(0)` quando aberto, overlay escuro (`rgba(0,0,0,0.4)`) por trás. O estado collapsed é ignorado em mobile — sidebar sempre renderiza expandido (280px). O botão de collapse é ocultado; um botão X aparece no canto superior direito. Touch targets expandem para 44px (Apple HIG). O body scroll é bloqueado via JS quando o drawer está aberto. Fecha com tap no overlay, botão X ou tecla Escape.
+
 ### Modal — alinhamento de ações no header
 Botões de ação (fechar, assistente) ficam dentro de `.headerActions` no `.headerTop` com `align-items: flex-start`. Isso garante alinhamento com o título do modal, sem descer por causa da descrição. O `children` do `ModalHeader` é renderizado antes do botão de fechar, permitindo botões adicionais (ex: Assistente) ao lado do X.
 

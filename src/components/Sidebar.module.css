@@ -8,6 +8,7 @@
   width: 240px;
   height: 100%;
   background-color: var(--color-caramel-50);
+  border-right: 1px solid var(--color-caramel-200);
   overflow: visible;
   transition: width 200ms ease;
 }
@@ -48,11 +49,6 @@
 .collapseBtn:hover {
   background-color: var(--color-caramel-100);
   color: var(--color-neutral-950);
-}
-
-.collapseBtn:focus-visible {
-  outline: 2px solid var(--color-caramel-700);
-  outline-offset: 2px;
 }
 
 .collapseBtn:focus-visible {
@@ -460,4 +456,145 @@
 .rootCollapsed .userText,
 .rootCollapsed .userCaret {
   display: none;
+}
+
+/* ——— Overlay (mobile drawer) ——— */
+
+.overlay {
+  display: none;
+}
+
+/* ——— Mobile close button ——— */
+
+.mobileClose {
+  display: none;
+}
+
+/* ——— Mobile (≤768px) — drawer ——— */
+
+@media (max-width: 768px) {
+  .root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 51;
+    width: 280px;
+    height: 100dvh;
+    transform: translateX(-100%);
+    transition: transform 300ms ease;
+    box-shadow: none;
+    overflow-y: auto;
+  }
+
+  .rootMobileOpen {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Ignora collapsed em mobile — sempre expandido */
+  .rootCollapsed {
+    width: 280px;
+  }
+
+  .rootCollapsed .orgLabel,
+  .rootCollapsed .orgCaret,
+  .rootCollapsed .groupLabel,
+  .rootCollapsed .itemLabel,
+  .rootCollapsed .itemCaret,
+  .rootCollapsed .userText,
+  .rootCollapsed .userCaret {
+    display: unset;
+  }
+
+  .rootCollapsed .header {
+    justify-content: space-between;
+    padding: var(--sp-xs) var(--sp-xs) 0;
+  }
+
+  .rootCollapsed .orgWrapper {
+    padding: 0 var(--sp-xs);
+  }
+
+  .rootCollapsed .orgSwitcher {
+    justify-content: flex-start;
+    padding: var(--sp-3xs);
+    padding-right: var(--sp-2xs);
+  }
+
+  .rootCollapsed .nav {
+    padding: 0 var(--sp-xs);
+    overflow-y: auto;
+  }
+
+  .rootCollapsed .item {
+    justify-content: flex-start;
+    gap: var(--sp-2xs);
+  }
+
+  .rootCollapsed .footer {
+    padding: var(--sp-2xs) var(--sp-xs);
+  }
+
+  .rootCollapsed .user {
+    justify-content: flex-start;
+  }
+
+  /* Esconde collapse button em mobile */
+  .collapseHitArea {
+    display: none;
+  }
+
+  /* Botão fechar mobile */
+  .mobileClose {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: var(--sp-xs);
+    right: var(--sp-xs);
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: var(--radius-xs);
+    color: var(--color-neutral-500);
+    cursor: pointer;
+    z-index: 1;
+    transition: color 120ms ease, background-color 120ms ease;
+  }
+
+  .mobileClose:hover {
+    background-color: var(--color-caramel-200);
+    color: var(--color-neutral-950);
+  }
+
+  .mobileClose:focus-visible {
+    outline: 2px solid var(--color-caramel-700);
+    outline-offset: 2px;
+  }
+
+  /* Overlay */
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0); /* scrim overlay — no translucent color token */
+    pointer-events: none;
+    transition: background-color 300ms ease;
+  }
+
+  .overlayVisible {
+    background-color: rgba(0, 0, 0, 0.4); /* scrim overlay — no translucent color token */
+    pointer-events: auto;
+  }
+
+  /* Touch targets maiores em mobile */
+  .item {
+    min-height: 44px; /* Apple HIG minimum touch target */
+  }
+
+  .subItem {
+    min-height: 44px;
+  }
 }
