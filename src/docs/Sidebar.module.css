@@ -30,11 +30,11 @@
 }
 
 .version {
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
-  font-size: 11px;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
+  font-size: 11px; /* no token below --text-xs (12px) */
   color: var(--color-neutral-500);
   background-color: var(--color-caramel-100);
-  padding: 1px 6px;
+  padding: 1px 6px; /* structural micro-padding, no token */
   border-radius: var(--radius-2xs);
   margin-left: auto;
 }
@@ -76,10 +76,10 @@
   height: 20px;
   padding: 0 var(--sp-3xs);
   font-family: var(--font-label);
-  font-size: 11px;
+  font-size: 11px; /* no token below --text-xs (12px) */
   font-weight: 500;
   color: var(--color-neutral-500);
-  background-color: white;
+  background-color: var(--color-white);
   border: 1px solid var(--color-caramel-200);
   border-radius: var(--radius-2xs);
 }
@@ -190,7 +190,7 @@
     position: fixed;
     inset: 0;
     z-index: 1000;
-    background-color: rgba(10, 10, 10, 0.4);
+    background-color: rgba(10, 10, 10, 0.4); /* neutral-950 with alpha — no token for rgba */
     animation: fadeIn 200ms ease;
   }
 

@@ -78,7 +78,7 @@
   border-radius: var(--radius-full);
   font-family: var(--font-label);
   font-weight: 600;
-  font-size: 10px;
+  font-size: 10px; /* no token below --text-xs (12px) */
   line-height: 1;
   flex-shrink: 0;
 }

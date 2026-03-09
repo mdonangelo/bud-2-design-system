@@ -182,8 +182,8 @@
   align-items: center;
   padding: var(--sp-2xs) var(--sp-xs);
   border-radius: var(--radius-2xs);
-  font-family: var(--font-body);
-  font-weight: 400;
+  font-family: var(--font-label);
+  font-weight: 500;
   font-size: var(--text-sm);
   line-height: 1.05;
   color: var(--color-neutral-950);

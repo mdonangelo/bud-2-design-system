@@ -24,7 +24,7 @@ type MessageType = "error" | "attention" | "success";
 
 interface IconProps {
   size?: number | string;
-  weight?: "regular" | "bold" | "duotone" | "fill" | "light" | "thin";
+  weight?: "regular";
 }
 
 export interface SelectOption {
@@ -236,6 +236,18 @@ export function Select(props: SelectProps) {
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, [open]);
+
+  // ——— Close on Escape (document-level) ———
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: globalThis.KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeDropdown();
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [open, closeDropdown]);
 
   // ——— Focus search input when dropdown opens ———
   useEffect(() => {

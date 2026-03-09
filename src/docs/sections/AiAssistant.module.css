@@ -4,8 +4,8 @@
 
 .actionLog {
   margin-top: var(--sp-2xs);
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
-  font-size: 11px;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
+  font-size: 11px; /* no token below --text-xs (12px) */
   color: var(--color-neutral-500);
 }
 
@@ -20,9 +20,9 @@
 }
 
 .anatomyList code {
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
   font-size: var(--text-xs);
   background-color: var(--color-neutral-100);
-  padding: 2px 6px;
+  padding: 2px 6px; /* structural micro-padding, no token */
   border-radius: var(--radius-2xs);
 }

@@ -5,6 +5,9 @@ import {
   useRef,
   useState,
   useCallback,
+  useId,
+  createContext,
+  useContext,
 } from "react";
 import { createPortal } from "react-dom";
 import { X } from "@phosphor-icons/react";
@@ -12,6 +15,8 @@ import { Button } from "./Button";
 import s from "./Modal.module.css";
 
 type ModalSize = "sm" | "md" | "lg";
+
+const ModalTitleIdContext = createContext<string | undefined>(undefined);
 
 /* ——— Modal ——— */
 
@@ -27,6 +32,7 @@ export function Modal({ open, onClose, size = "md", children, sidePanel }: Modal
   const overlayRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [everOpened, setEverOpened] = useState(false);
+  const titleId = useId();
 
   useEffect(() => {
     if (open && !everOpened) setEverOpened(true);
@@ -111,23 +117,26 @@ export function Modal({ open, onClose, size = "md", children, sidePanel }: Modal
       }}
       onKeyDown={open ? handleKeyDown : undefined}
     >
-      {sidePanel !== undefined ? (
-        <div ref={containerRef} className={s.doubleLayout} role="dialog" aria-modal="true">
-          {content}
-          <div className={`${s.sidePanel} ${sidePanel ? s.sidePanelOpen : ""}`}>
-            {sidePanel}
+      <ModalTitleIdContext.Provider value={titleId}>
+        {sidePanel !== undefined ? (
+          <div ref={containerRef} className={s.doubleLayout} role="dialog" aria-modal="true" aria-labelledby={titleId}>
+            {content}
+            <div className={`${s.sidePanel} ${sidePanel ? s.sidePanelOpen : ""}`}>
+              {sidePanel}
+            </div>
           </div>
-        </div>
-      ) : (
-        <div
-          ref={containerRef}
-          className={`${s.container} ${s[size]}`}
-          role="dialog"
-          aria-modal="true"
-        >
-          {children}
-        </div>
-      )}
+        ) : (
+          <div
+            ref={containerRef}
+            className={`${s.container} ${s[size]}`}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={titleId}
+          >
+            {children}
+          </div>
+        )}
+      </ModalTitleIdContext.Provider>
     </div>,
     document.body
   );
@@ -148,11 +157,13 @@ export function ModalHeader({
   onClose,
   children,
 }: ModalHeaderProps) {
+  const titleId = useContext(ModalTitleIdContext);
+
   return (
     <div className={s.header}>
       <div className={s.headerTop}>
         <div className={s.headerText}>
-          <h2 className={s.title}>{title}</h2>
+          <h2 id={titleId} className={s.title}>{title}</h2>
           {description && <p className={s.description}>{description}</p>}
         </div>
         {(children || onClose) && (

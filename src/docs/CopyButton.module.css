@@ -4,8 +4,8 @@
   gap: var(--sp-3xs);
   background: none;
   border: none;
-  padding: 2px 4px;
-  margin: -2px -4px;
+  padding: 2px 4px; /* structural micro-padding, no token */
+  margin: -2px -4px; /* negative offset to cancel micro-padding */
   cursor: pointer;
   font: inherit;
   color: inherit;

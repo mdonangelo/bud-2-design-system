@@ -13,7 +13,7 @@ import s from "./Popover.module.css";
 
 interface IconProps {
   size?: number | string;
-  weight?: "regular" | "bold" | "duotone" | "fill" | "light" | "thin";
+  weight?: "regular";
   className?: string;
 }
 

@@ -133,7 +133,7 @@
 .anatomyDesc code {
   font-size: 11px; /* no token below --text-xs (12px) — inline code label */
   background-color: var(--color-caramel-100);
-  padding: 1px var(--sp-3xs);
+  padding: 1px var(--sp-3xs); /* 1px — structural micro-padding, no token */
   border-radius: var(--radius-2xs);
 }
 

@@ -311,7 +311,7 @@ function ToastCard({ data, style, onDismiss, onHeight }: ToastCardProps) {
             <p className={s.description}>{data.description}</p>
           )}
           {data.action && (
-            <button className={s.actionBtn} onClick={handleAction}>
+            <button type="button" className={s.actionBtn} onClick={handleAction}>
               {data.action.label}
             </button>
           )}

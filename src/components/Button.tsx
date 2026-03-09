@@ -7,7 +7,7 @@ type ButtonSize = "sm" | "md" | "lg";
 
 interface IconProps {
   size?: number | string;
-  weight?: "regular" | "bold" | "duotone" | "fill" | "light" | "thin";
+  weight?: "regular";
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -57,6 +57,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   return (
     <button
       ref={ref}
+      type="button"
       className={classes}
       disabled={disabled || loading}
       {...rest}

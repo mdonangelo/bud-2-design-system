@@ -86,7 +86,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 2px; /* structural micro-gap, no token */
 }
 
 .activityTitle {
@@ -311,7 +311,7 @@
 .memberCellText {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 2px; /* structural micro-gap, no token */
 }
 
 .memberCellName {

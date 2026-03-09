@@ -7,6 +7,7 @@ import {
   useEffect,
   useCallback,
   useLayoutEffect,
+  useId,
 } from "react";
 import { createPortal } from "react-dom";
 import { CaretDown, MagnifyingGlass } from "@phosphor-icons/react";
@@ -14,7 +15,7 @@ import s from "./DropdownButton.module.css";
 
 interface IconProps {
   size?: number | string;
-  weight?: "regular" | "bold" | "duotone" | "fill" | "light" | "thin";
+  weight?: "regular";
   className?: string;
 }
 
@@ -77,6 +78,7 @@ export function DropdownButton({
   const menuRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const triggerId = useId();
 
   const iSize = iconSize[size];
 
@@ -249,6 +251,7 @@ export function DropdownButton({
       <button
         ref={triggerRef}
         type="button"
+        id={triggerId}
         className={triggerClasses}
         disabled={disabled}
         onClick={() => (open ? closeMenu() : openMenu())}
@@ -267,6 +270,7 @@ export function DropdownButton({
             ref={menuRef}
             className={s.menu}
             role="listbox"
+            aria-labelledby={triggerId}
             onKeyDown={handleKeyDown}
           >
             {searchable && (

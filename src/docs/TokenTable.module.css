@@ -32,14 +32,14 @@
 }
 
 .tokenCell {
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
   font-size: var(--text-xs);
   color: var(--color-neutral-950);
   white-space: nowrap;
 }
 
 .valueCell {
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
   font-size: var(--text-xs);
   color: var(--color-neutral-500);
   white-space: nowrap;

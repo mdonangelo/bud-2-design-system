@@ -45,7 +45,7 @@ type MessageType = "error" | "attention" | "success";
 
 interface IconProps {
   size?: number | string;
-  weight?: "regular" | "bold" | "duotone" | "fill" | "light" | "thin";
+  weight?: "regular";
 }
 
 interface DatePickerBaseProps {
@@ -650,6 +650,8 @@ export function DatePicker(props: DatePickerProps) {
               if (disabled) return;
               if (!open) openPopover("start");
             }}
+            aria-expanded={open}
+            aria-haspopup="dialog"
           >
             <CalendarBlank size={16} />
             <input

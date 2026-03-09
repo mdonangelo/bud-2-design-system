@@ -11,7 +11,7 @@ type MessageType = "error" | "attention" | "success";
 
 interface IconProps {
   size?: number | string;
-  weight?: "regular" | "bold" | "duotone" | "fill" | "light" | "thin";
+  weight?: "regular";
 }
 
 interface TextareaProps

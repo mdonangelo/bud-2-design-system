@@ -310,7 +310,7 @@
   color: var(--color-neutral-950);
   cursor: pointer;
   border-radius: var(--radius-2xs);
-  transition: background-color 100ms ease, color 100ms ease;
+  transition: background-color 120ms ease, color 120ms ease;
   outline: none;
 }
 

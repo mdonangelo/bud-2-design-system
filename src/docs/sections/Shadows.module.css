@@ -17,7 +17,7 @@
 }
 
 .cardLabel {
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
   font-size: var(--text-xs);
   color: var(--color-neutral-800);
   margin-bottom: var(--sp-2xs);

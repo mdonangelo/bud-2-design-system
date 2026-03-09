@@ -12,9 +12,9 @@
 }
 
 .demoLabel {
-  font-size: 11px;
+  font-size: 11px; /* no token below --text-xs (12px) */
   color: var(--color-neutral-500);
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
 }
 
 .triggerButton {
@@ -56,10 +56,10 @@
 }
 
 .anatomyCode {
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
   font-size: var(--text-xs);
   background-color: var(--color-caramel-100);
-  padding: 2px var(--sp-3xs);
+  padding: 2px var(--sp-3xs); /* 2px — structural micro-padding, no token */
   border-radius: var(--radius-2xs);
   color: var(--color-neutral-800);
 }

@@ -131,7 +131,7 @@
 
 /* ——— Link row ——— */
 .linkRow {
-  padding-left: 24px; /* 16px radio/checkbox + 8px gap */
+  padding-left: var(--sp-lg); /* 16px radio/checkbox + 8px gap */
 }
 
 .link {

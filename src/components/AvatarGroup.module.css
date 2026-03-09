@@ -11,7 +11,7 @@
 
 /* ——— Override Avatar border inside group ——— */
 .group .stackItem {
-  border: 1.5px solid white;
+  border: 1.5px solid var(--color-white);
   flex-shrink: 0;
 }
 
@@ -19,7 +19,7 @@
 .more {
   position: relative;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid var(--color-white);
   background-color: var(--color-caramel-50);
   flex-shrink: 0;
   display: inline-flex;
@@ -39,7 +39,7 @@
 .addButton {
   border-radius: 50%;
   border: 1px dashed var(--color-neutral-300);
-  background-color: white;
+  background-color: var(--color-white);
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -58,27 +58,27 @@
 }
 
 /* ——— Size: xs (24px) ——— */
-.xs .stack { padding-right: 4px; }
-.xs .stackItem { margin-right: -4px; }
-.xs .more { width: 24px; height: 24px; margin-right: -4px; }
+.xs .stack { padding-right: var(--sp-3xs); }
+.xs .stackItem { margin-right: calc(-1 * var(--sp-3xs)); }
+.xs .more { width: 24px; height: 24px; margin-right: calc(-1 * var(--sp-3xs)); }
 .xs .moreText { font-size: var(--text-xs); }
 .xs .addButton { width: 24px; height: 24px; }
 .xs.gapAdd { gap: var(--sp-xs); }
 .xs.gapMore { gap: var(--sp-2xs); }
 
 /* ——— Size: sm (32px) ——— */
-.sm .stack { padding-right: 8px; }
-.sm .stackItem { margin-right: -8px; }
-.sm .more { width: 32px; height: 32px; margin-right: -8px; }
+.sm .stack { padding-right: var(--sp-2xs); }
+.sm .stackItem { margin-right: calc(-1 * var(--sp-2xs)); }
+.sm .more { width: 32px; height: 32px; margin-right: calc(-1 * var(--sp-2xs)); }
 .sm .moreText { font-size: var(--text-sm); }
 .sm .addButton { width: 32px; height: 32px; }
 .sm.gapAdd { gap: var(--sp-sm); }
 .sm.gapMore { gap: var(--sp-2xs); }
 
 /* ——— Size: md (40px) ——— */
-.md .stack { padding-right: 12px; }
-.md .stackItem { margin-right: -12px; }
-.md .more { width: 40px; height: 40px; margin-right: -12px; }
+.md .stack { padding-right: var(--sp-xs); }
+.md .stackItem { margin-right: calc(-1 * var(--sp-xs)); }
+.md .more { width: 40px; height: 40px; margin-right: calc(-1 * var(--sp-xs)); }
 .md .moreText { font-size: var(--text-md); }
 .md .addButton { width: 40px; height: 40px; }
 .md.gapAdd { gap: var(--sp-md); }

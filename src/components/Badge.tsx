@@ -14,7 +14,7 @@ type BadgeSize = "sm" | "md" | "lg";
 
 interface IconProps {
   size?: number | string;
-  weight?: "regular" | "bold" | "duotone" | "fill" | "light" | "thin";
+  weight?: "regular";
 }
 
 interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, "color"> {

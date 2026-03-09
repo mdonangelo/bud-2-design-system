@@ -35,9 +35,9 @@
 }
 
 .behaviorList code {
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
   font-size: var(--text-xs);
   background-color: var(--color-neutral-100);
-  padding: 2px var(--sp-3xs);
+  padding: 2px var(--sp-3xs); /* 2px — structural micro-padding, no token */
   border-radius: var(--radius-2xs);
 }

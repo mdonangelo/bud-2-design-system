@@ -10,7 +10,7 @@
   gap: var(--sp-3xs);
   padding: var(--sp-2xs) var(--sp-sm);
   background-color: var(--color-neutral-950);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06); /* rgba — subtle border on dark bg, no opacity token */
 }
 
 .tab {
@@ -18,8 +18,8 @@
   border: none;
   border-radius: var(--radius-2xs);
   background: transparent;
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
-  font-size: 11px;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
+  font-size: 11px; /* no token below --text-xs (12px) */
   font-weight: 500;
   color: var(--color-neutral-500);
   cursor: pointer;

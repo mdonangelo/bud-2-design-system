@@ -8,7 +8,7 @@
   align-items: flex-start;
   justify-content: center;
   padding-top: 20vh;
-  background-color: rgba(10, 10, 10, 0.4);
+  background-color: rgba(10, 10, 10, 0.4); /* neutral-950 with alpha — no token for rgba */
 }
 
 /* ——— Container ——— */
@@ -131,7 +131,7 @@
   height: 20px;
   padding: 0 var(--sp-3xs);
   font-family: var(--font-label);
-  font-size: 11px;
+  font-size: 11px; /* no token below --text-xs (12px) */
   font-weight: 500;
   color: var(--color-neutral-500);
   background-color: var(--color-caramel-100);

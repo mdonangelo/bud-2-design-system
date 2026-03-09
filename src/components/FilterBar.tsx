@@ -24,7 +24,7 @@ import s from "./FilterBar.module.css";
 
 interface IconProps {
   size?: number | string;
-  weight?: "regular" | "bold" | "duotone" | "fill" | "light" | "thin";
+  weight?: "regular";
   className?: string;
 }
 

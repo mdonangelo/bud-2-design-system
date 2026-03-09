@@ -2,14 +2,14 @@
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06); /* rgba — subtle border on dark bg, no opacity token */
 }
 
 .pre {
   background-color: var(--color-neutral-950);
   color: var(--color-neutral-300);
   padding: var(--sp-xl) var(--sp-lg);
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
   font-size: var(--text-xs);
   line-height: 1.7;
   overflow-x: auto;
@@ -36,7 +36,7 @@
 
 .copyBtn:hover {
   color: var(--color-neutral-300);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /* rgba — hover overlay on dark bg, no opacity token */
 }
 
 .copyBtn:focus-visible {
@@ -48,11 +48,11 @@
   position: absolute;
   top: var(--sp-xs);
   left: var(--sp-sm);
-  font-size: 11px;
+  font-size: 11px; /* no token below --text-xs (12px) */
   color: var(--color-neutral-500);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace; /* monospace — code/token display */
 }
 
 @media (max-width: 768px) {
@@ -64,7 +64,7 @@
 @media (max-width: 480px) {
   .pre {
     padding: var(--sp-xs) var(--sp-2xs);
-    font-size: 11px;
+    font-size: 11px; /* no token below --text-xs (12px) */
   }
 
   .lang {
