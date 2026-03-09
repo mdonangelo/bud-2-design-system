@@ -4,12 +4,11 @@
 
 .chart {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: var(--chart-size, 40px);
+  height: var(--chart-size, 40px);
   display: inline-flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding: var(--sp-xs) var(--sp-2xs);
   flex-shrink: 0;
 }
 
@@ -38,23 +37,65 @@
 }
 
 /* ——— Center text ——— */
-.value {
+.textGroup {
   position: relative;
+  display: flex;
+  align-items: baseline;
+  z-index: 1; /* acima do SVG */
+}
+
+.value {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: var(--text-xs);
-  line-height: 1.15;
+  font-size: calc(var(--chart-size, 40px) * 0.3);
+  line-height: 1;
   color: var(--color-neutral-950);
-  text-align: center;
   white-space: nowrap;
 }
 
 .percent {
-  position: relative;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 7px; /* subscript — sem token equivalente */
-  line-height: 1.15;
+  font-size: calc(var(--chart-size, 40px) * 0.175);
+  line-height: 1;
   color: var(--color-neutral-950);
   white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════
+   Chart — half (180°) semicircle gauge
+   ═══════════════════════════════════════════ */
+
+.halfChart {
+  width: var(--chart-size, 40px);
+  height: calc(var(--chart-size, 40px) * 0.55);
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.halfProgress {
+  fill: none;
+  stroke: var(--color-green-500);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 300ms ease;
+}
+
+/* ——— SVG text (half) ——— */
+.halfText {
+  dominant-baseline: auto;
+}
+
+.halfValue {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 11px; /* tamanho fixo no viewBox — escala com o SVG */
+  fill: var(--color-neutral-950);
+}
+
+.halfPercent {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 6px; /* subscript proporcional ao viewBox */
+  fill: var(--color-neutral-950);
 }

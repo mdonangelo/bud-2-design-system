@@ -173,6 +173,29 @@ const gaugeCode = `import { Chart } from "@mdonangelo/bud-ds";
 <Chart value={75} />
 <Chart value={100} />`;
 
+const halfGaugeCode = `import { Chart } from "@mdonangelo/bud-ds";
+
+<Chart variant="half" value={0} />
+<Chart variant="half" value={25} />
+<Chart variant="half" value={50} />
+<Chart variant="half" value={75} />
+<Chart variant="half" value={100} />`;
+
+const gaugeSizesCode = `import { Chart } from "@mdonangelo/bud-ds";
+
+{/* Full (360°) */}
+<Chart value={75} size={32} />
+<Chart value={75} size={40} />  {/* padrão */}
+<Chart value={75} size={64} />
+<Chart value={75} size={96} />
+<Chart value={75} size={128} />
+
+{/* Half (180°) */}
+<Chart variant="half" value={75} size={32} />
+<Chart variant="half" value={75} size={64} />
+<Chart variant="half" value={75} size={96} />
+<Chart variant="half" value={75} size={128} />`;
+
 export function Charts() {
   const [gaugeValue, setGaugeValue] = useState(64);
 
@@ -636,7 +659,120 @@ export function Charts() {
         <CodeSnippet code={gaugeCode} language="tsx" />
       </SubSection>
 
-      {/* ——— 11. Instalação ——— */}
+      {/* ——— 11. Half Gauge (semicírculo 180°) ——— */}
+      <SubSection
+        id="half-gauge"
+        title="Gauge — Semicírculo (180°)"
+        description="Variante semicircular do indicador de progresso. Ideal para dashboards e cards compactos onde a altura é limitada."
+      >
+        <div className={s.statesGrid}>
+          <div className={s.stateItem}>
+            <Chart variant="half" value={0} />
+            <span className={s.stateLabel}>0%</span>
+          </div>
+          <div className={s.stateItem}>
+            <Chart variant="half" value={25} />
+            <span className={s.stateLabel}>25%</span>
+          </div>
+          <div className={s.stateItem}>
+            <Chart variant="half" value={50} />
+            <span className={s.stateLabel}>50%</span>
+          </div>
+          <div className={s.stateItem}>
+            <Chart variant="half" value={75} />
+            <span className={s.stateLabel}>75%</span>
+          </div>
+          <div className={s.stateItem}>
+            <Chart variant="half" value={100} />
+            <span className={s.stateLabel}>100%</span>
+          </div>
+        </div>
+        <CodeSnippet code={halfGaugeCode} language="tsx" />
+      </SubSection>
+
+      {/* ——— 12. Half Gauge interativo ——— */}
+      <SubSection
+        id="half-gauge-interativo"
+        title="Gauge Semicírculo — Exemplo interativo"
+        description="Arraste o controle para ver a transição animada do arco."
+      >
+        <div className={s.interactiveRow}>
+          <div className={s.controls}>
+            <div className={s.controlRow}>
+              <label>Valor</label>
+              <input
+                type="range"
+                min={0}
+                max={100}
+                value={gaugeValue}
+                onChange={(e) => setGaugeValue(Number(e.target.value))}
+              />
+              <span className={s.controlValue}>{gaugeValue}</span>
+            </div>
+          </div>
+          <div className={s.previewBox}>
+            <Chart variant="half" value={gaugeValue} />
+          </div>
+        </div>
+        <CodeSnippet code={halfGaugeCode} language="tsx" />
+      </SubSection>
+
+      {/* ——— 13. Gauge — Tamanhos ——— */}
+      <SubSection
+        id="gauge-sizes"
+        title="Gauge — Tamanhos"
+        description="A prop size controla o diâmetro do gauge em pixels. O texto e o anel escalam proporcionalmente. Padrão: 40px."
+      >
+        <div className={s.statesGrid}>
+          <div className={s.stateItem}>
+            <Chart value={75} size={32} />
+            <span className={s.stateLabel}>32px</span>
+          </div>
+          <div className={s.stateItem}>
+            <Chart value={75} size={40} />
+            <span className={s.stateLabel}>40px (padrão)</span>
+          </div>
+          <div className={s.stateItem}>
+            <Chart value={75} size={64} />
+            <span className={s.stateLabel}>64px</span>
+          </div>
+          <div className={s.stateItem}>
+            <Chart value={75} size={96} />
+            <span className={s.stateLabel}>96px</span>
+          </div>
+          <div className={s.stateItem}>
+            <Chart value={75} size={128} />
+            <span className={s.stateLabel}>128px</span>
+          </div>
+        </div>
+        <div style={{ marginTop: "var(--sp-sm)" }}>
+          <div className={s.statesGrid}>
+            <div className={s.stateItem}>
+              <Chart variant="half" value={75} size={32} />
+              <span className={s.stateLabel}>32px</span>
+            </div>
+            <div className={s.stateItem}>
+              <Chart variant="half" value={75} size={40} />
+              <span className={s.stateLabel}>40px (padrão)</span>
+            </div>
+            <div className={s.stateItem}>
+              <Chart variant="half" value={75} size={64} />
+              <span className={s.stateLabel}>64px</span>
+            </div>
+            <div className={s.stateItem}>
+              <Chart variant="half" value={75} size={96} />
+              <span className={s.stateLabel}>96px</span>
+            </div>
+            <div className={s.stateItem}>
+              <Chart variant="half" value={75} size={128} />
+              <span className={s.stateLabel}>128px</span>
+            </div>
+          </div>
+        </div>
+        <CodeSnippet code={gaugeSizesCode} language="tsx" />
+      </SubSection>
+
+      {/* ——— 14. Instalação ——— */}
       <SubSection
         id="instalacao"
         title="Instalação"
