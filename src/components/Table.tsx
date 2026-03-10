@@ -39,6 +39,8 @@ interface TableProps extends HTMLAttributes<HTMLDivElement> {
   variant?: "divider" | "striped";
   /** Adiciona box-shadow ao container (default: true) */
   elevated?: boolean;
+  /** Exibe borda e border-radius no container (default: true). Use false quando a tabela está dentro de um Card. */
+  bordered?: boolean;
   selectable?: boolean;
   selectedRows?: Set<string>;
   rowIds?: string[];
@@ -49,6 +51,7 @@ interface TableProps extends HTMLAttributes<HTMLDivElement> {
 export function Table({
   variant = "divider",
   elevated = true,
+  bordered = true,
   selectable = false,
   selectedRows,
   rowIds = [],
@@ -78,7 +81,7 @@ export function Table({
   return (
     <TableContext.Provider value={ctx}>
       <div
-        className={[s.root, elevated && s.elevated, className].filter(Boolean).join(" ")}
+        className={[s.root, elevated && s.elevated, !bordered && s.borderless, className].filter(Boolean).join(" ")}
         {...rest}
       >
         {children}

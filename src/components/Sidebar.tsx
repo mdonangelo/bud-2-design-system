@@ -18,6 +18,7 @@ import s from "./Sidebar.module.css";
 /* ——— Context para estado collapsed ——— */
 
 const CollapsedContext = createContext(false);
+const CollapseCallbackContext = createContext<(() => void) | undefined>(undefined);
 
 /* ——— Sidebar (root) ——— */
 
@@ -113,6 +114,7 @@ export function Sidebar({
 
   return (
     <CollapsedContext.Provider value={collapsed}>
+    <CollapseCallbackContext.Provider value={onCollapse}>
       {/* Overlay */}
       <div
         className={`${s.overlay}${mobileOpen ? ` ${s.overlayVisible}` : ""}`}
@@ -133,27 +135,9 @@ export function Sidebar({
             <X size={20} />
           </button>
         )}
-
-        {/* Botão collapse desktop */}
-        {onCollapse && (
-          <div className={s.collapseHitArea}>
-            <Tooltip
-              content={collapsed ? "Expandir" : "Recolher"}
-              placement="right"
-            >
-              <button
-                type="button"
-                className={s.collapseBtn}
-                onClick={onCollapse}
-                aria-label={collapsed ? "Expandir sidebar" : "Recolher sidebar"}
-              >
-                {collapsed ? <CaretLineRight size={16} /> : <CaretLineLeft size={16} />}
-              </button>
-            </Tooltip>
-          </div>
-        )}
         {children}
       </aside>
+    </CollapseCallbackContext.Provider>
     </CollapsedContext.Provider>
   );
 }
@@ -165,7 +149,31 @@ interface SidebarHeaderProps {
 }
 
 export function SidebarHeader({ children }: SidebarHeaderProps) {
-  return <div className={s.header}>{children}</div>;
+  const collapsed = useContext(CollapsedContext);
+  const onCollapse = useContext(CollapseCallbackContext);
+
+  return (
+    <div className={s.header}>
+      {children}
+      {onCollapse && (
+        <div className={s.collapseHitArea}>
+          <Tooltip
+            content={collapsed ? "Expandir" : "Recolher"}
+            placement="right"
+          >
+            <button
+              type="button"
+              className={s.collapseBtn}
+              onClick={onCollapse}
+              aria-label={collapsed ? "Expandir sidebar" : "Recolher sidebar"}
+            >
+              {collapsed ? <CaretLineRight size={14} /> : <CaretLineLeft size={14} />}
+            </button>
+          </Tooltip>
+        </div>
+      )}
+    </div>
+  );
 }
 
 /* ——— SidebarOrgSwitcher ——— */

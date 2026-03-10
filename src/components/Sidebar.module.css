@@ -17,19 +17,21 @@
   width: 56px;
 }
 
-/* ——— Collapse button ——— */
+/* ——— Collapse button (inside header) ——— */
 
 .collapseHitArea {
-  position: absolute;
-  top: var(--sp-sm);
-  right: calc(-1 * var(--sp-2xs) - 1px);
-  z-index: 1;
+  flex-shrink: 0;
   opacity: 0;
   transition: opacity 120ms ease;
 }
 
-.root:hover .collapseHitArea,
-.root:focus-within .collapseHitArea {
+@media (hover: hover) {
+  .root:hover .collapseHitArea {
+    opacity: 1;
+  }
+}
+
+.collapseHitArea:focus-within {
   opacity: 1;
 }
 
@@ -415,6 +417,11 @@
 .rootCollapsed .header {
   justify-content: center;
   padding: var(--sp-xs) var(--sp-2xs) 0;
+  overflow: hidden;
+}
+
+.rootCollapsed .collapseHitArea {
+  opacity: 1;
 }
 
 .rootCollapsed .orgWrapper {

@@ -11,6 +11,11 @@
   box-shadow: var(--shadow-xs);
 }
 
+.borderless {
+  border: none;
+  border-radius: 0;
+}
+
 /* ——— Card Header ——— */
 
 .cardHeader {
