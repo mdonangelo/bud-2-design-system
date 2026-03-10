@@ -184,7 +184,7 @@ export function Popovers() {
     <DocSection
       id="popovers"
       title="Popovers"
-      description="Popover flutuante ancorado a um trigger, com suporte a submenu/flyout lateral. Renderizado como portal para evitar clipping."
+      description="Popover flutuante ancorado a um trigger, com suporte a submenu flyout com posicionamento inteligente. Renderizado como portal para evitar clipping."
       category={getCategoryForPage("popovers")}
     >
       <div className={s.crossRef}>
@@ -213,7 +213,9 @@ export function Popovers() {
       <SubSection id="com-submenu" title="Com submenu">
         <p>
           Itens com a prop <code>submenu</code> renderizam um flyout lateral ao
-          passar o mouse. O conteúdo do flyout é livre (ReactNode).
+          passar o mouse. O posicionamento é inteligente — analisa o espaço
+          disponível e ajusta para nunca ultrapassar os limites da tela.
+          O conteúdo do flyout é livre (ReactNode).
         </p>
         <div className={s.demoArea}>
           <SubmenuDemo />
@@ -233,7 +235,7 @@ export function Popovers() {
         </li>
         <li className={s.anatomyItem}>
           <span className={s.anatomyCode}>submenu</span> — flyout lateral com
-          conteúdo livre (ReactNode)
+          posicionamento inteligente e conteúdo livre (ReactNode)
         </li>
         <li className={s.anatomyItem}>
           <span className={s.anatomyCode}>anchorRef</span> — ref do elemento

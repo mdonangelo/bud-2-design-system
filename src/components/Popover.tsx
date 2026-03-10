@@ -39,6 +39,68 @@ interface PopoverProps {
   ariaLabel?: string;
 }
 
+/**
+ * Ajusta a posição do submenu para não ultrapassar os limites da viewport.
+ * Chamado no mouseenter/focusin do wrapper, quando o submenu já está display:block.
+ */
+function adjustSubmenuOverflow(wrapperEl: HTMLElement) {
+  const submenu = wrapperEl.querySelector('[class*="submenu"]') as HTMLElement | null;
+  if (!submenu) return;
+
+  // Reset para medir posição natural
+  submenu.style.top = "";
+  submenu.style.left = "";
+  submenu.style.right = "";
+  submenu.style.maxHeight = "";
+
+  // Força reflow para medir com display:block já aplicado pelo :hover
+  submenu.offsetHeight;
+
+  const rect = submenu.getBoundingClientRect();
+  if (rect.width === 0 && rect.height === 0) return;
+
+  const gap = 8;
+
+  // ——— Ajuste vertical ———
+  let topAdjust = 0;
+
+  if (rect.bottom > window.innerHeight - gap) {
+    topAdjust = -(rect.bottom - (window.innerHeight - gap));
+  }
+
+  if (rect.top + topAdjust < gap) {
+    topAdjust = gap - rect.top;
+  }
+
+  if (topAdjust !== 0) {
+    submenu.style.top = `${topAdjust}px`;
+  }
+
+  // Se mesmo com ajuste vertical não cabe, limita a altura
+  const finalTop = rect.top + topAdjust;
+  const availableHeight = window.innerHeight - gap * 2;
+  if (rect.height > availableHeight) {
+    submenu.style.maxHeight = `${availableHeight}px`;
+    submenu.style.overflowY = "auto";
+    submenu.style.top = `${gap - rect.top + topAdjust}px`;
+  }
+
+  // ——— Ajuste horizontal (para submenu flipped) ———
+  const updatedRect = submenu.getBoundingClientRect();
+
+  if (updatedRect.left < gap) {
+    // Submenu flipped que ultrapassa a esquerda — empurra para dentro
+    const shift = gap - updatedRect.left;
+    submenu.style.right = `calc(100% + var(--sp-3xs) - ${shift}px)`;
+  }
+
+  if (updatedRect.right > window.innerWidth - gap) {
+    // Submenu normal que ultrapassa a direita — empurra para dentro
+    const shift = updatedRect.right - (window.innerWidth - gap);
+    submenu.style.left = `calc(100% + var(--sp-3xs) - ${shift}px)`;
+  }
+}
+
 export function Popover({ items, open, onClose, anchorRef, ariaLabel }: PopoverProps) {
   const popoverRef = useRef<HTMLDivElement>(null);
   const [submenuFlip, setSubmenuFlip] = useState(false);
@@ -79,8 +141,9 @@ export function Popover({ items, open, onClose, anchorRef, ariaLabel }: PopoverP
       el.style.left = `${Math.max(gap, window.innerWidth - pr.width - gap)}px`;
     }
 
-    // Submenu flip check
-    setSubmenuFlip(pr.right + 220 > window.innerWidth);
+    // Submenu flip: se não cabe à direita, abre à esquerda
+    const updatedPr = el.getBoundingClientRect();
+    setSubmenuFlip(updatedPr.right + 220 > window.innerWidth);
   }, [anchorRef]);
 
   // Position synchronously after DOM mount (before paint)
@@ -218,7 +281,12 @@ export function Popover({ items, open, onClose, anchorRef, ariaLabel }: PopoverP
     >
       {items.map((item, index) =>
         item.submenu ? (
-          <div key={item.id} className={`${s.submenuWrapper} ${submenuFlip ? s.submenuFlip : ""}`}>
+          <div
+            key={item.id}
+            className={`${s.submenuWrapper}${submenuFlip ? ` ${s.submenuFlip}` : ""}`}
+            onMouseEnter={(e) => adjustSubmenuOverflow(e.currentTarget)}
+            onFocus={(e) => adjustSubmenuOverflow(e.currentTarget)}
+          >
             <button
               type="button"
               className={s.item}
