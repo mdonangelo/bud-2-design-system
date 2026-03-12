@@ -21,6 +21,8 @@ export interface PopoverItem {
   id: string;
   label: string;
   icon?: ComponentType<IconProps>;
+  /** URL de imagem exibida no lugar do ícone (ex: logo de empresa) */
+  image?: string;
   onClick?: () => void;
   submenu?: ReactNode;
   /** Número exibido como badge (ex: contagem de seleções no submenu) */
@@ -293,7 +295,11 @@ export function Popover({ items, open, onClose, anchorRef, ariaLabel }: PopoverP
               role="menuitem"
               tabIndex={index === focusedIndex ? 0 : -1}
             >
-              {item.icon && <item.icon size={16} className={s.itemIcon} />}
+              {item.image ? (
+                <img src={item.image} alt="" className={s.itemImage} />
+              ) : item.icon ? (
+                <item.icon size={16} className={s.itemIcon} />
+              ) : null}
               <span className={s.itemLabel}>{item.label}</span>
               {item.badge != null && item.badge > 0 && (
                 <span className={s.itemBadge}>{item.badge}</span>
@@ -314,7 +320,11 @@ export function Popover({ items, open, onClose, anchorRef, ariaLabel }: PopoverP
               handleClose();
             }}
           >
-            {item.icon && <item.icon size={16} className={s.itemIcon} />}
+            {item.image ? (
+              <img src={item.image} alt="" className={s.itemImage} />
+            ) : item.icon ? (
+              <item.icon size={16} className={s.itemIcon} />
+            ) : null}
             <span>{item.label}</span>
           </button>
         ),

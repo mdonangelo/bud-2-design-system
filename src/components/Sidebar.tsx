@@ -179,7 +179,9 @@ export function SidebarHeader({ children }: SidebarHeaderProps) {
 /* ——— SidebarOrgSwitcher ——— */
 
 interface SidebarOrgSwitcherProps {
-  icon: ComponentType<{ size?: number }>;
+  icon?: ComponentType<{ size?: number }>;
+  /** URL de imagem/logo da organização (substitui o ícone) */
+  image?: string;
   label: string;
   onClick?: () => void;
 }
@@ -187,7 +189,7 @@ interface SidebarOrgSwitcherProps {
 export const SidebarOrgSwitcher = forwardRef<
   HTMLButtonElement,
   SidebarOrgSwitcherProps
->(function SidebarOrgSwitcher({ icon: Icon, label, onClick }, ref) {
+>(function SidebarOrgSwitcher({ icon: Icon, image, label, onClick }, ref) {
   return (
     <div className={s.orgWrapper}>
       <button
@@ -198,9 +200,13 @@ export const SidebarOrgSwitcher = forwardRef<
         aria-haspopup="listbox"
         aria-label={`Organização: ${label}`}
       >
-        <span className={s.orgIcon}>
-          <Icon size={16} />
-        </span>
+        {image ? (
+          <img src={image} alt="" className={s.orgImage} />
+        ) : Icon ? (
+          <span className={s.orgIcon}>
+            <Icon size={16} />
+          </span>
+        ) : null}
         <span className={s.orgLabel}>{label}</span>
         <CaretDown size={16} className={s.orgCaret} />
       </button>

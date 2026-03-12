@@ -111,6 +111,15 @@
   flex-shrink: 0;
 }
 
+.orgImage {
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  border-radius: var(--radius-2xs);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
 .orgLabel {
   flex: 1;
   font-family: var(--font-label);
