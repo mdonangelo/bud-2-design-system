@@ -30,6 +30,7 @@ export {
 } from "./components/PageHeader";
 export { CommandPalette } from "./components/CommandPalette";
 export { Input } from "./components/Input";
+export { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from "./components/Drawer";
 export { Modal, ModalHeader, ModalBody, ModalFooter } from "./components/Modal";
 export { Popover } from "./components/Popover";
 export { Radar } from "./components/Radar";
@@ -57,6 +58,7 @@ export { Toggle } from "./components/Toggle";
 export { Tooltip } from "./components/Tooltip";
 
 // Types
+export type { DrawerProps } from "./components/Drawer";
 export type { MissionItem } from "./components/AiAssistant";
 export type { AvatarSize } from "./components/Avatar";
 export type { AvatarGroupSize, AvatarGroupItem } from "./components/AvatarGroup";

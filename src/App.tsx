@@ -25,6 +25,7 @@ import { Breadcrumbs } from "./docs/sections/Breadcrumbs";
 import { Avatars } from "./docs/sections/Avatars";
 import { Toggles } from "./docs/sections/Toggles";
 import { Alerts } from "./docs/sections/Alerts";
+import { Drawers } from "./docs/sections/Drawers";
 import { Modals } from "./docs/sections/Modals";
 import { Toasts } from "./docs/sections/Toasts";
 import { GoalProgress } from "./docs/sections/GoalProgress";
@@ -70,6 +71,7 @@ const SECTIONS: Record<string, React.ComponentType> = {
   "avatars": Avatars,
   "toggles": Toggles,
   "alerts": Alerts,
+  "drawers": Drawers,
   "modals": Modals,
   "toasts": Toasts,
   "goal-progress": GoalProgress,
