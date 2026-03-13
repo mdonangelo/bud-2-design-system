@@ -36,7 +36,9 @@ export { Popover } from "./components/Popover";
 export { Radar } from "./components/Radar";
 export { Radio } from "./components/Radio";
 export { Select } from "./components/Select";
+export { ScaleInput } from "./components/ScaleInput";
 export { Skeleton } from "./components/Skeleton";
+export { SortableList } from "./components/SortableList";
 export { Sparkline } from "./components/Sparkline";
 export {
   Sidebar,
@@ -74,7 +76,9 @@ export type { HeatmapCell, HeatmapProps } from "./components/Heatmap";
 export type { RadarDataPoint } from "./components/Radar";
 export type { NotificationItem } from "./components/NotificationPanel";
 export type { PopoverItem } from "./components/Popover";
+export type { ScaleInputProps } from "./components/ScaleInput";
 export type { SelectOption } from "./components/Select";
+export type { SortableItem, SortableListProps } from "./components/SortableList";
 export type { TabItem, TabBarProps } from "./components/TabBar";
 
 // Utilities

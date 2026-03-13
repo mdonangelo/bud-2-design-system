@@ -1,0 +1,94 @@
+/* ——— Root ——— */
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2xs);
+}
+
+.root.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ——— Button grid ——— */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3xs);
+}
+
+/* ——— Individual button ——— */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 var(--sp-2xs);
+  border: 1px solid var(--color-caramel-200);
+  border-radius: var(--radius-xs);
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-neutral-700);
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  user-select: none;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--color-caramel-100);
+  border-color: var(--color-caramel-300);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-orange-500);
+  outline-offset: 2px;
+}
+
+.btn.selected {
+  background: var(--color-orange-500);
+  border-color: var(--color-orange-500);
+  color: var(--color-white);
+}
+
+.btn.selected:hover:not(:disabled) {
+  background: var(--color-orange-600);
+  border-color: var(--color-orange-600);
+}
+
+/* ——— Small size ——— */
+.sm .btn {
+  min-width: 32px;
+  height: 32px;
+  font-size: var(--text-xs);
+}
+
+/* ——— Labels row ——— */
+.labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--sp-3xs);
+}
+
+.label {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-neutral-500);
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 480px) {
+  .btn {
+    min-width: 36px;
+    height: 36px;
+    font-size: var(--text-xs);
+  }
+
+  .sm .btn {
+    min-width: 28px;
+    height: 28px;
+  }
+}
