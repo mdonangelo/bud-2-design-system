@@ -3,6 +3,8 @@ import { List, X } from "@phosphor-icons/react";
 import { Sidebar } from "./docs/Sidebar";
 import { SearchModal } from "./docs/SearchModal";
 import { Overview } from "./docs/sections/Overview";
+import { Accessibility } from "./docs/sections/Accessibility";
+import { OverlayContract } from "./docs/sections/OverlayContract";
 import { Logos } from "./docs/sections/Logos";
 import { Colors } from "./docs/sections/Colors";
 import { Typography } from "./docs/sections/Typography";
@@ -38,6 +40,7 @@ import { TabBars } from "./docs/sections/TabBars";
 import { Tables } from "./docs/sections/Tables";
 import { Tooltips } from "./docs/sections/Tooltips";
 import { Cards } from "./docs/sections/Cards";
+import { AdvancedComponents } from "./docs/sections/AdvancedComponents";
 import { Sidebars } from "./docs/sections/Sidebars";
 import { PageHeaders } from "./docs/sections/PageHeaders";
 import { Accordions } from "./docs/sections/Accordions";
@@ -50,6 +53,8 @@ import s from "./App.module.css";
 
 const SECTIONS: Record<string, React.ComponentType> = {
   "visao-geral": Overview,
+  "acessibilidade": Accessibility,
+  "contrato-overlays": OverlayContract,
   "logos": Logos,
   "cores": Colors,
   "tipografia": Typography,
@@ -87,6 +92,8 @@ const SECTIONS: Record<string, React.ComponentType> = {
   "tables": Tables,
   "tooltips": Tooltips,
   "cards": Cards,
+  "overlays-utilitarios": AdvancedComponents,
+  "componentes-avancados": AdvancedComponents,
   "page-header": PageHeaders,
   "skeletons": Skeletons,
   "ai-assistant": AiAssistantSection,

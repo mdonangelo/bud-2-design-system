@@ -6,6 +6,12 @@
   color: var(--color-orange-400);
 }
 
+.mark {
+  width: var(--sp-md);
+  height: auto;
+  color: var(--color-orange-400);
+}
+
 /* ——— Demo frame ——— */
 
 .demoFrame {

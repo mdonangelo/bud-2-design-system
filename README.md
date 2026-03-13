@@ -8,6 +8,12 @@ Consulte os componentes, tokens e exemplos de uso na docs page:
 
 **[https://mdonangelo.github.io/bud-2-design-system/](https://mdonangelo.github.io/bud-2-design-system/)**
 
+Guias transversais importantes:
+
+- **Acessibilidade:** `https://mdonangelo.github.io/bud-2-design-system/#acessibilidade`
+- **Contrato de Overlays:** `https://mdonangelo.github.io/bud-2-design-system/#contrato-overlays`
+- **Overlays Utilitários:** `https://mdonangelo.github.io/bud-2-design-system/#overlays-utilitarios`
+
 ## Instalação
 
 ### 1. Configurar registry
@@ -164,26 +170,44 @@ import { Badge, Avatar } from "@mdonangelo/bud-ds";
 
 | Componente | Descrição |
 |---|---|
+| `Accordion` / `AccordionItem` | Conteúdo expansível |
 | `AiAssistant` | Copilot de IA |
-| `Avatar` | Foto de perfil com fallback |
-| `AvatarGroup` | Grupo de avatares empilhados |
-| `AvatarLabelGroup` | Avatares com labels |
+| `Alert` | Mensagens de feedback inline |
+| `Avatar` / `AvatarGroup` / `AvatarLabelGroup` | Variações de avatar |
 | `Badge` | Tag/etiqueta colorida |
 | `Breadcrumb` | Navegação em trilha |
 | `Button` | Botão (primary, secondary, tertiary) |
-| `Chart` | Gráfico de dados |
+| `Card` e subcomponentes | Container de conteúdo |
+| `Chart` / `ChartTooltipContent` | Gráficos com Recharts |
 | `Checkbox` | Caixa de seleção |
 | `ChoiceBoxGroup` / `ChoiceBox` | Seleção tipo card |
-| `DatePicker` | Seletor de data |
+| `CommandPalette` | Busca de comandos (overlay) |
+| `DatePicker` | Seletor de data (single/range) |
+| `Drawer` e subcomponentes | Painel lateral composto |
+| `DropdownButton` | Botão com menu flutuante |
+| `FilterBar` / `FilterChip` / `FilterDropdown` | Filtros compostos |
+| `Funnel` | Funil visual de progresso |
 | `GoalProgressBar` / `GoalGaugeBar` | Progresso de metas |
+| `Heatmap` | Mapa de calor |
 | `Input` | Campo de texto |
-| `Modal` / `ModalHeader` / `ModalBody` / `ModalFooter` | Modal composto |
-| `Popover` | Painel flutuante |
+| `Modal` e subcomponentes | Diálogo modal composto |
+| `NotificationPanel` | Painel de notificações |
+| `PageHeader` e botões auxiliares | Header de páginas |
+| `Popover` | Menu/painel flutuante |
+| `Radar` | Gráfico radar |
 | `Radio` | Botão de rádio |
+| `ScaleInput` | Escala de avaliação |
 | `Select` | Dropdown de seleção |
+| `Sidebar` e subcomponentes | Navegação lateral composta |
+| `Skeleton` | Placeholders de carregamento |
+| `SortableList` | Lista ordenável |
+| `Sparkline` | Mini gráfico de tendência |
+| `TabBar` | Navegação por abas |
+| `Table` e subcomponentes | Tabela com seleção e paginação |
 | `Textarea` | Campo multilinha |
 | `toast` / `Toaster` | Notificações toast |
 | `Toggle` | Interruptor on/off |
+| `Tooltip` | Dica contextual |
 
 ## Ícones
 

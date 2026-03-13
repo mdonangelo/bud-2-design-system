@@ -34,6 +34,13 @@ export const NAV_GROUPS: NavGroup[] = [
     items: [{ id: "visao-geral", label: "Visão Geral" }],
   },
   {
+    label: "Governança",
+    items: [
+      { id: "acessibilidade", label: "Acessibilidade" },
+      { id: "contrato-overlays", label: "Contrato de Overlays" },
+    ],
+  },
+  {
     label: "Fundamentos",
     items: [
       { id: "logos", label: "Logos" },
@@ -73,6 +80,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { id: "cards", label: "Cards" },
       { id: "page-header", label: "Page Header" },
       { id: "charts", label: "Charts" },
+      { id: "overlays-utilitarios", label: "Overlays Utilitários" },
       { id: "goal-progress", label: "Goal Progress" },
       { id: "pagination", label: "Pagination" },
       { id: "popovers", label: "Popovers" },

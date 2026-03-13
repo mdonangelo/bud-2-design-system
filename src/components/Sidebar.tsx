@@ -2,6 +2,7 @@ import {
   type ReactNode,
   type ComponentType,
   type KeyboardEvent as ReactKeyboardEvent,
+  type MouseEvent as ReactMouseEvent,
   type HTMLAttributes,
   createContext,
   forwardRef,
@@ -124,15 +125,29 @@ export function Sidebar({
 
 interface SidebarHeaderProps {
   children: ReactNode;
+  /** Conteúdo exibido no estado colapsado (ex: símbolo da marca) */
+  collapsedContent?: ReactNode;
 }
 
-export function SidebarHeader({ children }: SidebarHeaderProps) {
+export function SidebarHeader({ children, collapsedContent }: SidebarHeaderProps) {
   const collapsed = useContext(CollapsedContext);
   const onCollapse = useContext(CollapseCallbackContext);
 
+  function handleCollapseClick(e: ReactMouseEvent<HTMLButtonElement>) {
+    onCollapse?.();
+    if (e.detail > 0) {
+      const target = e.currentTarget;
+      requestAnimationFrame(() => {
+        target.blur();
+      });
+    }
+  }
+
   return (
     <div className={s.header}>
-      {children}
+      <div className={s.headerBrand}>
+        {collapsed && collapsedContent ? collapsedContent : children}
+      </div>
       {onCollapse && (
         <div className={s.collapseHitArea}>
           <Tooltip
@@ -142,7 +157,7 @@ export function SidebarHeader({ children }: SidebarHeaderProps) {
             <button
               type="button"
               className={s.collapseBtn}
-              onClick={onCollapse}
+              onClick={handleCollapseClick}
               aria-label={collapsed ? "Expandir sidebar" : "Recolher sidebar"}
             >
               {collapsed ? <CaretLineRight size={14} /> : <CaretLineLeft size={14} />}

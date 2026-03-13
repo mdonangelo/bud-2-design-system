@@ -66,7 +66,18 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--sp-xs) var(--sp-xs) 0;
+  position: relative;
   transition: padding 200ms ease;
+}
+
+.headerBrand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.headerBrand > * {
+  max-width: 100%;
 }
 
 /* ——— Org switcher ——— */
@@ -426,11 +437,19 @@
 .rootCollapsed .header {
   justify-content: center;
   padding: var(--sp-xs) var(--sp-2xs) 0;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.rootCollapsed .headerBrand {
+  width: var(--sp-md);
+  min-width: var(--sp-md);
+  justify-content: center;
 }
 
 .rootCollapsed .collapseHitArea {
-  opacity: 1;
+  position: absolute;
+  top: var(--sp-xs);
+  right: var(--sp-3xs);
 }
 
 .rootCollapsed .orgWrapper {

@@ -6,6 +6,8 @@ import s from "./SearchModal.module.css";
 
 const SEARCH_KEYWORDS: Record<string, string[]> = {
   "visao-geral": ["overview", "início", "introdução"],
+  "acessibilidade": ["a11y", "aria", "teclado", "foco", "wcag", "screen reader"],
+  "contrato-overlays": ["overlay", "modal", "drawer", "escape", "focus trap", "click outside", "z-index"],
   logos: ["marca", "brand", "logotipo", "símbolo"],
   cores: ["colors", "paleta", "palette", "hex", "rgb", "tema"],
   tipografia: ["fonts", "fontes", "text", "heading", "título"],
@@ -28,6 +30,19 @@ const SEARCH_KEYWORDS: Record<string, string[]> = {
   badges: ["tag", "etiqueta", "status", "label"],
   breadcrumbs: ["navegação", "caminho", "path"],
   charts: ["gráfico", "chart", "dados", "visualização"],
+  "overlays-utilitarios": [
+    "notification panel",
+    "command palette",
+    "overlay",
+    "atalho",
+    "produtividade",
+    "notificacao",
+  ],
+  "componentes-avancados": [
+    "notification panel",
+    "command palette",
+    "overlay",
+  ],
   "goal-progress": ["meta", "progresso", "objetivo", "okr"],
   popovers: ["popover", "tooltip", "flutuante"],
   modals: ["modal", "dialog", "diálogo", "popup"],
