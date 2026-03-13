@@ -19,6 +19,8 @@ import { DropdownButtons } from "./docs/sections/DropdownButtons";
 import { FilterBars } from "./docs/sections/FilterBars";
 import { Checkboxes } from "./docs/sections/Checkboxes";
 import { Radios } from "./docs/sections/Radios";
+import { ScaleInputs } from "./docs/sections/ScaleInputs";
+import { SortableLists } from "./docs/sections/SortableLists";
 import { ChoiceBoxes } from "./docs/sections/ChoiceBoxes";
 import { Badges } from "./docs/sections/Badges";
 import { Breadcrumbs } from "./docs/sections/Breadcrumbs";
@@ -64,6 +66,8 @@ const SECTIONS: Record<string, React.ComponentType> = {
   "filter-bar": FilterBars,
   "checkboxes": Checkboxes,
   "radios": Radios,
+  "scale-inputs": ScaleInputs,
+  "sortable-lists": SortableLists,
   "choice-boxes": ChoiceBoxes,
   "accordions": Accordions,
   "badges": Badges,
