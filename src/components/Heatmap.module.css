@@ -3,9 +3,12 @@
    ═══════════════════════════════════════════ */
 
 .root {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: var(--heatmap-gap, var(--sp-3xs));
+  overflow-x: auto;
+  scrollbar-width: thin;
+  position: relative;
 }
 
 /* ——— Rows ——— */
@@ -20,7 +23,7 @@
 /* ——— Corner (empty top-left) ——— */
 
 .cornerCell {
-  width: var(--sp-2xl); /* 40px — largura fixa para labels de linha */
+  width: var(--heatmap-label-width, 100px);
   height: var(--heatmap-cell, var(--sp-2xl));
   flex-shrink: 0;
 }
@@ -39,12 +42,13 @@
   color: var(--color-neutral-500);
   line-height: 1.05;
   text-align: center;
+  flex-shrink: 0;
 }
 
 /* ——— Row labels ——— */
 
 .rowLabel {
-  width: var(--sp-2xl); /* 40px — largura fixa para labels de linha */
+  width: var(--heatmap-label-width, 100px);
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -76,6 +80,7 @@
   transition: opacity 120ms ease, outline 120ms ease;
   cursor: default;
   user-select: none;
+  flex-shrink: 0;
 }
 
 .cellDimmed {
@@ -88,8 +93,8 @@
 
 .cellActive {
   opacity: 1;
-  outline: 2px solid var(--color-neutral-950); /* structural focus-like indicator */
-  outline-offset: -2px; /* inset para não expandir o grid */
+  outline: 2px solid var(--color-neutral-950);
+  outline-offset: -2px;
 }
 
 /* ——— Legend ——— */
@@ -99,12 +104,12 @@
   align-items: center;
   gap: var(--sp-3xs);
   margin-top: var(--sp-xs);
-  padding-left: var(--sp-2xl); /* alinha com as células (mesma largura do rowLabel) */
+  padding-left: var(--heatmap-label-width, 100px);
 }
 
 .legendCell {
-  width: var(--sp-sm); /* 16px */
-  height: var(--sp-sm); /* 16px */
+  width: var(--sp-sm);
+  height: var(--sp-sm);
   border-radius: var(--radius-2xs);
 }
 
@@ -116,16 +121,66 @@
   line-height: 1.05;
 }
 
-/* ——— Responsive ——— */
+/* ——— Tooltip ——— */
 
-@media (max-width: 480px) {
-  .root {
-    overflow-x: auto;
+.tooltip {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  margin-top: calc(-1 * var(--sp-2xs));
+  padding: var(--sp-2xs) var(--sp-xs);
+  background: var(--color-neutral-900);
+  color: var(--color-white);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-sm);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: tooltipIn 100ms ease both;
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100%) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%) translateY(0);
   }
 }
 
+.tooltipRow {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  line-height: 1.3;
+}
+
+.tooltipCol {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-neutral-300);
+  line-height: 1.3;
+  max-width: 280px;
+  white-space: normal;
+}
+
+.tooltipValue {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-md);
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+/* ——— Responsive ——— */
+
 @media (prefers-reduced-motion: reduce) {
-  .cell {
+  .cell,
+  .tooltip {
     animation: none;
     transition: none;
   }

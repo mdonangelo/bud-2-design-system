@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from "react";
+import { useState, useRef, type CSSProperties } from "react";
 import s from "./Heatmap.module.css";
 
 export interface HeatmapCell {
@@ -29,8 +29,12 @@ export interface HeatmapProps {
   formatValue?: (value: number) => string;
   /** Cell size in px (default: 40) */
   cellSize?: number;
+  /** Row label column width in px (default: 100) */
+  labelWidth?: number;
   /** Gap between cells in px (default: 4) */
   gap?: number;
+  /** Map column labels to full-text tooltips shown on hover */
+  columnTooltips?: Record<string, string>;
   className?: string;
 }
 
@@ -61,10 +65,13 @@ export function Heatmap({
   showValues = true,
   formatValue,
   cellSize = 40,
+  labelWidth = 100,
   gap = 4,
+  columnTooltips,
   className,
 }: HeatmapProps) {
   const [hoveredCell, setHoveredCell] = useState<{ row: string; col: string } | null>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   // Build lookup map
   const lookup = new Map<string, number>();
@@ -99,11 +106,45 @@ export function Heatmap({
 
   const vars = {
     "--heatmap-cell": `${cellSize}px`,
+    "--heatmap-label-width": `${labelWidth}px`,
     "--heatmap-gap": `${gap}px`,
   } as CSSProperties;
 
+  /* ——— Tooltip positioning ——— */
+  const [tooltip, setTooltip] = useState<{
+    row: string;
+    col: string;
+    value: number;
+    x: number;
+    y: number;
+  } | null>(null);
+
+  function handleCellEnter(row: string, col: string, value: number, e: React.MouseEvent) {
+    setHoveredCell({ row, col });
+    const rootRect = rootRef.current?.getBoundingClientRect();
+    const cellRect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    if (rootRect) {
+      setTooltip({
+        row,
+        col,
+        value,
+        x: cellRect.left - rootRect.left + cellRect.width / 2,
+        y: cellRect.top - rootRect.top,
+      });
+    }
+  }
+
+  function handleCellLeave() {
+    setHoveredCell(null);
+    setTooltip(null);
+  }
+
+  const colTooltipLabel = (col: string) =>
+    columnTooltips?.[col] ? `${col} — ${columnTooltips[col]}` : col;
+
   return (
     <div
+      ref={rootRef}
       className={`${s.root} ${className ?? ""}`}
       style={vars}
       role="table"
@@ -113,7 +154,12 @@ export function Heatmap({
       <div className={s.headerRow} role="row">
         <span className={s.cornerCell} role="columnheader" />
         {columns.map((col) => (
-          <span key={col} className={s.colLabel} role="columnheader">
+          <span
+            key={col}
+            className={s.colLabel}
+            role="columnheader"
+            title={columnTooltips?.[col]}
+          >
             {col}
           </span>
         ))}
@@ -122,7 +168,7 @@ export function Heatmap({
       {/* Data rows */}
       {rows.map((row) => (
         <div key={row} className={s.dataRow} role="row">
-          <span className={s.rowLabel} role="rowheader">
+          <span className={s.rowLabel} role="rowheader" title={row}>
             {row}
           </span>
           {columns.map((col) => {
@@ -157,8 +203,8 @@ export function Heatmap({
                 aria-label={
                   hasValue ? `${row}, ${col}: ${format(value)}` : `${row}, ${col}: sem dados`
                 }
-                onMouseEnter={() => setHoveredCell({ row, col })}
-                onMouseLeave={() => setHoveredCell(null)}
+                onMouseEnter={hasValue ? (e) => handleCellEnter(row, col, value, e) : undefined}
+                onMouseLeave={handleCellLeave}
               >
                 {hasValue && showValues ? format(value) : ""}
               </span>
@@ -179,6 +225,22 @@ export function Heatmap({
         ))}
         <span className={s.legendLabel}>Maior</span>
       </div>
+
+      {/* Tooltip */}
+      {tooltip && (
+        <div
+          className={s.tooltip}
+          style={{
+            left: `${tooltip.x}px`,
+            top: `${tooltip.y}px`,
+          }}
+          aria-hidden="true"
+        >
+          <span className={s.tooltipRow}>{tooltip.row}</span>
+          <span className={s.tooltipCol}>{colTooltipLabel(tooltip.col)}</span>
+          <span className={s.tooltipValue}>{format(tooltip.value)}</span>
+        </div>
+      )}
     </div>
   );
 }
