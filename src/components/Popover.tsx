@@ -29,6 +29,8 @@ export interface PopoverItem {
   badge?: number;
   /** Estilo destrutivo (vermelho) para ações como logout/excluir */
   danger?: boolean;
+  /** Renderiza um separador (linha horizontal) antes deste item */
+  divider?: boolean;
 }
 
 interface PopoverProps {
@@ -354,45 +356,86 @@ export function Popover({ items, open, onClose, anchorRef, ariaLabel }: PopoverP
       aria-label={ariaLabel ?? "Popover"}
       onKeyDown={handlePopoverKeyDown}
     >
-      {items.map((item, index) =>
-        item.submenu ? (
-          <div
-            key={item.id}
-            className={`${s.submenuWrapper}${submenuFlip ? ` ${s.submenuFlip}` : ""}${openSubmenuId === item.id ? ` ${s.submenuWrapperOpen}` : ""}`}
-            data-submenu-trigger={item.id}
-            onBlur={(e) => {
-              requestAnimationFrame(() => {
-                if (!e.currentTarget.contains(document.activeElement)) {
-                  setOpenSubmenuId((current) => (current === item.id ? null : current));
-                }
-              });
-            }}
-          >
+      {items.map((item, index) => {
+        const dividerEl = item.divider ? <hr className={s.divider} /> : null;
+
+        if (item.submenu) {
+          return (
+            <div key={item.id}>
+              {dividerEl}
+              <div
+                className={`${s.submenuWrapper}${submenuFlip ? ` ${s.submenuFlip}` : ""}${openSubmenuId === item.id ? ` ${s.submenuWrapperOpen}` : ""}`}
+                data-submenu-trigger={item.id}
+                onBlur={(e) => {
+                  requestAnimationFrame(() => {
+                    if (!e.currentTarget.contains(document.activeElement)) {
+                      setOpenSubmenuId((current) => (current === item.id ? null : current));
+                    }
+                  });
+                }}
+              >
+                <button
+                  type="button"
+                  className={s.item}
+                  role="menuitem"
+                  tabIndex={index === focusedIndex ? 0 : -1}
+                  aria-haspopup="menu"
+                  aria-expanded={openSubmenuId === item.id}
+                  aria-controls={`${item.id}-submenu`}
+                  data-submenu-trigger={item.id}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const wrapper = e.currentTarget.closest(`.${s.submenuWrapper}`);
+                    setOpenSubmenuId((current) => {
+                      const nextOpen = current === item.id ? null : item.id;
+
+                      if (nextOpen === item.id && wrapper instanceof HTMLElement) {
+                        requestAnimationFrame(() => {
+                          adjustSubmenuOverflow(wrapper);
+                          const submenuItems = getSubmenuFocusable(wrapper);
+                          submenuItems[0]?.focus();
+                        });
+                      }
+
+                      return nextOpen;
+                    });
+                  }}
+                >
+                  {item.image ? (
+                    <img src={item.image} alt="" className={s.itemImage} />
+                  ) : item.icon ? (
+                    <item.icon size={16} className={s.itemIcon} />
+                  ) : null}
+                  <span className={s.itemLabel}>{item.label}</span>
+                  {item.badge != null && item.badge > 0 && (
+                    <span className={s.itemBadge}>{item.badge}</span>
+                  )}
+                  <CaretRight size={12} className={s.itemCaret} />
+                </button>
+                <div
+                  id={`${item.id}-submenu`}
+                  className={s.submenu}
+                  role="menu"
+                  aria-label={`${item.label} submenu`}
+                >
+                  {item.submenu}
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+        return (
+          <div key={item.id}>
+            {dividerEl}
             <button
               type="button"
-              className={s.item}
+              className={`${s.item}${item.danger ? ` ${s.itemDanger}` : ""}`}
               role="menuitem"
               tabIndex={index === focusedIndex ? 0 : -1}
-              aria-haspopup="menu"
-              aria-expanded={openSubmenuId === item.id}
-              aria-controls={`${item.id}-submenu`}
-              data-submenu-trigger={item.id}
-              onClick={(e) => {
-                e.preventDefault();
-                const wrapper = e.currentTarget.closest(`.${s.submenuWrapper}`);
-                setOpenSubmenuId((current) => {
-                  const nextOpen = current === item.id ? null : item.id;
-
-                  if (nextOpen === item.id && wrapper instanceof HTMLElement) {
-                    requestAnimationFrame(() => {
-                      adjustSubmenuOverflow(wrapper);
-                      const submenuItems = getSubmenuFocusable(wrapper);
-                      submenuItems[0]?.focus();
-                    });
-                  }
-
-                  return nextOpen;
-                });
+              onClick={() => {
+                item.onClick?.();
+                handleClose();
               }}
             >
               {item.image ? (
@@ -400,42 +443,11 @@ export function Popover({ items, open, onClose, anchorRef, ariaLabel }: PopoverP
               ) : item.icon ? (
                 <item.icon size={16} className={s.itemIcon} />
               ) : null}
-              <span className={s.itemLabel}>{item.label}</span>
-              {item.badge != null && item.badge > 0 && (
-                <span className={s.itemBadge}>{item.badge}</span>
-              )}
-              <CaretRight size={12} className={s.itemCaret} />
+              <span>{item.label}</span>
             </button>
-            <div
-              id={`${item.id}-submenu`}
-              className={s.submenu}
-              role="menu"
-              aria-label={`${item.label} submenu`}
-            >
-              {item.submenu}
-            </div>
           </div>
-        ) : (
-          <button
-            key={item.id}
-            type="button"
-            className={`${s.item}${item.danger ? ` ${s.itemDanger}` : ""}`}
-            role="menuitem"
-            tabIndex={index === focusedIndex ? 0 : -1}
-            onClick={() => {
-              item.onClick?.();
-              handleClose();
-            }}
-          >
-            {item.image ? (
-              <img src={item.image} alt="" className={s.itemImage} />
-            ) : item.icon ? (
-              <item.icon size={16} className={s.itemIcon} />
-            ) : null}
-            <span>{item.label}</span>
-          </button>
-        ),
-      )}
+        );
+      })}
     </div>,
     document.body,
   );

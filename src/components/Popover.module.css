@@ -21,6 +21,13 @@
   }
 }
 
+/* ——— Divider ——— */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-caramel-200);
+  margin: var(--sp-3xs) 0;
+}
+
 /* ——— Popover item ——— */
 .item {
   display: flex;
