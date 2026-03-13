@@ -75,7 +75,6 @@ export function ScaleInput({
 
       if (nextValue !== null) {
         onChange?.(nextValue);
-        // Focus the newly selected button
         const btn = containerRef.current?.querySelector<HTMLElement>(
           `[data-value="${nextValue}"]`,
         );
@@ -98,6 +97,14 @@ export function ScaleInput({
 
   return (
     <div className={rootClasses}>
+      {/* Desktop labels — shown above the buttons, hidden on mobile */}
+      {hasLabels && (
+        <div className={s.labelsDesktop}>
+          <span className={s.label}>{minLabel}</span>
+          <span className={s.label}>{maxLabel}</span>
+        </div>
+      )}
+
       <div
         ref={containerRef}
         className={s.buttons}
@@ -106,6 +113,8 @@ export function ScaleInput({
       >
         {values.map((v, i) => {
           const isSelected = value === v;
+          const isFirst = i === 0;
+          const isLast = i === values.length - 1;
           const tabIndex =
             value !== undefined
               ? isSelected
@@ -115,13 +124,23 @@ export function ScaleInput({
                 ? 0
                 : -1;
 
+          /* Inline label for mobile — only on first/last button */
+          const inlineLabel =
+            isFirst && minLabel
+              ? minLabel
+              : isLast && maxLabel
+                ? maxLabel
+                : null;
+
           return (
             <button
               key={v}
               type="button"
               role="radio"
               aria-checked={isSelected}
-              aria-label={String(v)}
+              aria-label={
+                inlineLabel ? `${v} — ${inlineLabel}` : String(v)
+              }
               id={`${uid}-${v}`}
               data-value={v}
               tabIndex={tabIndex}
@@ -130,17 +149,14 @@ export function ScaleInput({
               onClick={() => handleSelect(v)}
               onKeyDown={(e) => handleKeyDown(e, v)}
             >
-              {v}
+              <span className={s.btnNumber}>{v}</span>
+              {inlineLabel && (
+                <span className={s.btnLabel}>{inlineLabel}</span>
+              )}
             </button>
           );
         })}
       </div>
-      {hasLabels && (
-        <div className={s.labels}>
-          <span className={s.label}>{minLabel}</span>
-          <span className={s.label}>{maxLabel}</span>
-        </div>
-      )}
     </div>
   );
 }
