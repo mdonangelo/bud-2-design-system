@@ -1,7 +1,7 @@
 {
   "$schema": "https://bud-ds.dev/registry-schema.json",
   "name": "Bud Design System",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Sistema de design para a plataforma Bud — gestão de desempenho contínua",
   "packages": {
     "react": "@mdonangelo/bud-ds",
