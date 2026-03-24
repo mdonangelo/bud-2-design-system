@@ -276,7 +276,7 @@ const htmlUsageCode = `<!-- Popover Select (single mode) -->
     .addEventListener("bud-close", () => {
       el.removeAttribute("open");
     });
-<\/script>`;
+</script>`;
 
 /* ——— Page ——— */
 

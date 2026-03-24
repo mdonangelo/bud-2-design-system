@@ -46,7 +46,7 @@ const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
     .addEventListener("bud-dismiss", () => { /* fechar */ });
   document.querySelector("bud-alert")
     .addEventListener("bud-action", () => { /* ação */ });
-<\/script>`;
+</script>`;
 
 const variants = ["info", "success", "warning", "error"] as const;
 

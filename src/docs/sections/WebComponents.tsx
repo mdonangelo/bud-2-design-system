@@ -7,13 +7,13 @@ import s from "./WebComponents.module.css";
 /* ——— Code snippets ——— */
 const installCdn = `<!-- CDN / arquivo estático -->
 <link rel="stylesheet" href="bud-ds.css" />
-<script src="bud-ds.iife.js"><\/script>`;
+<script src="bud-ds.iife.js"></script>`;
 
 const installEsm = `<!-- ES Module -->
 <link rel="stylesheet" href="bud-ds.css" />
 <script type="module">
   import "./bud-ds.js";
-<\/script>`;
+</script>`;
 
 const installNpm = `npm install @mdonangelo/bud-ds-vanilla`;
 
@@ -38,7 +38,7 @@ const eventsCode = `<script>
     .addEventListener("bud-close", () => {
       modal.removeAttribute("open");
     });
-<\/script>`;
+</script>`;
 
 const iconsCode = `<script>
   // Ícones pré-registrados: plus, x, check, minus,
@@ -48,7 +48,7 @@ const iconsCode = `<script>
 
   // Registrar ícone customizado
   BudDS.registerIcon("meu-icone", '<path d="M..."/>');
-<\/script>
+</script>
 
 <!-- Usar via atributo -->
 <bud-button icon-left="meu-icone">Custom</bud-button>`;
@@ -67,7 +67,7 @@ const formCode = `<form id="meuForm">
       const data = new FormData(e.target);
       console.log(Object.fromEntries(data));
     });
-<\/script>`;
+</script>`;
 
 export function WebComponents() {
   return (

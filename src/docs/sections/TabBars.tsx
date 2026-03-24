@@ -96,7 +96,7 @@ const htmlUsageCode = `<!-- Tab Bar (JSON-driven) -->
       // Atualizar atributo active-tab para refletir mudança
       e.target.setAttribute("active-tab", e.detail.value);
     });
-<\/script>`;
+</script>`;
 
 /* ——— Demos ——— */
 

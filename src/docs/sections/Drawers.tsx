@@ -99,7 +99,7 @@ const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
   drawer.addEventListener("bud-close", () => {
     drawer.removeAttribute("open");
   });
-<\/script>`;
+</script>`;
 
 const departmentOptions = [
   { value: "eng", label: "Engenharia" },

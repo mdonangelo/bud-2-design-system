@@ -551,7 +551,7 @@ const htmlUsageCode = `<!-- Filter Bar com chips -->
     chip.addEventListener("bud-click", () => { /* toggle dropdown */ });
     chip.addEventListener("bud-remove", () => { chip.remove(); });
   });
-<\/script>`;
+</script>`;
 
 const usageCode = `import {
   FilterBar,

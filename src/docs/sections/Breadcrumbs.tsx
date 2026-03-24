@@ -56,7 +56,7 @@ const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
     .addEventListener("bud-navigate", (e) => {
       console.log("Navegou para index:", e.detail.index);
     });
-<\/script>`;
+</script>`;
 
 export function Breadcrumbs() {
   return (

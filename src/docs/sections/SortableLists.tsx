@@ -45,7 +45,7 @@ const htmlUsageCode = `<!-- Sortable List (JSON-driven) -->
     .addEventListener("bud-change", (e) => {
       console.log(e.detail.items); // array reordenado
     });
-<\/script>`;
+</script>`;
 
 const PRIORITIES: SortableItem[] = [
   { id: "p1", label: "Qualidade do código" },

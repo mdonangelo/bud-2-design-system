@@ -202,7 +202,7 @@ const htmlUsageCode = `<!-- Popover (JSON-driven items) -->
   popover.addEventListener("bud-close", () => {
     popover.removeAttribute("open");
   });
-<\/script>`;
+</script>`;
 
 /* ——— Seção principal ——— */
 

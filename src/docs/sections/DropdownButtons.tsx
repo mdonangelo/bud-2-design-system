@@ -105,7 +105,7 @@ const htmlUsageCode = `<!-- Dropdown Button -->
     .addEventListener("bud-select", (e) => {
       console.log(e.detail.id, e.detail.label);
     });
-<\/script>`;
+</script>`;
 
 export function DropdownButtons() {
   const [team, setTeam] = useState(teamItems[0]);

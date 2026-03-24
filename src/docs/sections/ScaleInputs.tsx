@@ -54,7 +54,7 @@ const htmlUsageCode = `<!-- Scale Input (0-10) -->
     .addEventListener("bud-change", (e) => {
       console.log(e.detail.value);
     });
-<\/script>`;
+</script>`;
 
 export function ScaleInputs() {
   const [npsValue, setNpsValue] = useState<number | undefined>(undefined);

@@ -69,11 +69,11 @@ npm install @mdonangelo/bud-ds-vanilla
 
 const setupHtml = `<!-- Opção A: ES Module -->
 <link rel="stylesheet" href="bud-ds.css" />
-<script type="module" src="bud-ds.js"><\/script>
+<script type="module" src="bud-ds.js"></script>
 
 <!-- Opção B: Script tag (IIFE) -->
 <link rel="stylesheet" href="bud-ds.css" />
-<script src="bud-ds.iife.js"><\/script>
+<script src="bud-ds.iife.js"></script>
 
 <!-- Sem build tools — apenas CSS + JS. -->
 <!-- Todos os custom elements são registrados automaticamente. -->`;
@@ -89,7 +89,7 @@ const usageHtml = `<!-- Componentes usam custom elements com Shadow DOM -->
     .addEventListener("bud-change", (e) => {
       console.log(e.detail.value);
     });
-<\/script>`;
+</script>`;
 
 /* ——— Tokens (compartilhado) ——— */
 

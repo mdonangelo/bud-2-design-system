@@ -40,7 +40,7 @@ const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
     .addEventListener("bud-change", (e) => {
       console.log(e.detail.checked);
     });
-<\/script>`;
+</script>`;
 
 const states = ["Default", "Hover", "Focused", "Disabled"] as const;
 

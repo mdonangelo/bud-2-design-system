@@ -65,7 +65,7 @@ const htmlUsageCode = `<!-- ChoiceBox Group -->
       console.log(e.detail.value, e.detail.checked);
     });
   });
-<\/script>`;
+</script>`;
 
 export function ChoiceBoxes() {
   const [interactive, setInteractive] = useState<string | undefined>("starter");

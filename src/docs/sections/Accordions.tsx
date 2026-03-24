@@ -51,7 +51,7 @@ const htmlUsageCode = `<!-- Accordion -->
     .addEventListener("bud-toggle", (e) => {
       console.log(e.detail.open);
     });
-<\/script>`;
+</script>`;
 
 const controlledCode = `const [open, setOpen] = useState(false);
 

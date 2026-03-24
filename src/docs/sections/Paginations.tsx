@@ -33,7 +33,7 @@ const htmlUsageCode = `<!-- Pagination -->
       const page = e.detail.page;
       e.target.setAttribute("current-page", page);
     });
-<\/script>`;
+</script>`;
 
 function BasicDemo() {
   const [page, setPage] = useState(1);

@@ -64,7 +64,7 @@ const htmlUsageCode = `<!-- Sidebar -->
     .addEventListener("bud-close", () => {
       sidebar.removeAttribute("mobile-open");
     });
-<\/script>`;
+</script>`;
 
 const usageCode = `import { useState, useRef } from "react";
 import {

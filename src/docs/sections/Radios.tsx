@@ -39,7 +39,7 @@ const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
       console.log(e.detail.value);
     });
   });
-<\/script>`;
+</script>`;
 
 const states = ["Default", "Hover", "Focused", "Disabled"] as const;
 

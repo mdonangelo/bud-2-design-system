@@ -63,7 +63,7 @@ const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
   // Dispensar
   toast.dismiss();       // todos
   toast.dismiss(id);     // específico
-<\/script>`;
+</script>`;
 
 export function Toasts() {
   return (
