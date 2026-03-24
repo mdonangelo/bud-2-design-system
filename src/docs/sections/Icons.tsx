@@ -44,20 +44,38 @@ const usageCode = `import { Users, Bell, Target } from "@phosphor-icons/react";
 
 // Tamanhos recomendados: 16, 20, 24, 32`;
 
-const htmlUsageCode = `<!-- Web Components: ícones via atributo icon-left / icon-right -->
+const htmlUsageCode = `<!-- No pacote vanilla, ícones são strings SVG registradas por nome.
+     O bundle já inclui ~20 ícones Phosphor (regular weight). -->
+
+<!-- 1. Usar ícones pré-registrados via atributo -->
 <bud-button icon-left="plus">Adicionar</bud-button>
+<bud-button icon-left="magnifying-glass" icon-right="caret-down">Buscar</bud-button>
 <bud-badge icon-left="check" color="success">OK</bud-badge>
 <bud-input icon-left="magnifying-glass" placeholder="Buscar..."></bud-input>
+<bud-alert variant="error" title="Erro"></bud-alert>  <!-- ícone automático -->
 
-<!-- Ícones pré-registrados: plus, x, check, minus, caret-down,
+<!-- 2. Ícones pré-registrados (todos Phosphor regular weight):
+     plus, x, check, minus, caret-down, caret-up, caret-left,
      caret-right, magnifying-glass, warning-circle, check-circle,
-     info, warning, circle-notch, dots-three, arrow-left, arrow-right -->
+     info, warning, circle-notch, dots-three, arrow-left,
+     arrow-right, sort-ascending, sort-descending -->
 
-<!-- Registrar ícone customizado -->
+<!-- 3. Registrar ícone Phosphor adicional -->
 <script>
-  BudDS.registerIcon("meu-icone", '<path d="M..."/>');
+  // O path SVG vem de phosphoricons.com (viewBox 0 0 256 256)
+  BudDS.registerIcon("bell",
+    '<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06Z"/>'
+  );
 </script>
-<bud-button icon-left="meu-icone">Custom</bud-button>`;
+<bud-button icon-left="bell">Notificações</bud-button>
+
+<!-- 4. Diferença React vs HTML:
+     React: import { Bell } from "@phosphor-icons/react"
+            <Bell size={20} />  (componente React)
+     HTML:  icon-left="bell"    (string registrada no registry)
+
+     Em React, qualquer ícone Phosphor funciona direto.
+     Em HTML, só os pré-registrados + os que você registrar. -->`;
 
 export function Icons() {
   return (
