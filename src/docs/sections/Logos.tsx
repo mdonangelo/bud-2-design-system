@@ -1,7 +1,7 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
-import { CodeSnippet } from "../CodeSnippet";
+import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import s from "./Logos.module.css";
 
 const variants = [
@@ -36,6 +36,20 @@ const usageCode = `/* Logotipo (wordmark) */
 .logoOrange { color: var(--color-orange-400); }
 .logoWine   { color: var(--color-wine-700); }
 .logoCream  { color: var(--color-caramel-100); }`;
+
+const htmlUsageCode = `<!-- Logotipo (wordmark) -->
+<img src="/logos/logo-bud.svg" alt="bud" />
+
+<!-- Símbolo (ícone) -->
+<img src="/logos/symbol-bud.svg" alt="bud symbol" />
+
+<!-- Para controlar a cor via CSS, use SVG inline
+     com fill="currentColor" e defina color no pai -->
+<style>
+  .logo-orange { color: var(--color-orange-400); }
+  .logo-wine   { color: var(--color-wine-700); }
+  .logo-cream  { color: var(--color-caramel-100); }
+</style>`;
 
 export function Logos() {
   return (
@@ -108,7 +122,10 @@ export function Logos() {
       </SubSection>
 
       <SubSection id="uso" title="Uso">
-        <CodeSnippet code={usageCode} language="jsx" />
+        <FrameworkSwitcher examples={[
+          { label: "React", language: "jsx", code: usageCode },
+          { label: "HTML", language: "html", code: htmlUsageCode },
+        ]} />
       </SubSection>
     </DocSection>
   );
