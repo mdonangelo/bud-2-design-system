@@ -52,13 +52,51 @@ const usageCode = `import { GoalProgressBar, GoalGaugeBar } from "@mdonangelo/bu
   formattedValue="3.2%"
 />`;
 
-const htmlUsageCode = `<!-- Goal Progress Bar -->
-<bud-goal-progress label="Meta trimestral" value="75" target="100" status="on-track" formatted-value="75%"></bud-goal-progress>
-<bud-goal-progress label="Vendas" value="30" target="100" expected="50" status="off-track" formatted-value="R$ 30k"></bud-goal-progress>
+const htmlUsageCode = `<!-- Goal Progress Bar — barra de progresso com meta -->
+<bud-goal-progress
+  label="Meta trimestral"
+  value="75"
+  target="100"
+  status="on-track"
+  formatted-value="75%"
+></bud-goal-progress>
 
-<!-- Goal Gauge Bar -->
-<bud-goal-gauge label="NPS" value="72" low="50" high="80" goal-type="between" min="0" max="100" status="on-track"></bud-goal-gauge>
-<bud-goal-gauge label="Churn" value="3" high="5" goal-type="below" min="0" max="10" status="attention" formatted-value="3%"></bud-goal-gauge>`;
+<!-- Com marcador de valor esperado -->
+<bud-goal-progress
+  label="Vendas"
+  value="30"
+  target="100"
+  expected="50"
+  status="off-track"
+  formatted-value="R$ 30k"
+></bud-goal-progress>
+
+<!-- Goal Gauge Bar — medidor com zona de meta -->
+<!-- goal-type: "above" (acima de low), "below" (abaixo de high),
+     "between" (entre low e high) -->
+<bud-goal-gauge
+  label="NPS"
+  value="72"
+  low="50"
+  high="80"
+  goal-type="between"
+  min="0"
+  max="100"
+  status="on-track"
+></bud-goal-gauge>
+
+<bud-goal-gauge
+  label="Churn"
+  value="3"
+  high="5"
+  goal-type="below"
+  min="0"
+  max="10"
+  status="attention"
+  formatted-value="3%"
+></bud-goal-gauge>
+
+<!-- status: "on-track" (verde), "attention" (amarelo), "off-track" (vermelho) -->`;
 
 export function GoalProgress() {
   const [progressValue, setProgressValue] = useState(64);

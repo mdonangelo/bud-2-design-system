@@ -540,19 +540,41 @@ function EmptyDemo() {
 
 /* ——— Code snippet ——— */
 
-const htmlUsageCode = `<!-- Filter Bar com chips -->
+const htmlUsageCode = `<!-- Filter Bar: container flex para chips de filtro -->
 <bud-filter-bar>
+  <!-- Chips ativos (cada um é um filtro aplicado) -->
   <bud-filter-chip label="Time: Design" active></bud-filter-chip>
   <bud-filter-chip label="Status: Ativo"></bud-filter-chip>
+
+  <!-- Botão para adicionar novo filtro -->
   <bud-button variant="tertiary" size="sm" icon-left="plus">Filtro</bud-button>
 </bud-filter-bar>
 
 <script>
+  // Cada chip emite dois eventos:
+  // - bud-click: ao clicar no chip (abrir/fechar dropdown de opções)
+  // - bud-remove: ao clicar no X (remover o filtro)
+
   document.querySelectorAll("bud-filter-chip").forEach(chip => {
-    chip.addEventListener("bud-click", () => { /* toggle dropdown */ });
-    chip.addEventListener("bud-remove", () => { chip.remove(); });
+    chip.addEventListener("bud-click", () => {
+      // Toggle "active" para indicar dropdown aberto
+      const isActive = chip.hasAttribute("active");
+      // Fechar outros chips
+      document.querySelectorAll("bud-filter-chip")
+        .forEach(c => c.removeAttribute("active"));
+      if (!isActive) chip.setAttribute("active", "");
+    });
+
+    chip.addEventListener("bud-remove", () => {
+      chip.remove(); // Remove o chip do DOM
+    });
   });
-</script>`;
+</script>
+
+<!-- Props do FilterChip:
+     label: texto do chip (ex: "Time: Design")
+     icon: ícone à esquerda (nome registrado)
+     active: estado ativo (destaque visual, dropdown aberto) -->`;
 
 const usageCode = `import {
   FilterBar,

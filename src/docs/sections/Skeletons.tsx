@@ -35,9 +35,8 @@ const usageCode = `import {
 {/* Preset heights */}
 const heights = SKELETON_HEIGHTS; // { text: 14, heading: 24, button: 40, ... }`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
-
-<!-- Sempre envolver em bud-skeleton-container para acessibilidade -->
+const htmlUsageCode = `<!-- SEMPRE envolver em bud-skeleton-container (acessibilidade).
+     Adiciona role="status" e texto "Carregando..." para screen readers. -->
 <bud-skeleton-container>
   <bud-skeleton variant="circular" width="40" height="40"></bud-skeleton>
   <bud-skeleton variant="text" width="200" height="14"></bud-skeleton>
@@ -45,8 +44,29 @@ const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
   <bud-skeleton variant="rounded" width="100%" height="40"></bud-skeleton>
 </bud-skeleton-container>
 
-<!-- Variantes: text, circular, rectangular, rounded -->
-<!-- Desabilitar animação -->
+<!-- Variantes: text (radius-2xs), circular (full), rectangular (0), rounded (radius-sm) -->
+
+<!-- Alturas recomendadas (consistentes com componentes reais):
+     text: 14px, heading: 24px, subheading: 18px,
+     button: 40px, input: 40px, avatar: 40px, avatarLg: 48px -->
+
+<!-- Exemplo: skeleton de perfil -->
+<bud-skeleton-container>
+  <div style="display:flex;gap:12px;align-items:center">
+    <bud-skeleton variant="circular" width="48" height="48"></bud-skeleton>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <bud-skeleton variant="text" width="140" height="14"></bud-skeleton>
+      <bud-skeleton variant="text" width="200" height="14"></bud-skeleton>
+    </div>
+  </div>
+</bud-skeleton-container>
+
+<!-- Texto customizado para screen reader -->
+<bud-skeleton-container loading-text="Carregando perfil...">
+  <bud-skeleton variant="rounded" width="100%" height="200"></bud-skeleton>
+</bud-skeleton-container>
+
+<!-- Desabilitar animação shimmer -->
 <bud-skeleton variant="text" width="100" height="14" animation="false"></bud-skeleton>`;
 
 const cardCode = `{/* Skeleton de card */}

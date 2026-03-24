@@ -586,11 +586,23 @@ function AssistantButtonDemo() {
 
 /* ——— Usage code ——— */
 
-const htmlUsageCode = `<!-- Page Header -->
+const htmlUsageCode = `<!-- Page Header com ações -->
 <bud-page-header title="Dashboard">
-  <bud-button variant="tertiary" size="md" icon-left="magnifying-glass" aria-label="Buscar"></bud-button>
-  <bud-button variant="primary" size="md" icon-left="plus">Novo</bud-button>
-</bud-page-header>`;
+  <!-- Slot: botões de ação no lado direito -->
+  <bud-button variant="tertiary" size="md"
+    icon-left="magnifying-glass" aria-label="Buscar"></bud-button>
+  <bud-button variant="primary" size="md" icon-left="plus">
+    Novo objetivo
+  </bud-button>
+</bud-page-header>
+
+<!-- Somente título (sem ações) -->
+<bud-page-header title="Configurações da conta"></bud-page-header>
+
+<!-- Nota: SearchButton, NotificationButton, AssistantButton,
+     CommandPalette e NotificationPanel são componentes de aplicação
+     disponíveis apenas na versão React. Em HTML, use bud-button
+     com os ícones correspondentes (magnifying-glass, etc.). -->`;
 
 const usageCode = `<PageHeader title="Todas as missões">
   <SearchButton onClick={() => setSearchOpen(true)} />
