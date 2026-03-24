@@ -8,6 +8,7 @@ import {
 } from "@phosphor-icons/react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Checkbox } from "../../components/Checkbox";
@@ -293,6 +294,17 @@ export function Popovers() {
           Clique fora do popover e do anchor fecha o popover
         </li>
       </ul>
+      </SubSection>
+
+      {/* API */}
+      <SubSection id="api-popover" title="API">
+        <PropsTable rows={[
+          { prop: "items", attr: "items (JSON)", type: "PopoverItem[]", description: "Array de itens { id, label, icon?, danger?, divider?, badge? }" },
+          { prop: "open", type: "boolean", description: "Controla visibilidade" },
+          { prop: "onClose", attr: "bud-close (event)", type: "() => void", description: "Callback ao fechar" },
+          { prop: "anchorRef", attr: "data-popover-anchor", type: "RefObject | attr", description: "Elemento âncora para posicionamento" },
+          { prop: "ariaLabel", attr: "aria-label", type: "string", description: "Label de acessibilidade" },
+        ]} />
       </SubSection>
 
       {/* Como usar */}

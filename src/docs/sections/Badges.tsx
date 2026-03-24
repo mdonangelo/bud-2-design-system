@@ -1,5 +1,6 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Badge } from "../../components/Badge";
@@ -196,6 +197,15 @@ export function Badges() {
             Filtro ativo
           </Badge>
         </div>
+      </SubSection>
+
+      <SubSection id="api-badge" title="API">
+        <PropsTable rows={[
+          { prop: "color", type: '"neutral" | "orange" | "wine" | "caramel" | "error" | "warning" | "success"', default: '"neutral"', description: "Cor semântica" },
+          { prop: "size", type: '"sm" | "md" | "lg"', default: '"sm"', description: "Tamanho do badge" },
+          { prop: "leftIcon", attr: "icon-left", type: "ComponentType | string", description: "Ícone à esquerda" },
+          { prop: "rightIcon", attr: "icon-right", type: "ComponentType | string", description: "Ícone à direita" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

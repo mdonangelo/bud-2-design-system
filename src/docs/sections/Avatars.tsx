@@ -1,5 +1,6 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Avatar, type AvatarSize } from "../../components/Avatar";
@@ -274,6 +275,17 @@ export function Avatars() {
             ))}
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-avatar" title="API">
+        <PropsTable rows={[
+          { prop: "size", type: '"xs" | "sm" | "md" | "lg" | "xl" | "2xl"', default: '"md"', description: "Tamanho do avatar" },
+          { prop: "src", type: "string", description: "URL da imagem" },
+          { prop: "initials", type: "string", description: "Iniciais (fallback quando sem src)" },
+          { prop: "alt", type: "string", description: "Texto alternativo da imagem" },
+          { prop: "online", type: "boolean", default: "false", description: "Indicador de online (dot verde)" },
+          { prop: "companyLogo", attr: "company-logo", type: "string", description: "URL do logo da empresa (badge)" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

@@ -1,5 +1,6 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { toast } from "../../components/Toast";
 import { Button } from "../../components/Button";
@@ -226,6 +227,19 @@ export function Toasts() {
             <strong>Animação:</strong> entrada e saída com transição de 400ms
           </li>
         </ul>
+      </SubSection>
+
+      <SubSection id="api-toast" title="API">
+        <PropsTable rows={[
+          { prop: "toast(title)", attr: "toast(title)", type: "function", description: "Cria toast neutro" },
+          { prop: "toast.success(title)", attr: "toast.success(title)", type: "function", description: "Toast de sucesso (green)" },
+          { prop: "toast.error(title)", attr: "toast.error(title)", type: "function", description: "Toast de erro (red)" },
+          { prop: "toast.warning(title)", attr: "toast.warning(title)", type: "function", description: "Toast de alerta (yellow)" },
+          { prop: "toast.black(title)", attr: "toast.black(title)", type: "function", description: "Toast dark" },
+          { prop: "description", attr: "options.description", type: "string", description: "Texto de descrição" },
+          { prop: "duration", attr: "options.duration", type: "number", default: "4000", description: "Duração em ms (Infinity para persistir)" },
+          { prop: "action", attr: "options.action", type: "{ label, onClick }", description: "Botão de ação" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

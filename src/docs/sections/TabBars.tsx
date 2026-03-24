@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { TabBar, getPanelId, getTabId } from "../../components/TabBar";
@@ -207,6 +208,15 @@ export function TabBars() {
         description="Abas desabilitadas não podem ser selecionadas nem recebem foco via teclado."
       >
         <DisabledDemo />
+      </SubSection>
+
+      <SubSection id="api-tabbar" title="API">
+        <PropsTable rows={[
+          { prop: "tabs", attr: "tabs (JSON)", type: "TabItem[]", description: "Array de tabs { value, label, badge?, disabled? }" },
+          { prop: "activeTab", attr: "active-tab", type: "string", description: "Value da tab ativa (obrigatório)" },
+          { prop: "onTabChange", attr: "bud-change (event)", type: "(value: string) => void", description: "Callback ao mudar tab" },
+          { prop: "ariaLabel", attr: "aria-label", type: "string", default: '"Abas"', description: "Label de acessibilidade" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

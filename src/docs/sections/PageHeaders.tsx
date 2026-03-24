@@ -16,6 +16,7 @@ import {
 } from "@phosphor-icons/react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { CodeSnippet } from "../CodeSnippet";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import {
@@ -822,6 +823,15 @@ export function PageHeaders() {
   onViewAll={() => navigate("/notifications")}
 />`}
         />
+      </SubSection>
+
+      {/* ═══ API ═══ */}
+
+      <SubSection id="api-pageheader" title="API">
+        <PropsTable rows={[
+          { prop: "title", type: "string", description: "Título da página (obrigatório)" },
+          { prop: "children", attr: "slot", type: "ReactNode | slot", description: "Botões de ação (SearchButton, NotificationButton, etc.)" },
+        ]} />
       </SubSection>
 
       {/* ═══ Anatomia ═══ */}

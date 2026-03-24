@@ -1,5 +1,6 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
 import { Skeleton, SkeletonContainer, SKELETON_HEIGHTS } from "../../components/Skeleton";
@@ -475,6 +476,15 @@ import { UserCircle } from "@phosphor-icons/react";
           <Skeleton variant="circular" width={40} height={40} animation={false} />
           <Skeleton variant="rounded" width={120} height={60} animation={false} />
         </div>
+      </SubSection>
+
+      <SubSection id="api-skeleton" title="API">
+        <PropsTable rows={[
+          { prop: "variant", type: '"text" | "circular" | "rectangular" | "rounded"', default: '"rectangular"', description: "Forma do skeleton" },
+          { prop: "width", type: "number | string", description: "Largura (px ou CSS)" },
+          { prop: "height", type: "number | string", description: "Altura (px ou CSS)" },
+          { prop: "animation", type: "boolean", default: "true", description: "Habilita animação shimmer" },
+        ]} />
       </SubSection>
 
       {/* Como usar */}

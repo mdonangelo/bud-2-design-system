@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
 import { Button } from "../../components/Button";
@@ -555,6 +556,17 @@ export function Drawers() {
             <code>cubic-bezier(0.32, 0.72, 0, 1)</code> em 300ms
           </li>
         </ul>
+      </SubSection>
+
+      <SubSection id="api-drawer" title="API">
+        <PropsTable rows={[
+          { prop: "open", type: "boolean", default: "false", description: "Controla visibilidade do drawer" },
+          { prop: "onClose", attr: "bud-close (event)", type: "() => void", description: "Callback ao fechar" },
+          { prop: "side", type: '"right" | "left"', default: '"right"', description: "Lado de abertura" },
+          { prop: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Largura (380/480/640px)" },
+          { prop: "width", type: "string", description: "Largura customizada (sobrescreve size)" },
+          { prop: "aria-label", type: "string", description: "Label de acessibilidade" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

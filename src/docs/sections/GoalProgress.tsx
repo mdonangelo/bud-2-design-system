@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { GoalProgressBar, GoalGaugeBar } from "../../components/GoalProgress";
@@ -308,7 +309,20 @@ export function GoalProgress() {
         </div>
       </SubSection>
 
-      {/* ——— 7. Como usar ——— */}
+      {/* ——— 7. API ——— */}
+      <SubSection id="api-goal" title="API">
+        <PropsTable rows={[
+          { prop: "label", type: "string", description: "Nome da meta (obrigatório)" },
+          { prop: "value", type: "number", description: "Valor atual (obrigatório)" },
+          { prop: "target", type: "number", default: "100", description: "Valor da meta" },
+          { prop: "min", type: "number", default: "0", description: "Valor mínimo" },
+          { prop: "formattedValue", attr: "formatted-value", type: "string", description: "Valor formatado para exibição" },
+          { prop: "expected", type: "number", description: "Valor esperado (marcador na barra)" },
+          { prop: "status", type: '"on-track" | "attention" | "off-track"', description: "Status visual (cor da barra)" },
+        ]} />
+      </SubSection>
+
+      {/* ——— 8. Como usar ——— */}
       <SubSection id="como-usar" title="Como usar">
         <FrameworkSwitcher examples={[
           { label: "React", language: "tsx", code: usageCode },

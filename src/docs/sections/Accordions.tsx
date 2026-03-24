@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Gear, ShieldCheck, Bell, CreditCard, Users, Lock } from "@phosphor-icons/react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
 import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
@@ -264,6 +265,17 @@ export function Accordions() {
         description="Controle o estado externamente para permitir apenas um item aberto por vez."
       >
         <ControlledDemo />
+      </SubSection>
+
+      <SubSection id="api-accordion" title="API">
+        <PropsTable rows={[
+          { prop: "header", type: "boolean", default: "false", description: "Aplica fundo sutil (caramel-50) nos triggers" },
+          { prop: "title", attr: "title (Item)", type: "string", description: "Título do item (obrigatório)" },
+          { prop: "description", attr: "description (Item)", type: "string", description: "Descrição abaixo do título" },
+          { prop: "icon", attr: "icon (Item)", type: "ComponentType | string", description: "Ícone à esquerda do título" },
+          { prop: "open", attr: "open (Item)", type: "boolean", default: "false", description: "Estado aberto (controlado)" },
+          { prop: "disabled", attr: "disabled (Item)", type: "boolean", default: "false", description: "Desabilita o item" },
+        ]} />
       </SubSection>
 
       <SubSection id="accordion-como-usar" title="Como usar">

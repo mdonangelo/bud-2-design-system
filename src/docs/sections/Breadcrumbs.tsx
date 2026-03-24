@@ -1,5 +1,6 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { Breadcrumb } from "../../components/Breadcrumb";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
@@ -101,6 +102,13 @@ export function Breadcrumbs() {
           <span className={s.demoLabel}>current=2</span>
           <Breadcrumb items={hierarchyItems} current={2} />
         </div>
+      </SubSection>
+
+      <SubSection id="api-breadcrumb" title="API">
+        <PropsTable rows={[
+          { prop: "items", attr: "items (JSON)", type: "BreadcrumbItem[]", description: "Array de items { label, href?, onClick? }" },
+          { prop: "current", type: "number", default: "0", description: "Índice do item atual (0-based)" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

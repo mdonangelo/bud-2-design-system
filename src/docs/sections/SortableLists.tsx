@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { SortableList } from "../../components/SortableList";
@@ -175,6 +176,15 @@ export function SortableLists() {
             <span>Mover item para baixo</span>
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-sortable" title="API">
+        <PropsTable rows={[
+          { prop: "items", attr: "items (JSON)", type: "SortableItem[]", description: "Array de itens { id, label }" },
+          { prop: "onChange", attr: "bud-change (event)", type: "(items: SortableItem[]) => void", description: "Callback após reordenar" },
+          { prop: "size", type: '"sm" | "md"', default: '"md"', description: "Tamanho dos itens" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita drag-and-drop" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

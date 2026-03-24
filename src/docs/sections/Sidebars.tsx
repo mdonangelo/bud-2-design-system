@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
 import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
@@ -513,6 +514,19 @@ export function Sidebars() {
             Itens suportam <code>href</code> (renderiza <code>&lt;a&gt;</code>) ou <code>onClick</code> (renderiza <code>&lt;button&gt;</code>)
           </li>
         </ul>
+      </SubSection>
+
+      <SubSection id="api-sidebar" title="API">
+        <PropsTable rows={[
+          { prop: "collapsed", type: "boolean", default: "false", description: "Estado colapsado (56px)" },
+          { prop: "onCollapse", attr: "\u2014", type: "() => void", description: "Callback toggle collapse (React only)" },
+          { prop: "mobileOpen", attr: "mobile-open", type: "boolean", default: "false", description: "Drawer mobile visível" },
+          { prop: "onMobileClose", attr: "bud-close (event)", type: "() => void", description: "Callback fechar mobile" },
+          { prop: "icon", attr: "icon (Item)", type: "ComponentType | string", description: "Ícone do item de menu" },
+          { prop: "label", attr: "label (Item/Group)", type: "string", description: "Texto do item ou grupo" },
+          { prop: "active", attr: "active (Item)", type: "boolean", description: "Item ativo (destaque visual)" },
+          { prop: "href", attr: "href (Item)", type: "string", description: "Link de navegação" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

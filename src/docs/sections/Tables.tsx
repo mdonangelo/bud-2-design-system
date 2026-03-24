@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { DotsThreeVertical, Circle, PencilSimple, Trash } from "@phosphor-icons/react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
 import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
@@ -377,6 +378,18 @@ export function Tables() {
         description="Sem card header, sem seleção, sem paginação. Uso mínimo para dados compactos."
       >
         <SimpleDemo />
+      </SubSection>
+
+      <SubSection id="api-table" title="API">
+        <PropsTable rows={[
+          { prop: "variant", type: '"divider" | "striped"', default: '"divider"', description: "Estilo visual das linhas" },
+          { prop: "elevated", type: "boolean", default: "true", description: "Aplica sombra" },
+          { prop: "bordered", type: "boolean", default: "true", description: "Aplica borda e border-radius" },
+          { prop: "selectable", type: "boolean", default: "false", description: "Habilita seleção de linhas" },
+          { prop: "sortable", attr: "sortable (HeaderCell)", type: "boolean", description: "Habilita ordenação na coluna" },
+          { prop: "sortDirection", attr: "sort-direction (HeaderCell)", type: '"asc" | "desc"', description: "Direção da ordenação" },
+          { prop: "align", attr: "align (Cell/HeaderCell)", type: '"left" | "center" | "right"', description: "Alinhamento do conteúdo" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

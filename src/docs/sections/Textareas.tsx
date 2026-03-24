@@ -1,6 +1,7 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
+import { PropsTable } from "../PropsTable";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Textarea } from "../../components/Textarea";
 import textareaStyles from "../../components/Textarea.module.css";
@@ -127,6 +128,17 @@ export function Textareas() {
             />
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-textarea" title="API">
+        <PropsTable rows={[
+          { prop: "label", type: "string", description: "Label do campo" },
+          { prop: "rows", type: "number", default: "4", description: "Número de linhas visíveis" },
+          { prop: "message", type: "string", description: "Texto da mensagem de feedback" },
+          { prop: "messageType", attr: "message-type", type: '"error" | "attention" | "success"', description: "Tipo da mensagem" },
+          { prop: "placeholder", type: "string", description: "Texto placeholder" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita o campo" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

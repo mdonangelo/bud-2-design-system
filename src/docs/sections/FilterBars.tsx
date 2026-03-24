@@ -10,6 +10,7 @@ import {
 } from "@phosphor-icons/react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import {
@@ -690,6 +691,16 @@ export function FilterBars() {
             </p>
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-filterbar" title="API">
+        <PropsTable rows={[
+          { prop: "label", attr: "label (Chip)", type: "string", description: "Texto do chip de filtro" },
+          { prop: "icon", attr: "icon (Chip)", type: "ComponentType | string", description: "Ícone do chip" },
+          { prop: "active", attr: "active (Chip)", type: "boolean", description: "Estado ativo (dropdown aberto)" },
+          { prop: "onClick", attr: "bud-click (event)", type: "() => void", description: "Callback ao clicar no chip" },
+          { prop: "onRemove", attr: "bud-remove (event)", type: "() => void", description: "Callback ao remover o chip" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

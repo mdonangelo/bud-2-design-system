@@ -2,6 +2,7 @@ import { MapPin, Users } from "@phosphor-icons/react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
+import { PropsTable } from "../PropsTable";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Select } from "../../components/Select";
 import { Button } from "../../components/Button";
@@ -305,6 +306,21 @@ export function Selects() {
             />
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-select" title="API">
+        <PropsTable rows={[
+          { prop: "options", attr: "options (JSON)", type: "SelectOption[]", description: "Array de opções { value, label }" },
+          { prop: "value", type: "string", description: "Valor selecionado" },
+          { prop: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Tamanho do trigger" },
+          { prop: "label", type: "string", description: "Label acima do select" },
+          { prop: "placeholder", type: "string", default: '"Selecione..."', description: "Texto placeholder" },
+          { prop: "searchable", type: "boolean", default: "false", description: "Habilita busca nas opções" },
+          { prop: "searchPlaceholder", attr: "search-placeholder", type: "string", default: '"Buscar..."', description: "Placeholder da busca" },
+          { prop: "message", type: "string", description: "Mensagem de feedback" },
+          { prop: "messageType", attr: "message-type", type: '"error" | "attention" | "success"', description: "Tipo da mensagem" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita o select" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
+import { PropsTable } from "../PropsTable";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { ScaleInput } from "../../components/ScaleInput";
 import s from "./ScaleInputs.module.css";
@@ -218,6 +219,18 @@ export function ScaleInputs() {
             <span>Ir para o valor máximo</span>
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-scale" title="API">
+        <PropsTable rows={[
+          { prop: "min", type: "number", default: "0", description: "Valor mínimo da escala" },
+          { prop: "max", type: "number", default: "10", description: "Valor máximo da escala" },
+          { prop: "value", type: "number", description: "Valor selecionado" },
+          { prop: "minLabel", attr: "min-label", type: "string", description: "Label do valor mínimo" },
+          { prop: "maxLabel", attr: "max-label", type: "string", description: "Label do valor máximo" },
+          { prop: "size", type: '"sm" | "md"', default: '"md"', description: "Tamanho dos botões" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita a escala" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

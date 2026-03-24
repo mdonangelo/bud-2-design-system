@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Pagination } from "../../components/Pagination";
@@ -113,6 +114,14 @@ export function Paginations() {
         description="Quando há apenas uma página, ambos os botões ficam desabilitados."
       >
         <EdgeCaseDemo />
+      </SubSection>
+
+      <SubSection id="api-pagination" title="API">
+        <PropsTable rows={[
+          { prop: "currentPage", attr: "current-page", type: "number", description: "Página atual (1-indexed)" },
+          { prop: "totalPages", attr: "total-pages", type: "number", description: "Total de páginas" },
+          { prop: "onPageChange", attr: "bud-change (event)", type: "(page: number) => void", description: "Callback ao mudar página" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

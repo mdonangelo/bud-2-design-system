@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { User, Briefcase, Tag, Plus } from "@phosphor-icons/react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
 import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
@@ -298,6 +299,17 @@ export function PopoverSelects() {
           <CreatableDemo />
           <SearchableDemo />
         </div>
+      </SubSection>
+
+      <SubSection id="api-popoverselect" title="API">
+        <PropsTable rows={[
+          { prop: "mode", type: '"single" | "multiple"', default: '"single"', description: "Modo de seleção" },
+          { prop: "options", attr: "options (JSON)", type: "PopoverSelectOption[]", description: "Array de opções { id, label, initials?, avatarSrc?, icon? }" },
+          { prop: "value", attr: "value (JSON)", type: "string | string[]", description: "Valor selecionado (single: string, multi: array)" },
+          { prop: "open", type: "boolean", description: "Controla visibilidade" },
+          { prop: "searchable", type: "boolean", default: "false", description: "Habilita busca" },
+          { prop: "searchPlaceholder", attr: "search-placeholder", type: "string", default: '"Buscar..."', description: "Placeholder da busca" },
+        ]} />
       </SubSection>
 
       <SubSection id="usage" title="Uso">

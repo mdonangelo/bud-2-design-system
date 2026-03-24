@@ -1,6 +1,7 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
+import { PropsTable } from "../PropsTable";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { DatePicker } from "../../components/DatePicker";
 import { Button } from "../../components/Button";
@@ -190,6 +191,18 @@ export function DatePickers() {
             />
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-datepicker" title="API">
+        <PropsTable rows={[
+          { prop: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Tamanho do trigger" },
+          { prop: "label", type: "string", description: "Label acima do campo" },
+          { prop: "placeholder", type: "string", default: '"DD/MM/AAAA"', description: "Texto placeholder" },
+          { prop: "value", type: "CalendarDate | string", description: "Data selecionada. React: objeto { year, month, day }. HTML: 'DD/MM/AAAA'" },
+          { prop: "message", type: "string", description: "Mensagem de feedback" },
+          { prop: "messageType", attr: "message-type", type: '"error" | "attention" | "success"', description: "Tipo da mensagem" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita o datepicker" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

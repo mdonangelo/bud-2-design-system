@@ -1,6 +1,7 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
+import { PropsTable } from "../PropsTable";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Radio } from "../../components/Radio";
 import radioStyles from "../../components/Radio.module.css";
@@ -206,6 +207,18 @@ export function Radios() {
             />
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-radio" title="API">
+        <PropsTable rows={[
+          { prop: "size", type: '"sm" | "md"', default: '"md"', description: "Tamanho do radio (16px / 20px)" },
+          { prop: "label", type: "string", description: "Texto do label" },
+          { prop: "description", type: "string", description: "Texto de descrição" },
+          { prop: "name", type: "string", description: "Nome do grupo de radios" },
+          { prop: "value", type: "string", description: "Valor do radio" },
+          { prop: "checked", type: "boolean", description: "Estado selecionado" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita o radio" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
+import { PropsTable } from "../PropsTable";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { ChoiceBoxGroup, ChoiceBox } from "../../components/ChoiceBox";
 import choiceBoxStyles from "../../components/ChoiceBox.module.css";
@@ -368,6 +369,18 @@ export function ChoiceBoxes() {
             />
           </ChoiceBoxGroup>
         </div>
+      </SubSection>
+
+      {/* API */}
+      <SubSection id="api-choicebox" title="API">
+        <PropsTable rows={[
+          { prop: "label", attr: "label (Group)", type: "string", description: "Label do grupo" },
+          { prop: "multiple", attr: "multiple (Group)", type: "boolean", default: "false", description: "Permite múltipla seleção" },
+          { prop: "value", attr: "value (Item)", type: "string", description: "Valor do item (obrigatório)" },
+          { prop: "title", attr: "title (Item)", type: "string", description: "Título do item (obrigatório)" },
+          { prop: "description", attr: "description (Item)", type: "string", description: "Descrição do item" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita o item" },
+        ]} />
       </SubSection>
 
       {/* Usage */}

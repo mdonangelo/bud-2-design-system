@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
+import { PropsTable } from "../PropsTable";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { DropdownButton } from "../../components/DropdownButton";
 import type { DropdownItem } from "../../components/DropdownButton";
@@ -354,6 +355,17 @@ export function DropdownButtons() {
             </ul>
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-dropdown" title="API">
+        <PropsTable rows={[
+          { prop: "items", attr: "items (JSON)", type: "DropdownItem[]", description: "Array de itens { id, label, icon?, description? }" },
+          { prop: "variant", type: '"primary" | "secondary" | "tertiary"', default: '"secondary"', description: "Variante do botão" },
+          { prop: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Tamanho do botão" },
+          { prop: "searchable", type: "boolean", default: "false", description: "Habilita busca" },
+          { prop: "searchPlaceholder", attr: "search-placeholder", type: "string", default: '"Buscar..."', description: "Placeholder da busca" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita o botão" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

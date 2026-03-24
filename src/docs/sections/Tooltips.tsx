@@ -1,6 +1,7 @@
 import { Info, WarningCircle, Trash, Plus } from "@phosphor-icons/react";
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
+import { PropsTable } from "../PropsTable";
 import { getCategoryForPage } from "../nav-data";
 import { Tooltip } from "../../components/Tooltip";
 import { Button } from "../../components/Button";
@@ -206,6 +207,15 @@ export function Tooltips() {
             </button>
           </Tooltip>
         </div>
+      </SubSection>
+
+      <SubSection id="api-tooltip" title="API">
+        <PropsTable rows={[
+          { prop: "content", type: "ReactNode | string", description: "Conteúdo do tooltip (obrigatório)" },
+          { prop: "placement", type: '"top" | "bottom" | "left" | "right"', default: '"top"', description: "Posição preferida" },
+          { prop: "delay", type: "number", default: "200", description: "Delay em ms antes de mostrar" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita o tooltip" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

@@ -1,6 +1,7 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
+import { PropsTable } from "../PropsTable";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Checkbox } from "../../components/Checkbox";
 import cbStyles from "../../components/Checkbox.module.css";
@@ -219,6 +220,17 @@ export function Checkboxes() {
             />
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-checkbox" title="API">
+        <PropsTable rows={[
+          { prop: "size", type: '"sm" | "md"', default: '"md"', description: "Tamanho do checkbox (16px / 20px)" },
+          { prop: "label", type: "string", description: "Texto do label" },
+          { prop: "description", type: "string", description: "Texto de descrição abaixo do label" },
+          { prop: "indeterminate", type: "boolean", default: "false", description: "Estado indeterminado (traço)" },
+          { prop: "checked", type: "boolean", description: "Estado marcado" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita o checkbox" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">

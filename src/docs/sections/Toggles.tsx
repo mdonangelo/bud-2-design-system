@@ -1,6 +1,7 @@
 import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
+import { PropsTable } from "../PropsTable";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Toggle } from "../../components/Toggle";
 import tgStyles from "../../components/Toggle.module.css";
@@ -133,6 +134,15 @@ export function Toggles() {
             />
           </div>
         </div>
+      </SubSection>
+
+      <SubSection id="api-toggle" title="API">
+        <PropsTable rows={[
+          { prop: "label", type: "string", description: "Texto do label" },
+          { prop: "description", type: "string", description: "Texto de descrição" },
+          { prop: "checked", type: "boolean", description: "Estado ligado/desligado" },
+          { prop: "disabled", type: "boolean", default: "false", description: "Desabilita o toggle" },
+        ]} />
       </SubSection>
 
       <SubSection id="como-usar" title="Como usar">
