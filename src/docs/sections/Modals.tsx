@@ -11,7 +11,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter } from "../../components/Mod
 import { AiAssistant, type MissionItem } from "../../components/AiAssistant";
 import { Users, FloppyDisk, ArrowRight, Warning } from "@phosphor-icons/react";
 import { AssistantButton } from "../../components/PageHeader";
-import { FrameworkSwitcher } from "../FrameworkSwitcher";
+import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
 import s from "./Modals.module.css";
 
 const usageCode = `import {
@@ -211,7 +211,9 @@ function DeletionDemo() {
         </ModalFooter>
       </Modal>
 
-      <CodeSnippet code={deletionCode} language="tsx" />
+      <FrameworkOnly framework={0}>
+        <CodeSnippet code={deletionCode} language="tsx" />
+      </FrameworkOnly>
     </SubSection>
   );
 }

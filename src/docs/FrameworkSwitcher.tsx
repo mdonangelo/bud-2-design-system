@@ -57,6 +57,21 @@ interface FrameworkSwitcherProps {
  * A tab selecionada persiste via localStorage e sincroniza
  * entre todas as instancias na pagina + entre abas do browser.
  */
+/** Hook para ler a tab ativa globalmente (0 = React, 1 = HTML) */
+export function useActiveFramework(): number {
+  return useSyncExternalStore(subscribe, getSnapshot, () => 0);
+}
+
+/**
+ * Renderiza children apenas quando o framework selecionado corresponde.
+ * framework=0 → React, framework=1 → HTML
+ */
+export function FrameworkOnly({ framework, children }: { framework: number; children: React.ReactNode }) {
+  const active = useActiveFramework();
+  if (active !== framework) return null;
+  return <>{children}</>;
+}
+
 export function FrameworkSwitcher({ examples }: FrameworkSwitcherProps) {
   const globalIndex = useSyncExternalStore(subscribe, getSnapshot, () => 0);
   const active = Math.min(globalIndex, examples.length - 1);

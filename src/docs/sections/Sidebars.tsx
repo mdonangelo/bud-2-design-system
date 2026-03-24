@@ -3,7 +3,7 @@ import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
-import { FrameworkSwitcher } from "../FrameworkSwitcher";
+import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
 import { List } from "@phosphor-icons/react";
 import {
   Sidebar,
@@ -420,7 +420,9 @@ export function Sidebars() {
             Simulação do drawer em viewport mobile (375×667). Clique no ícone de menu para abrir.
           </p>
         </div>
-        <CodeSnippet code={mobileDrawerCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={mobileDrawerCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       <SubSection

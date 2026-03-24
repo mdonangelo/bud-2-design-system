@@ -4,7 +4,7 @@ import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
 import { Skeleton, SkeletonContainer, SKELETON_HEIGHTS } from "../../components/Skeleton";
 import { Image, FileVideo, UserCircle } from "@phosphor-icons/react";
-import { FrameworkSwitcher } from "../FrameworkSwitcher";
+import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
 import s from "./Skeletons.module.css";
 
 /* ——— Código de uso ——— */
@@ -155,8 +155,9 @@ export function Skeletons() {
             </div>
           </SkeletonContainer>
         </div>
-        <CodeSnippet
-          code={`import { SkeletonContainer } from "@mdonangelo/bud-ds";
+        <FrameworkOnly framework={0}>
+          <CodeSnippet
+            code={`import { SkeletonContainer } from "@mdonangelo/bud-ds";
 import { Image } from "@phosphor-icons/react";
 
 <SkeletonContainer>
@@ -179,8 +180,9 @@ import { Image } from "@phosphor-icons/react";
 .imagePlaceholder svg {
   color: var(--color-neutral-400);
 }`}
-          language="tsx"
-        />
+            language="tsx"
+          />
+        </FrameworkOnly>
       </SubSection>
 
       {/* Video placeholder */}
@@ -196,8 +198,9 @@ import { Image } from "@phosphor-icons/react";
             </div>
           </SkeletonContainer>
         </div>
-        <CodeSnippet
-          code={`import { SkeletonContainer } from "@mdonangelo/bud-ds";
+        <FrameworkOnly framework={0}>
+          <CodeSnippet
+            code={`import { SkeletonContainer } from "@mdonangelo/bud-ds";
 import { FileVideo } from "@phosphor-icons/react";
 
 <SkeletonContainer>
@@ -205,8 +208,9 @@ import { FileVideo } from "@phosphor-icons/react";
     <FileVideo size={44} weight="regular" />
   </div>
 </SkeletonContainer>`}
-          language="tsx"
-        />
+            language="tsx"
+          />
+        </FrameworkOnly>
       </SubSection>
 
       {/* Widget/Chart placeholder */}
@@ -228,8 +232,9 @@ import { FileVideo } from "@phosphor-icons/react";
             </div>
           </SkeletonContainer>
         </div>
-        <CodeSnippet
-          code={`import { SkeletonContainer } from "@mdonangelo/bud-ds";
+        <FrameworkOnly framework={0}>
+          <CodeSnippet
+            code={`import { SkeletonContainer } from "@mdonangelo/bud-ds";
 
 <SkeletonContainer>
   <div className={styles.chartPlaceholder}>
@@ -239,8 +244,9 @@ import { FileVideo } from "@phosphor-icons/react";
     {/* ... mais barras */}
   </div>
 </SkeletonContainer>`}
-          language="tsx"
-        />
+            language="tsx"
+          />
+        </FrameworkOnly>
       </SubSection>
 
       {/* Testimonial placeholder */}
@@ -266,8 +272,9 @@ import { FileVideo } from "@phosphor-icons/react";
             </div>
           </SkeletonContainer>
         </div>
-        <CodeSnippet
-          code={`import { Skeleton, SkeletonContainer } from "@mdonangelo/bud-ds";
+        <FrameworkOnly framework={0}>
+          <CodeSnippet
+            code={`import { Skeleton, SkeletonContainer } from "@mdonangelo/bud-ds";
 import { UserCircle } from "@phosphor-icons/react";
 
 <SkeletonContainer>
@@ -306,8 +313,9 @@ import { UserCircle } from "@phosphor-icons/react";
 .testimonialAvatar svg {
   color: var(--color-neutral-400);
 }`}
-          language="tsx"
-        />
+            language="tsx"
+          />
+        </FrameworkOnly>
       </SubSection>
 
       {/* Card skeleton */}
@@ -347,7 +355,9 @@ import { UserCircle } from "@phosphor-icons/react";
             </div>
           </div>
         </div>
-        <CodeSnippet code={cardCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={cardCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* List skeleton */}
@@ -368,7 +378,9 @@ import { UserCircle } from "@phosphor-icons/react";
             </div>
           ))}
         </div>
-        <CodeSnippet code={listCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={listCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* Table skeleton */}
@@ -393,7 +405,9 @@ import { UserCircle } from "@phosphor-icons/react";
             </div>
           ))}
         </div>
-        <CodeSnippet code={tableCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={tableCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* Dashboard skeleton */}
@@ -418,7 +432,9 @@ import { UserCircle } from "@phosphor-icons/react";
             </div>
           ))}
         </div>
-        <CodeSnippet code={dashboardCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={dashboardCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* Form skeleton */}
@@ -443,7 +459,9 @@ import { UserCircle } from "@phosphor-icons/react";
             <Skeleton variant="rounded" width={80} height={40} />
           </div>
         </div>
-        <CodeSnippet code={formCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={formCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* Sem animação */}

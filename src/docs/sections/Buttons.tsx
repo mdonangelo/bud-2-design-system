@@ -4,7 +4,7 @@ import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
-import { FrameworkSwitcher } from "../FrameworkSwitcher";
+import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
 import { PropsTable } from "../PropsTable";
 import { Button } from "../../components/Button";
 import { AssistantButton } from "../../components/PageHeader";
@@ -281,9 +281,11 @@ export function Buttons() {
           { label: "React", language: "tsx", code: usageCode },
           { label: "HTML", language: "html", code: htmlUsageCode },
         ]} />
-        <div style={{ marginTop: "var(--sp-sm)" }}>
-          <CodeSnippet code={assistantUsageCode} language="tsx" />
-        </div>
+        <FrameworkOnly framework={0}>
+          <div style={{ marginTop: "var(--sp-sm)" }}>
+            <CodeSnippet code={assistantUsageCode} language="tsx" />
+          </div>
+        </FrameworkOnly>
       </SubSection>
     </DocSection>
   );

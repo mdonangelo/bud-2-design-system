@@ -4,7 +4,7 @@ import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
-import { FrameworkSwitcher } from "../FrameworkSwitcher";
+import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
 import { Accordion, AccordionItem } from "../../components/Accordion";
 import { Badge } from "../../components/Badge";
 import s from "./Accordions.module.css";
@@ -271,9 +271,11 @@ export function Accordions() {
           { label: "React", language: "tsx", code: usageCode },
           { label: "HTML", language: "html", code: htmlUsageCode },
         ]} />
-        <div style={{ marginTop: "var(--sp-sm)" }}>
-          <CodeSnippet code={controlledCode} language="tsx" />
-        </div>
+        <FrameworkOnly framework={0}>
+          <div style={{ marginTop: "var(--sp-sm)" }}>
+            <CodeSnippet code={controlledCode} language="tsx" />
+          </div>
+        </FrameworkOnly>
       </SubSection>
     </DocSection>
   );

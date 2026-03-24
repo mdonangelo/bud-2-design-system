@@ -19,7 +19,7 @@ import { DocSection } from "../DocSection";
 import { SubSection } from "../SubSection";
 import { getCategoryForPage } from "../nav-data";
 import { CodeSnippet } from "../CodeSnippet";
-import { FrameworkSwitcher } from "../FrameworkSwitcher";
+import { FrameworkSwitcher, FrameworkOnly } from "../FrameworkSwitcher";
 import { Chart } from "../../components/Chart";
 import { ChartTooltipContent } from "../../components/ChartTooltip";
 import { Heatmap } from "../../components/Heatmap";
@@ -448,7 +448,9 @@ export function Charts() {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <CodeSnippet code={barCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={barCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* ——— 3. Bar Chart (horizontal) ——— */}
@@ -609,7 +611,9 @@ export function Charts() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <CodeSnippet code={lineCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={lineCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* ——— 6. Area Chart ——— */}
@@ -660,7 +664,9 @@ export function Charts() {
             </AreaChart>
           </ResponsiveContainer>
         </div>
-        <CodeSnippet code={areaCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={areaCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* ——— 7. Area Chart (stacked) ——— */}
@@ -772,7 +778,9 @@ export function Charts() {
             />
           </div>
         </div>
-        <CodeSnippet code={pieCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={pieCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* ——— 9. Gauge (indicador circular) ——— */}
@@ -863,7 +871,9 @@ export function Charts() {
             <span className={s.stateLabel}>100%</span>
           </div>
         </div>
-        <CodeSnippet code={halfGaugeCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={halfGaugeCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* ——— 12. Half Gauge interativo ——— */}
@@ -890,7 +900,9 @@ export function Charts() {
             <Chart variant="half" value={gaugeValue} />
           </div>
         </div>
-        <CodeSnippet code={halfGaugeCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={halfGaugeCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* ——— 13. Gauge — Tamanhos ——— */}
@@ -945,7 +957,9 @@ export function Charts() {
             </div>
           </div>
         </div>
-        <CodeSnippet code={gaugeSizesCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={gaugeSizesCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* ——— 14. Heatmap ——— */}
@@ -1013,7 +1027,9 @@ export function Charts() {
             <Heatmap data={heatmapData} rows={heatmapDays} columns={heatmapHours} cellSize={48} formatValue={(v) => `${v}h`} />
           </div>
         </div>
-        <CodeSnippet code={heatmapCustomCode} language="tsx" />
+        <FrameworkOnly framework={0}>
+          <CodeSnippet code={heatmapCustomCode} language="tsx" />
+        </FrameworkOnly>
       </SubSection>
 
       {/* ——— 17. Sparkline ——— */}
