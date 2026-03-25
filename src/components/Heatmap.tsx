@@ -22,8 +22,10 @@ export interface HeatmapProps {
   min?: number;
   /** Maximum value for color scale (default: auto from data) */
   max?: number;
-  /** Color palette (default: "orange") */
+  /** Color palette (default: "orange"). Ignored when colorScale is "divergent". */
   color?: "orange" | "green" | "red" | "yellow" | "wine" | "neutral";
+  /** Color scale mode (default: "sequential"). "divergent" uses red→yellow→green for low→mid→high values. */
+  colorScale?: "sequential" | "divergent";
   /** Show values inside cells (default: true) */
   showValues?: boolean;
   /** Format function for cell values */
@@ -63,6 +65,7 @@ export function Heatmap({
   min: minProp,
   max: maxProp,
   color = "orange",
+  colorScale = "sequential",
   showValues = true,
   formatValue,
   cellSize = 40,
@@ -87,6 +90,36 @@ export function Heatmap({
   const range = dataMax - dataMin || 1;
 
   const prefix = COLOR_MAP[color];
+  const isDivergent = colorScale === "divergent";
+
+  /**
+   * Divergent scale: maps 0-1 normalized value to red→yellow→green.
+   * Uses CSS variables from the DS token system.
+   */
+  const DIVERGENT_STOPS: { at: number; bg: string; dark: boolean }[] = [
+    { at: 0.0, bg: "var(--color-red-200)",    dark: false },
+    { at: 0.25, bg: "var(--color-red-100)",   dark: false },
+    { at: 0.4, bg: "var(--color-yellow-100)", dark: false },
+    { at: 0.5, bg: "var(--color-yellow-50)",  dark: false },
+    { at: 0.6, bg: "var(--color-yellow-100)", dark: false },
+    { at: 0.75, bg: "var(--color-green-100)", dark: false },
+    { at: 1.0, bg: "var(--color-green-300)",  dark: false },
+  ];
+
+  function getDivergentStop(value: number): { bg: string; dark: boolean } {
+    const normalized = clamp((value - dataMin) / range, 0, 1);
+    // Find the closest stop
+    let best = DIVERGENT_STOPS[0]!;
+    let bestDist = Math.abs(normalized - best.at);
+    for (const stop of DIVERGENT_STOPS) {
+      const dist = Math.abs(normalized - stop.at);
+      if (dist < bestDist) {
+        best = stop;
+        bestDist = dist;
+      }
+    }
+    return best;
+  }
 
   function getIntensity(value: number): number {
     const normalized = clamp((value - dataMin) / range, 0, 1);
@@ -94,11 +127,13 @@ export function Heatmap({
   }
 
   function getCellColor(value: number): string {
+    if (isDivergent) return getDivergentStop(value).bg;
     const step = STEPS[getIntensity(value)];
     return `var(${prefix}-${step})`;
   }
 
   function getTextColor(value: number): string {
+    if (isDivergent) return getDivergentStop(value).dark ? "var(--color-white)" : "var(--color-neutral-950)";
     const intensity = getIntensity(value);
     return intensity >= 3 ? "var(--color-white)" : "var(--color-neutral-950)";
   }
@@ -214,15 +249,31 @@ export function Heatmap({
 
       {/* Legend */}
       <div className={s.legend} aria-hidden="true">
-        <span className={s.legendLabel}>Menor</span>
-        {STEPS.map((step) => (
-          <span
-            key={step}
-            className={s.legendCell}
-            style={{ backgroundColor: `var(${prefix}-${step})` }}
-          />
-        ))}
-        <span className={s.legendLabel}>Maior</span>
+        {isDivergent ? (
+          <>
+            <span className={s.legendLabel}>Crítico</span>
+            {DIVERGENT_STOPS.map((stop, i) => (
+              <span
+                key={i}
+                className={s.legendCell}
+                style={{ backgroundColor: stop.bg }}
+              />
+            ))}
+            <span className={s.legendLabel}>Excelente</span>
+          </>
+        ) : (
+          <>
+            <span className={s.legendLabel}>Menor</span>
+            {STEPS.map((step) => (
+              <span
+                key={step}
+                className={s.legendCell}
+                style={{ backgroundColor: `var(${prefix}-${step})` }}
+              />
+            ))}
+            <span className={s.legendLabel}>Maior</span>
+          </>
+        )}
       </div>
 
     </div>
