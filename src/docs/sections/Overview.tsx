@@ -33,7 +33,7 @@ const installReact = `# 1. Configurar .npmrc
 echo "@getbud-co:registry=https://npm.pkg.github.com" >> .npmrc
 
 # 2. Instalar pacotes
-npm install @getbud-co/bud-ds @phosphor-icons/react
+npm install @getbud-co/buds @phosphor-icons/react
 
 # 3. Instalar fonts
 npm install @fontsource/inter @fontsource/plus-jakarta-sans @fontsource/crimson-pro`;
@@ -50,9 +50,9 @@ import "@fontsource/plus-jakarta-sans/700.css";
 import "@fontsource/crimson-pro/600.css";
 
 // Estilos do Design System (obrigatório, uma vez)
-import "@getbud-co/bud-ds/styles";`;
+import "@getbud-co/buds/styles";`;
 
-const usageReact = `import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter } from "@getbud-co/bud-ds";
+const usageReact = `import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter } from "@getbud-co/buds";
 import { Plus } from "@phosphor-icons/react";
 
 <Button variant="primary" leftIcon={Plus}>Criar objetivo</Button>
@@ -62,18 +62,18 @@ import { Plus } from "@phosphor-icons/react";
 /* ——— HTML / Web Components ——— */
 
 const installHtml = `# Instalar pacote vanilla
-npm install @getbud-co/bud-ds-vanilla
+npm install @getbud-co/buds-vanilla
 
 # Ou usar os arquivos diretamente (CDN / estático):
-# bud-ds.css, bud-ds.js (ES module) ou bud-ds.iife.js (script tag)`;
+# buds.css, buds.js (ES module) ou buds.iife.js (script tag)`;
 
 const setupHtml = `<!-- Opção A: ES Module -->
-<link rel="stylesheet" href="bud-ds.css" />
-<script type="module" src="bud-ds.js"></script>
+<link rel="stylesheet" href="buds.css" />
+<script type="module" src="buds.js"></script>
 
 <!-- Opção B: Script tag (IIFE) -->
-<link rel="stylesheet" href="bud-ds.css" />
-<script src="bud-ds.iife.js"></script>
+<link rel="stylesheet" href="buds.css" />
+<script src="buds.iife.js"></script>
 
 <!-- Sem build tools — apenas CSS + JS. -->
 <!-- Todos os custom elements são registrados automaticamente. -->`;
@@ -93,7 +93,7 @@ const usageHtml = `<!-- Componentes usam custom elements com Shadow DOM -->
 
 /* ——— Tokens (compartilhado) ——— */
 
-const tokensCode = `/* Os tokens CSS ficam disponíveis via @getbud-co/bud-ds/styles */
+const tokensCode = `/* Os tokens CSS ficam disponíveis via @getbud-co/buds/styles */
 .card {
   padding: var(--sp-sm);
   border-radius: var(--radius-sm);
@@ -107,7 +107,7 @@ export function Overview() {
   return (
     <DocSection
       id="visao-geral"
-      title="Bud Design System"
+      title="BUDS"
       description="Sistema de design para a plataforma Bud — gestão de desempenho contínua. Tokens, componentes e padrões que garantem consistência visual e experiência coesa. Disponível como biblioteca React e como Web Components para uso em qualquer framework."
       category={getCategoryForPage("visao-geral")}
     >
@@ -167,7 +167,7 @@ export function Overview() {
         <SubSection
           id="design-tokens"
           title="Design Tokens"
-          description={`Todos os tokens ficam disponíveis como CSS custom properties. Na versão React, importe @getbud-co/bud-ds/styles. Na versão HTML, inclua bud-ds.css. Use var(--token-name) em qualquer CSS.`}
+          description={`Todos os tokens ficam disponíveis como CSS custom properties. Na versão React, importe @getbud-co/buds/styles. Na versão HTML, inclua buds.css. Use var(--token-name) em qualquer CSS.`}
         >
           <CodeSnippet code={tokensCode} language="css" />
         </SubSection>

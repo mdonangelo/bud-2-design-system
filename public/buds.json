@@ -1,11 +1,11 @@
 {
-  "$schema": "https://bud-ds.dev/registry-schema.json",
-  "name": "Bud Design System",
+  "$schema": "https://buds.dev/registry-schema.json",
+  "name": "BUDS",
   "version": "0.2.1",
   "description": "Sistema de design para a plataforma Bud — gestão de desempenho contínua",
   "packages": {
-    "react": "@getbud-co/bud-ds",
-    "vanilla": "@getbud-co/bud-ds-vanilla"
+    "react": "@getbud-co/buds",
+    "vanilla": "@getbud-co/buds-vanilla"
   },
   "tokens": {
     "colors": {

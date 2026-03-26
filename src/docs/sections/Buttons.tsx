@@ -11,7 +11,7 @@ import { AssistantButton } from "../../components/PageHeader";
 import btnStyles from "../../components/Button.module.css";
 import s from "./Buttons.module.css";
 
-const usageCode = `import { Button } from "@getbud-co/bud-ds";
+const usageCode = `import { Button } from "@getbud-co/buds";
 import { Plus, ArrowRight } from "@phosphor-icons/react";
 
 <Button variant="primary" size="lg" leftIcon={Plus}>
@@ -38,7 +38,7 @@ import { Plus, ArrowRight } from "@phosphor-icons/react";
 <Button variant="tertiary" size="sm" leftIcon={Trash} aria-label="Excluir" />
 <Button variant="secondary" size="md" leftIcon={PencilSimple} aria-label="Editar" />`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-button variant="primary" size="lg" icon-left="plus">
   Criar objetivo
@@ -62,7 +62,7 @@ const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
 <bud-button variant="tertiary" size="sm" icon-left="x"
   aria-label="Excluir"></bud-button>`;
 
-const assistantUsageCode = `import { AssistantButton } from "@getbud-co/bud-ds";
+const assistantUsageCode = `import { AssistantButton } from "@getbud-co/buds";
 
 const [open, setOpen] = useState(false);
 

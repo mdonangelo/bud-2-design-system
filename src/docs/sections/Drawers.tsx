@@ -21,7 +21,7 @@ import s from "./Drawers.module.css";
 
 const usageCode = `import {
   Drawer, DrawerHeader, DrawerBody, DrawerFooter, Button
-} from "@getbud-co/bud-ds";
+} from "@getbud-co/buds";
 
 const [open, setOpen] = useState(false);
 
@@ -76,7 +76,7 @@ const [open, setOpen] = useState(false);
   <DrawerBody>{/* ... */}</DrawerBody>
 </Drawer>`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-drawer id="meuDrawer" side="right" size="md">
   <bud-drawer-header title="Detalhes"
@@ -617,7 +617,7 @@ export function Drawers() {
         <FrameworkOnly framework={0}>
         <CodeSnippet
           language="tsx"
-          code={`import { DragToCloseDrawer, DrawerHeader, DrawerBody } from "@getbud-co/bud-ds";
+          code={`import { DragToCloseDrawer, DrawerHeader, DrawerBody } from "@getbud-co/buds";
 
 <DragToCloseDrawer
   open={open}

@@ -111,7 +111,7 @@ const fmtBRL = (v: number) =>
 const installCode = `npm install recharts`;
 
 const barCode = `import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import { ChartTooltipContent } from "@getbud-co/bud-ds";
+import { ChartTooltipContent } from "@getbud-co/buds";
 
 const data = [
   { month: "Jan", receita: 4200, despesas: 2800 },
@@ -170,7 +170,7 @@ const COLORS = ["var(--color-chart-1)", "var(--color-chart-2)", "var(--color-cha
   </PieChart>
 </ResponsiveContainer>`;
 
-const gaugeCode = `import { Chart } from "@getbud-co/bud-ds";
+const gaugeCode = `import { Chart } from "@getbud-co/buds";
 
 <Chart value={0} />
 <Chart value={25} />
@@ -178,7 +178,7 @@ const gaugeCode = `import { Chart } from "@getbud-co/bud-ds";
 <Chart value={75} />
 <Chart value={100} />`;
 
-const halfGaugeCode = `import { Chart } from "@getbud-co/bud-ds";
+const halfGaugeCode = `import { Chart } from "@getbud-co/buds";
 
 <Chart variant="half" value={0} />
 <Chart variant="half" value={25} />
@@ -186,7 +186,7 @@ const halfGaugeCode = `import { Chart } from "@getbud-co/bud-ds";
 <Chart variant="half" value={75} />
 <Chart variant="half" value={100} />`;
 
-const gaugeSizesCode = `import { Chart } from "@getbud-co/bud-ds";
+const gaugeSizesCode = `import { Chart } from "@getbud-co/buds";
 
 {/* Full (360°) */}
 <Chart value={75} size={32} />
@@ -234,7 +234,7 @@ const heatmapData = [
   { row: "Sex", col: "17h", value: 1 },
 ];
 
-const heatmapCode = `import { Heatmap } from "@getbud-co/bud-ds";
+const heatmapCode = `import { Heatmap } from "@getbud-co/buds";
 
 const rows = ["Seg", "Ter", "Qua", "Qui", "Sex"];
 const columns = ["9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h"];
@@ -275,7 +275,7 @@ const sparklineData1 = [4, 7, 5, 9, 12, 8, 14, 11, 16, 13, 18];
 const sparklineData2 = [20, 18, 15, 17, 12, 10, 8, 11, 6, 4, 3];
 const sparklineData3 = [5, 8, 6, 9, 7, 10, 8, 11, 9, 10, 8];
 
-const sparklineCode = `import { Sparkline } from "@getbud-co/bud-ds";
+const sparklineCode = `import { Sparkline } from "@getbud-co/buds";
 
 <Sparkline data={[4, 7, 5, 9, 12, 8, 14]} />
 <Sparkline data={data} color="green" />
@@ -293,7 +293,7 @@ const radarData = [
   { label: "Organização", value: 75 },
 ];
 
-const radarCode = `import { Radar } from "@getbud-co/bud-ds";
+const radarCode = `import { Radar } from "@getbud-co/buds";
 
 const data = [
   { label: "Comunicação", value: 85 },
@@ -318,7 +318,7 @@ const funnelData = [
   { label: "Retenção", value: 820 },
 ];
 
-const funnelCode = `import { Funnel } from "@getbud-co/bud-ds";
+const funnelCode = `import { Funnel } from "@getbud-co/buds";
 
 const data = [
   { label: "Visitantes", value: 12000 },
@@ -376,7 +376,7 @@ export function Charts() {
     <DocSection
       id="charts"
       title="Charts"
-      description="Gráficos para visualização de dados, construídos com Recharts e estilizados com os tokens do Bud DS. Inclui gráficos de barras, linhas, áreas, pizza e indicador circular de progresso."
+      description="Gráficos para visualização de dados, construídos com Recharts e estilizados com os tokens do BUDS. Inclui gráficos de barras, linhas, áreas, pizza e indicador circular de progresso."
       category={getCategoryForPage("charts")}
     >
       {/* ——— 1. Paleta de cores ——— */}

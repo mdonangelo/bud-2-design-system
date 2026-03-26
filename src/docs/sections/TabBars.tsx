@@ -46,8 +46,8 @@ const PANEL_CONTENT: Record<string, string> = {
 
 /* ——— Usage code ——— */
 
-const usageCode = `import { TabBar, getPanelId, getTabId, Badge } from "@getbud-co/bud-ds";
-import type { TabItem } from "@getbud-co/bud-ds";
+const usageCode = `import { TabBar, getPanelId, getTabId, Badge } from "@getbud-co/buds";
+import type { TabItem } from "@getbud-co/buds";
 
 const tabs: TabItem[] = [
   {

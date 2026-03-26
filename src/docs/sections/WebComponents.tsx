@@ -6,16 +6,16 @@ import s from "./WebComponents.module.css";
 
 /* ——— Code snippets ——— */
 const installCdn = `<!-- CDN / arquivo estático -->
-<link rel="stylesheet" href="bud-ds.css" />
-<script src="bud-ds.iife.js"></script>`;
+<link rel="stylesheet" href="buds.css" />
+<script src="buds.iife.js"></script>`;
 
 const installEsm = `<!-- ES Module -->
-<link rel="stylesheet" href="bud-ds.css" />
+<link rel="stylesheet" href="buds.css" />
 <script type="module">
-  import "./bud-ds.js";
+  import "./buds.js";
 </script>`;
 
-const installNpm = `npm install @getbud-co/bud-ds-vanilla`;
+const installNpm = `npm install @getbud-co/buds-vanilla`;
 
 const eventsCode = `<script>
   // Todos os eventos usam CustomEvent com bubbles + composed
@@ -47,7 +47,7 @@ const iconsCode = `<script>
   // circle-notch, dots-three, arrow-left, arrow-right, etc.
 
   // Registrar ícone customizado
-  BudDS.registerIcon("meu-icone", '<path d="M..."/>');
+  BUDS.registerIcon("meu-icone", '<path d="M..."/>');
 </script>
 
 <!-- Usar via atributo -->
@@ -74,7 +74,7 @@ export function WebComponents() {
     <DocSection
       id="web-components"
       title="Web Components"
-      description="O Bud DS está disponível como Web Components (Custom Elements + Shadow DOM), funcionando em qualquer framework ou sem framework. Cada página de componente inclui exemplos HTML na aba 'HTML' da seção 'Como usar'."
+      description="O BUDS está disponível como Web Components (Custom Elements + Shadow DOM), funcionando em qualquer framework ou sem framework. Cada página de componente inclui exemplos HTML na aba 'HTML' da seção 'Como usar'."
       category={getCategoryForPage("web-components")}
     >
       <SubSection id="wc-instalacao" title="Instalação">

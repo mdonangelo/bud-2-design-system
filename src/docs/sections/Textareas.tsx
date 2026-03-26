@@ -7,7 +7,7 @@ import { Textarea } from "../../components/Textarea";
 import textareaStyles from "../../components/Textarea.module.css";
 import s from "./Textareas.module.css";
 
-const usageCode = `import { Textarea } from "@getbud-co/bud-ds";
+const usageCode = `import { Textarea } from "@getbud-co/buds";
 
 <Textarea
   label="Descrição"
@@ -29,7 +29,7 @@ const usageCode = `import { Textarea } from "@getbud-co/bud-ds";
   messageType="success"
 />`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-textarea label="Mensagem" placeholder="Digite sua mensagem..." rows="4"></bud-textarea>
 

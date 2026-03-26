@@ -7,7 +7,7 @@ import { Toggle } from "../../components/Toggle";
 import tgStyles from "../../components/Toggle.module.css";
 import s from "./Toggles.module.css";
 
-const usageCode = `import { Toggle } from "@getbud-co/bud-ds";
+const usageCode = `import { Toggle } from "@getbud-co/buds";
 
 <Toggle label="Ativar notificações" />
 
@@ -20,7 +20,7 @@ const usageCode = `import { Toggle } from "@getbud-co/bud-ds";
 
 <Toggle defaultChecked disabled label="Opção bloqueada" />`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-toggle label="Notificações por email"></bud-toggle>
 

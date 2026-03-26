@@ -20,7 +20,7 @@ const hierarchyItems = [
   { label: "Avaliação 360° Q1 2026" },
 ];
 
-const usageCode = `import { Breadcrumb } from "@getbud-co/bud-ds";
+const usageCode = `import { Breadcrumb } from "@getbud-co/buds";
 
 {/* Wizard — passo 2 ativo, passos anteriores clicáveis */}
 <Breadcrumb
@@ -43,7 +43,7 @@ const usageCode = `import { Breadcrumb } from "@getbud-co/bud-ds";
   ]}
 />`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <!-- Items via JSON no atributo items -->
 <bud-breadcrumb

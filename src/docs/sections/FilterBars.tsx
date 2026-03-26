@@ -580,11 +580,11 @@ const usageCode = `import {
   FilterBar,
   FilterChip,
   FilterDropdown,
-} from "@getbud-co/bud-ds";
-import type { FilterOption } from "@getbud-co/bud-ds";
+} from "@getbud-co/buds";
+import type { FilterOption } from "@getbud-co/buds";
 import { Users, Calendar } from "@phosphor-icons/react";
-import { Checkbox } from "@getbud-co/bud-ds";
-import { DatePicker } from "@getbud-co/bud-ds";
+import { Checkbox } from "@getbud-co/buds";
+import { DatePicker } from "@getbud-co/buds";
 
 const filters: FilterOption[] = [
   { id: "department", label: "Departamento", icon: Users },

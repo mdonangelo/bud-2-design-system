@@ -10,9 +10,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "BudDS",
+      name: "BUDS",
       formats: ["es", "iife"],
-      fileName: (format) => (format === "es" ? "bud-ds.js" : "bud-ds.iife.js"),
+      fileName: (format) => (format === "es" ? "buds.js" : "buds.iife.js"),
     },
     cssCodeSplit: false,
     minify: true,
@@ -21,7 +21,7 @@ export default defineConfig({
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.names?.some((n) => n.endsWith(".css"))) {
-            return "bud-ds.css";
+            return "buds.css";
           }
           return "[name][extname]";
         },

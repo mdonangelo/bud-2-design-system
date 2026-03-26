@@ -1,17 +1,17 @@
 {
-  "name": "@getbud-co/bud-ds-vanilla",
+  "name": "@getbud-co/buds-vanilla",
   "version": "0.1.0",
   "type": "module",
-  "description": "Bud Design System — Web Components para uso multi-framework",
-  "main": "./dist/bud-ds.iife.js",
-  "module": "./dist/bud-ds.js",
+  "description": "BUDS — Web Components para uso multi-framework",
+  "main": "./dist/buds.iife.js",
+  "module": "./dist/buds.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/bud-ds.js",
-      "require": "./dist/bud-ds.iife.js"
+      "import": "./dist/buds.js",
+      "require": "./dist/buds.iife.js"
     },
-    "./styles": "./dist/bud-ds.css"
+    "./styles": "./dist/buds.css"
   },
   "files": [
     "dist"

@@ -1,18 +1,18 @@
-# Bud Design System
+# BUDS
 
-Biblioteca de componentes React do Bud — plataforma de gestão de desempenho para o mercado brasileiro.
+Biblioteca de componentes React do BUDS — plataforma de gestão de desempenho para o mercado brasileiro.
 
 ## Documentação
 
 Consulte os componentes, tokens e exemplos de uso na docs page:
 
-**[https://mdonangelo.github.io/bud-2-design-system/](https://mdonangelo.github.io/bud-2-design-system/)**
+**[https://getbud-co.github.io/bud2-design-system/](https://getbud-co.github.io/bud2-design-system/)**
 
 Guias transversais importantes:
 
-- **Acessibilidade:** `https://mdonangelo.github.io/bud-2-design-system/#acessibilidade`
-- **Contrato de Overlays:** `https://mdonangelo.github.io/bud-2-design-system/#contrato-overlays`
-- **Overlays Utilitários:** `https://mdonangelo.github.io/bud-2-design-system/#overlays-utilitarios`
+- **Acessibilidade:** `https://getbud-co.github.io/bud2-design-system/#acessibilidade`
+- **Contrato de Overlays:** `https://getbud-co.github.io/bud2-design-system/#contrato-overlays`
+- **Overlays Utilitários:** `https://getbud-co.github.io/bud2-design-system/#overlays-utilitarios`
 
 ## Instalação
 
@@ -35,7 +35,7 @@ npm login --scope=@getbud-co --registry=https://npm.pkg.github.com
 ### 3. Instalar pacotes
 
 ```bash
-npm install @getbud-co/bud-ds @phosphor-icons/react
+npm install @getbud-co/buds @phosphor-icons/react
 ```
 
 ### 4. Instalar fonts
@@ -59,7 +59,7 @@ import "@fontsource/plus-jakarta-sans/700.css";
 import "@fontsource/crimson-pro/600.css";
 
 // Estilos do DS (obrigatório, uma vez)
-import "@getbud-co/bud-ds/styles";
+import "@getbud-co/buds/styles";
 ```
 
 ## Uso
@@ -67,7 +67,7 @@ import "@getbud-co/bud-ds/styles";
 ### Button
 
 ```tsx
-import { Button } from "@getbud-co/bud-ds";
+import { Button } from "@getbud-co/buds";
 import { Plus } from "@phosphor-icons/react";
 
 <Button variant="primary" size="md">
@@ -86,7 +86,7 @@ import { Plus } from "@phosphor-icons/react";
 ### Input
 
 ```tsx
-import { Input } from "@getbud-co/bud-ds";
+import { Input } from "@getbud-co/buds";
 
 <Input
   label="E-mail"
@@ -99,7 +99,7 @@ import { Input } from "@getbud-co/bud-ds";
 ### Modal
 
 ```tsx
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "@getbud-co/bud-ds";
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "@getbud-co/buds";
 
 <Modal open={isOpen} onClose={() => setIsOpen(false)}>
   <ModalHeader title="Confirmar ação" onClose={() => setIsOpen(false)} />
@@ -116,7 +116,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "@getbud-co/b
 ### Select
 
 ```tsx
-import { Select } from "@getbud-co/bud-ds";
+import { Select } from "@getbud-co/buds";
 
 <Select
   label="Departamento"
@@ -133,7 +133,7 @@ import { Select } from "@getbud-co/bud-ds";
 ### Checkbox e Toggle
 
 ```tsx
-import { Checkbox, Toggle } from "@getbud-co/bud-ds";
+import { Checkbox, Toggle } from "@getbud-co/buds";
 
 <Checkbox label="Aceito os termos" checked={agreed} onChange={setAgreed} />
 
@@ -143,7 +143,7 @@ import { Checkbox, Toggle } from "@getbud-co/bud-ds";
 ### Toast
 
 ```tsx
-import { toast, Toaster } from "@getbud-co/bud-ds";
+import { toast, Toaster } from "@getbud-co/buds";
 
 // No layout raiz, adicione o Toaster:
 <Toaster />
@@ -157,7 +157,7 @@ toast.warning("Atenção: dados incompletos.");
 ### Badge e Avatar
 
 ```tsx
-import { Badge, Avatar } from "@getbud-co/bud-ds";
+import { Badge, Avatar } from "@getbud-co/buds";
 
 <Badge color="green">Ativo</Badge>
 <Badge color="red">Bloqueado</Badge>
@@ -211,7 +211,7 @@ import { Badge, Avatar } from "@getbud-co/bud-ds";
 
 ## Ícones
 
-O Bud DS usa [Phosphor Icons](https://phosphoricons.com/) exclusivamente no peso **regular** (outline).
+O BUDS usa [Phosphor Icons](https://phosphoricons.com/) exclusivamente no peso **regular** (outline).
 
 ```tsx
 import { MagnifyingGlass, Plus, Trash } from "@phosphor-icons/react";
@@ -223,7 +223,7 @@ Tamanhos recomendados: `14`, `16`, `20`, `24`, `32`.
 
 ## Design Tokens
 
-Os tokens CSS ficam disponíveis automaticamente ao importar `@getbud-co/bud-ds/styles`:
+Os tokens CSS ficam disponíveis automaticamente ao importar `@getbud-co/buds/styles`:
 
 ```css
 /* Cores */
@@ -249,7 +249,7 @@ box-shadow: var(--shadow-sm);
 
 ```bash
 # Clonar e instalar
-git clone https://github.com/mdonangelo/bud-2-design-system.git
+git clone https://github.com/getbud-co/bud2-design-system.git
 cd bud-2-design-system
 
 # Usar Node 24 (via .nvmrc)

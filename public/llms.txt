@@ -1,27 +1,27 @@
-# Bud Design System
+# BUDS
 
-> Sistema de design para a plataforma Bud — gestão de desempenho contínua. Componentes React + Web Components vanilla, design tokens CSS, tipografia com Inter/Plus Jakarta Sans/Crimson Pro, ícones Phosphor. Grid de 4px, cores semânticas, acessibilidade WCAG AA.
+> Sistema de design da plataforma Bud — gestão de desempenho contínua. Componentes React + Web Components vanilla, design tokens CSS, tipografia com Inter/Plus Jakarta Sans/Crimson Pro, ícones Phosphor. Grid de 4px, cores semânticas, acessibilidade WCAG AA.
 
 ## Documentação
 
 - [Documentação completa para LLMs](/llms-full.txt): Arquivo único com todos os tokens, componentes, props, exemplos e regras (~50K tokens)
-- [Registry JSON](/bud-ds.json): Catálogo estruturado de componentes como dados JSON
-- [CLAUDE.md](https://raw.githubusercontent.com/mdonangelo/bud-ds/main/CLAUDE.md): Regras de desenvolvimento para agentes de código
+- [Registry JSON](/buds.json): Catálogo estruturado de componentes como dados JSON
+- [CLAUDE.md](https://raw.githubusercontent.com/getbud-co/bud2-design-system/main/CLAUDE.md): Regras de desenvolvimento para agentes de código
 
 ## Instalação
 
 ### React
 ```
-npm install @getbud-co/bud-ds @phosphor-icons/react
+npm install @getbud-co/buds @phosphor-icons/react
 ```
 
 ### HTML (Web Components)
 ```
-npm install @getbud-co/bud-ds-vanilla
+npm install @getbud-co/buds-vanilla
 ```
 ```html
-<link rel="stylesheet" href="bud-ds.css" />
-<script type="module" src="bud-ds.js"></script>
+<link rel="stylesheet" href="buds.css" />
+<script type="module" src="buds.js"></script>
 ```
 
 ## Componentes

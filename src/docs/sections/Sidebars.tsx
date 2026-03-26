@@ -72,9 +72,9 @@ import {
   Sidebar, SidebarHeader, SidebarOrgSwitcher, SidebarDivider,
   SidebarNav, SidebarGroup, SidebarItem, SidebarSubItem,
   SidebarFooter, SidebarUser,
-} from "@getbud-co/bud-ds";
-import { Popover } from "@getbud-co/bud-ds";
-import { Avatar } from "@getbud-co/bud-ds";
+} from "@getbud-co/buds";
+import { Popover } from "@getbud-co/buds";
+import { Avatar } from "@getbud-co/buds";
 import {
   Buildings, HouseSimple, ChartDonut, Table,
   Users, GearSix, Lifebuoy, UserCircle, SignOut,
@@ -224,8 +224,8 @@ const USER_MENU_ITEMS: PopoverItem[] = [
 /* ——— Código de uso mobile drawer ——— */
 
 const mobileDrawerCode = `import { useState } from "react";
-import { Sidebar, SidebarNav, SidebarItem, ... } from "@getbud-co/bud-ds";
-import { Button } from "@getbud-co/bud-ds";
+import { Sidebar, SidebarNav, SidebarItem, ... } from "@getbud-co/buds";
+import { Button } from "@getbud-co/buds";
 import { List } from "@phosphor-icons/react";
 
 function AppShell() {

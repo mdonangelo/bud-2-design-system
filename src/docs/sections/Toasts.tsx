@@ -7,7 +7,7 @@ import { Button } from "../../components/Button";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import s from "./Toasts.module.css";
 
-const usageCode = `import { toast, Toaster } from "@getbud-co/bud-ds";
+const usageCode = `import { toast, Toaster } from "@getbud-co/buds";
 
 {/* Coloque o Toaster uma vez no root da app */}
 <Toaster />
@@ -36,13 +36,13 @@ toast.warning("Alerta!", { duration: 8000 });
 const id = toast("Processando...", { duration: Infinity });
 toast.dismiss(id);`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <!-- Adicione o toaster uma vez na página -->
 <bud-toaster></bud-toaster>
 
 <script>
-  // API global — disponível após importar bud-ds.js
+  // API global — disponível após importar buds.js
   toast("Mensagem neutra");
   toast.success("Dados salvos!");
   toast.error("Erro ao conectar");

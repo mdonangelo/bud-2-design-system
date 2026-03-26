@@ -7,7 +7,7 @@ import { Radio } from "../../components/Radio";
 import radioStyles from "../../components/Radio.module.css";
 import s from "./Radios.module.css";
 
-const usageCode = `import { Radio } from "@getbud-co/bud-ds";
+const usageCode = `import { Radio } from "@getbud-co/buds";
 
 {/* Grupo de radios com mesmo name */}
 <Radio name="frequency" value="weekly" label="Semanal" />
@@ -19,7 +19,7 @@ const usageCode = `import { Radio } from "@getbud-co/bud-ds";
 <Radio name="role" size="sm" value="admin" label="Administrador" />
 <Radio name="role" size="sm" value="member" label="Membro" />`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <!-- Grupo de radio buttons (usar mesmo name) -->
 <bud-radio name="plano" value="basic" label="Básico" checked></bud-radio>

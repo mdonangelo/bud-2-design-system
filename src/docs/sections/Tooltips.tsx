@@ -9,7 +9,7 @@ import { Badge } from "../../components/Badge";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import s from "./Tooltips.module.css";
 
-const usageCode = `import { Tooltip } from "@getbud-co/bud-ds";
+const usageCode = `import { Tooltip } from "@getbud-co/buds";
 
 {/* Texto simples */}
 <Tooltip content="Adicionar novo item">
@@ -37,7 +37,7 @@ const usageCode = `import { Tooltip } from "@getbud-co/bud-ds";
   <Button variant="secondary" leftIcon={Trash}>Excluir</Button>
 </Tooltip>`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <!-- Tooltip básico (placement padrão: top) -->
 <bud-tooltip content="Texto de ajuda">

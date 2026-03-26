@@ -59,8 +59,8 @@ const teamWithDescItems: DropdownItem[] = [
   { id: "marketing", label: "Marketing", description: "7 membros · 6 missões" },
 ];
 
-const usageCode = `import { DropdownButton } from "@getbud-co/bud-ds";
-import type { DropdownItem } from "@getbud-co/bud-ds";
+const usageCode = `import { DropdownButton } from "@getbud-co/buds";
+import type { DropdownItem } from "@getbud-co/buds";
 import { Users } from "@phosphor-icons/react";
 
 const items: DropdownItem[] = [

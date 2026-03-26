@@ -83,9 +83,9 @@ const MEMBERS = [
   { id: "4", name: "Kate Morrison", handle: "@kate", initials: "KM", engagement: "72%", position: "QA Engineer", email: "kate@bud.com" },
 ];
 
-const usageCode = `import { Card, CardHeader, CardBody, CardFooter } from "@getbud-co/bud-ds";
-import { Button } from "@getbud-co/bud-ds";
-import { Badge } from "@getbud-co/bud-ds";
+const usageCode = `import { Card, CardHeader, CardBody, CardFooter } from "@getbud-co/buds";
+import { Button } from "@getbud-co/buds";
+import { Badge } from "@getbud-co/buds";
 
 {/* Card com lista de atividades */}
 <Card>
@@ -127,7 +127,7 @@ import { Badge } from "@getbud-co/bud-ds";
   </CardFooter>
 </Card>`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-card padding="md" shadow>
   <bud-card-header title="Título do card" description="Descrição opcional">

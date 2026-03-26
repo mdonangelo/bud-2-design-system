@@ -82,7 +82,7 @@ const commandGroups: CommandGroup[] = [
 const usageCode = `import {
   NotificationPanel,
   CommandPalette,
-} from "@getbud-co/bud-ds";`;
+} from "@getbud-co/buds";`;
 
 export function AdvancedComponents() {
   const bellRef = useRef<HTMLButtonElement>(null);

@@ -1,11 +1,11 @@
 /**
- * Bud Design System — Web Components
+ * BUDS — Web Components
  *
  * Importar este modulo registra automaticamente todos os custom elements.
  * Os tokens CSS devem ser carregados separadamente via <link> ou @import.
  */
 
-/* Tokens CSS (incluido no bundle bud-ds.css) */
+/* Tokens CSS (incluido no bundle buds.css) */
 import "./styles/tokens.css";
 
 /* Core */

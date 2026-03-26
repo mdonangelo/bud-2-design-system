@@ -63,7 +63,7 @@ const htmlUsageCode = `<!-- No pacote vanilla, ícones são strings SVG registra
 <!-- 3. Registrar ícone Phosphor adicional -->
 <script>
   // O path SVG vem de phosphoricons.com (viewBox 0 0 256 256)
-  BudDS.registerIcon("bell",
+  BUDS.registerIcon("bell",
     '<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06Z"/>'
   );
 </script>
@@ -82,7 +82,7 @@ export function Icons() {
     <DocSection
       id="icones"
       title="Ícones"
-      description="Phosphor Icons 2.1 — biblioteca com 7.400+ ícones. No Bud, todos os ícones usam exclusivamente o peso regular (outline)."
+      description="Phosphor Icons 2.1 — biblioteca com 7.400+ ícones. No BUDS, todos os ícones usam exclusivamente o peso regular (outline)."
       category={getCategoryForPage("icones")}
     >
       <SubSection

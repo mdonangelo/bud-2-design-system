@@ -7,7 +7,7 @@ import { Badge } from "../../components/Badge";
 import { Circle, X, Plus, CheckCircle, WarningCircle, Info } from "@phosphor-icons/react";
 import s from "./Badges.module.css";
 
-const usageCode = `import { Badge } from "@getbud-co/bud-ds";
+const usageCode = `import { Badge } from "@getbud-co/buds";
 import { Circle, X, Plus } from "@phosphor-icons/react";
 
 {/* Cores semânticas */}
@@ -29,7 +29,7 @@ import { Circle, X, Plus } from "@phosphor-icons/react";
 <Badge size="md" color="neutral">Medium</Badge>
 <Badge size="lg" color="neutral">Large</Badge>`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-badge color="neutral">Neutro</bud-badge>
 <bud-badge color="orange">Orange</bud-badge>

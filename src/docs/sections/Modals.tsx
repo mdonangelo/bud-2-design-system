@@ -16,7 +16,7 @@ import s from "./Modals.module.css";
 
 const usageCode = `import {
   Modal, ModalHeader, ModalBody, ModalFooter, Button
-} from "@getbud-co/bud-ds";
+} from "@getbud-co/buds";
 
 const [open, setOpen] = useState(false);
 
@@ -54,7 +54,7 @@ const [open, setOpen] = useState(false);
   <ModalBody>{/* ... */}</ModalBody>
 </Modal>`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-modal id="meuModal" size="md">
   <bud-modal-header title="Editar perfil"
@@ -100,7 +100,7 @@ const MOCK_MISSIONS: MissionItem[] = [
 const deletionCode = `import { useState } from "react";
 import {
   Modal, ModalHeader, ModalBody, ModalFooter, Button, Input
-} from "@getbud-co/bud-ds";
+} from "@getbud-co/buds";
 import { Warning } from "@phosphor-icons/react";
 
 function DeleteMissionModal({ open, onClose, missionName }) {

@@ -7,7 +7,7 @@ import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Alert } from "../../components/Alert";
 import s from "./Alerts.module.css";
 
-const usageCode = `import { Alert } from "@getbud-co/bud-ds";
+const usageCode = `import { Alert } from "@getbud-co/buds";
 
 <Alert variant="info" title="Nova versão disponível">
   Atualize para a v2.0 para acessar os novos recursos.
@@ -22,7 +22,7 @@ const usageCode = `import { Alert } from "@getbud-co/bud-ds";
   Verifique sua conexão e tente novamente.
 </Alert>`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-alert variant="info" title="Informação">
   Sua conta foi atualizada.

@@ -8,8 +8,8 @@ import { SortableList } from "../../components/SortableList";
 import type { SortableItem } from "../../components/SortableList";
 import s from "./SortableLists.module.css";
 
-const usageCode = `import { SortableList } from "@getbud-co/bud-ds";
-import type { SortableItem } from "@getbud-co/bud-ds";
+const usageCode = `import { SortableList } from "@getbud-co/buds";
+import type { SortableItem } from "@getbud-co/buds";
 
 const [items, setItems] = useState<SortableItem[]>([
   { id: "1", label: "Qualidade do código" },

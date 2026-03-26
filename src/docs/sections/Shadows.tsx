@@ -9,7 +9,7 @@ export function Shadows() {
     <DocSection
       id="sombras"
       title="Sombras"
-      description="Cinco níveis de elevação com sombras multi-layer e cor quente. A base rgba(24, 18, 12) harmoniza com a paleta caramel do Bud — sombras são sentidas, não vistas."
+      description="Cinco níveis de elevação com sombras multi-layer e cor quente. A base rgba(24, 18, 12) harmoniza com a paleta caramel do BUDS — sombras são sentidas, não vistas."
       category={getCategoryForPage("sombras")}
     >
       <div className={s.showcase}>

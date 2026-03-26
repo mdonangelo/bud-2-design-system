@@ -1,6 +1,6 @@
-# Bud Design System — Documentação Completa para LLMs
+# BUDS — Documentação Completa para LLMs
 
-> Sistema de design para a plataforma Bud. React 19 + TypeScript strict + CSS Modules. Web Components vanilla (Custom Elements + Shadow DOM). Conteúdo em PT-BR. Grid de 4px. Ícones Phosphor regular weight only.
+> Sistema de design da plataforma Bud. React 19 + TypeScript strict + CSS Modules. Web Components vanilla (Custom Elements + Shadow DOM). Conteúdo em PT-BR. Grid de 4px. Ícones Phosphor regular weight only.
 
 ---
 
@@ -260,7 +260,7 @@ toast.dismiss() // remove todos
 
 ### React
 ```bash
-npm install @getbud-co/bud-ds @phosphor-icons/react
+npm install @getbud-co/buds @phosphor-icons/react
 npm install @fontsource/inter @fontsource/plus-jakarta-sans @fontsource/crimson-pro
 ```
 
@@ -272,17 +272,17 @@ import "@fontsource/inter/600.css";
 import "@fontsource/plus-jakarta-sans/600.css";
 import "@fontsource/plus-jakarta-sans/700.css";
 import "@fontsource/crimson-pro/600.css";
-import "@getbud-co/bud-ds/styles";
+import "@getbud-co/buds/styles";
 ```
 
 ### HTML (Web Components)
 ```bash
-npm install @getbud-co/bud-ds-vanilla
+npm install @getbud-co/buds-vanilla
 ```
 
 ```html
-<link rel="stylesheet" href="bud-ds.css" />
-<script type="module" src="bud-ds.js"></script>
+<link rel="stylesheet" href="buds.css" />
+<script type="module" src="buds.js"></script>
 ```
 
 Todos os custom elements são registrados automaticamente. Sem build tools necessário.

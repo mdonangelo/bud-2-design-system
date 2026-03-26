@@ -35,7 +35,7 @@ const sampleAvatars: AvatarGroupItem[] = [
 const samplePhoto =
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=128&h=128&fit=crop&crop=face";
 
-const usageCode = `import { Avatar } from "@getbud-co/bud-ds";
+const usageCode = `import { Avatar } from "@getbud-co/buds";
 
 {/* Com foto */}
 <Avatar size="md" src="/photos/maria.jpg" alt="Maria Soares" />
@@ -61,7 +61,7 @@ const usageCode = `import { Avatar } from "@getbud-co/bud-ds";
 <Avatar size="2xl" initials="F" />
 
 {/* Avatar com label */}
-import { AvatarLabelGroup } from "@getbud-co/bud-ds";
+import { AvatarLabelGroup } from "@getbud-co/buds";
 
 <AvatarLabelGroup
   size="md"
@@ -79,7 +79,7 @@ import { AvatarLabelGroup } from "@getbud-co/bud-ds";
 />
 
 {/* Grupo de avatares */}
-import { AvatarGroup } from "@getbud-co/bud-ds";
+import { AvatarGroup } from "@getbud-co/buds";
 
 <AvatarGroup
   size="sm"
@@ -88,7 +88,7 @@ import { AvatarGroup } from "@getbud-co/bud-ds";
   showAddButton
 />`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <!-- Com imagem -->
 <bud-avatar src="https://..." alt="João Silva" size="md"></bud-avatar>

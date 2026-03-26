@@ -7,7 +7,7 @@ import { Checkbox } from "../../components/Checkbox";
 import cbStyles from "../../components/Checkbox.module.css";
 import s from "./Checkboxes.module.css";
 
-const usageCode = `import { Checkbox } from "@getbud-co/bud-ds";
+const usageCode = `import { Checkbox } from "@getbud-co/buds";
 
 <Checkbox label="Aceito os termos de uso" />
 
@@ -21,7 +21,7 @@ const usageCode = `import { Checkbox } from "@getbud-co/bud-ds";
 
 <Checkbox defaultChecked disabled label="Opção bloqueada" />`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-checkbox label="Aceito os termos de uso"></bud-checkbox>
 

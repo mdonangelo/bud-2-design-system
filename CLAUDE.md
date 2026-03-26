@@ -1,4 +1,4 @@
-# Bud Design System — Diretrizes para desenvolvimento
+# BUDS — Diretrizes para desenvolvimento
 
 ## Tokens obrigatórios
 
@@ -207,7 +207,7 @@ Padrões extraídos de pesquisa em IBM Carbon, Shopify Polaris, Vercel Geist, Sa
 | Salesforce SLDS | 8px | — |
 | shadcn/Radix | 8px | 6px |
 
-**Consenso adotado no Bud:** gap box→label = `sp-2xs` (8px), gap title→description = `sp-3xs` (4px).
+**Consenso adotado no BUDS:** gap box→label = `sp-2xs` (8px), gap title→description = `sp-3xs` (4px).
 
 ### Sizing de controles (Checkbox, Radio)
 
@@ -219,7 +219,7 @@ Padrões extraídos de pesquisa em IBM Carbon, Shopify Polaris, Vercel Geist, Sa
 | SLDS | — | 20px |
 | shadcn/Radix | 16px | 20px |
 
-**Consenso adotado no Bud:** sm = 16px, md = 20px.
+**Consenso adotado no BUDS:** sm = 16px, md = 20px.
 
 ### Padrões visuais comuns
 
@@ -229,7 +229,7 @@ Padrões extraídos de pesquisa em IBM Carbon, Shopify Polaris, Vercel Geist, Sa
 - **Checked/Selected:** preenchimento com cor primária (`orange-500`), borda 1 step acima (`orange-600`)
 - **Disabled:** background e borda neutros claros, sem interação
 - **Indicador checked:** ícone branco (checkbox) ou dot branco (radio) sobre fundo primário
-- **Transições:** 100-150ms para estados interativos (Bud usa 120ms)
+- **Transições:** 100-150ms para estados interativos (BUDS usa 120ms)
 
 ### Anatomia de controles com label
 
@@ -269,7 +269,7 @@ Botões de ação (fechar, assistente) ficam dentro de `.headerActions` no `.hea
 SEMPRE envolver composições de skeletons em `SkeletonContainer` para acessibilidade:
 
 ```tsx
-import { Skeleton, SkeletonContainer, SKELETON_HEIGHTS } from "@getbud-co/bud-ds";
+import { Skeleton, SkeletonContainer, SKELETON_HEIGHTS } from "@getbud-co/buds";
 
 // ✅ CORRETO - com SkeletonContainer
 <SkeletonContainer>
@@ -388,7 +388,7 @@ Wrapper do Drawer que adiciona gesto de "arrastar para baixo para fechar" em dis
 
 **Uso:**
 ```tsx
-import { DragToCloseDrawer, DrawerHeader, DrawerBody } from "@getbud-co/bud-ds";
+import { DragToCloseDrawer, DrawerHeader, DrawerBody } from "@getbud-co/buds";
 
 <DragToCloseDrawer
   open={open}
@@ -418,7 +418,7 @@ Wrapper padronizado para botão "⋯" + popover de ações em linhas de tabela.
 
 **Uso:**
 ```tsx
-import { RowActionsPopover } from "@getbud-co/bud-ds";
+import { RowActionsPopover } from "@getbud-co/buds";
 import { PencilSimple, Trash } from "@phosphor-icons/react";
 
 const [openRowId, setOpenRowId] = useState<string | null>(null);

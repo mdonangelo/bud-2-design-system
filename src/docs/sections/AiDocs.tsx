@@ -23,7 +23,7 @@ const mcpSetup = `// Em .cursor/mcp.json ou settings.json do editor:
   }
 }`;
 
-const promptExample1 = `Crie uma página de listagem de objetivos usando o Bud DS.
+const promptExample1 = `Crie uma página de listagem de objetivos usando o BUDS.
 A página deve ter:
 - PageHeader com título "Objetivos" e botão "Novo objetivo"
 - FilterBar com chips de filtro por status e time
@@ -31,7 +31,7 @@ A página deve ter:
 - Pagination no rodapé
 Use os componentes do DS, tokens semânticos e ícones Phosphor.`;
 
-const promptExample2 = `Crie um formulário de feedback usando Bud DS Web Components (HTML puro).
+const promptExample2 = `Crie um formulário de feedback usando BUDS Web Components (HTML puro).
 O formulário deve ter:
 - bud-input para nome
 - bud-select para categoria
@@ -40,7 +40,7 @@ O formulário deve ter:
 - bud-button submit
 Todos os campos com labels em PT-BR.`;
 
-const promptExample3 = `Converta este design do Figma para código React usando o Bud DS.
+const promptExample3 = `Converta este design do Figma para código React usando o BUDS.
 URL: [cole a URL do Figma aqui]
 Regras:
 1. Use get_design_context do MCP primeiro
@@ -69,13 +69,13 @@ export function AiDocs() {
     <DocSection
       id="ia-automacao"
       title="IA & Automação"
-      description="Como configurar ferramentas de IA para consumir o Bud DS de forma eficiente. Arquivos estruturados, prompts recomendados e workflow Figma → Código."
+      description="Como configurar ferramentas de IA para consumir o BUDS de forma eficiente. Arquivos estruturados, prompts recomendados e workflow Figma → Código."
       category={getCategoryForPage("ia-automacao")}
     >
       <SubSection
         id="ai-arquivos"
         title="Arquivos para IA"
-        description="O Bud DS fornece arquivos otimizados para consumo por LLMs, seguindo os padrões llms.txt (llmstxt.org), shadcn/ui registry e Cursor/Windsurf rules."
+        description="O BUDS fornece arquivos otimizados para consumo por LLMs, seguindo os padrões llms.txt (llmstxt.org), shadcn/ui registry e Cursor/Windsurf rules."
       >
         <div className={s.cards}>
           <div className={s.card}>
@@ -96,13 +96,13 @@ export function AiDocs() {
             <a className={s.fileLink} href="/llms-full.txt" target="_blank">/llms-full.txt</a>
           </div>
           <div className={s.card}>
-            <h4>bud-ds.json</h4>
+            <h4>buds.json</h4>
             <p>
               Registry JSON estruturado inspirado no shadcn/ui. Catálogo de
               componentes como dados — props, tipos, defaults, exemplos.
               Ideal para ferramentas que consomem JSON.
             </p>
-            <a className={s.fileLink} href="/bud-ds.json" target="_blank">/bud-ds.json</a>
+            <a className={s.fileLink} href="/buds.json" target="_blank">/buds.json</a>
           </div>
           <div className={s.card}>
             <h4>CLAUDE.md</h4>
@@ -111,7 +111,7 @@ export function AiDocs() {
               em sessões do Claude Code. Contém regras de tokens, cores
               semânticas, tipografia e padrões de componentes.
             </p>
-            <a className={s.fileLink} href="https://raw.githubusercontent.com/mdonangelo/bud-ds/main/CLAUDE.md" target="_blank">CLAUDE.md</a>
+            <a className={s.fileLink} href="https://raw.githubusercontent.com/getbud-co/bud2-design-system/main/CLAUDE.md" target="_blank">CLAUDE.md</a>
           </div>
           <div className={s.card}>
             <h4>.cursorrules / .windsurfrules</h4>
@@ -127,7 +127,7 @@ export function AiDocs() {
       <SubSection
         id="ai-setup"
         title="Configuração do editor"
-        description="Como configurar seu editor de código para usar o Bud DS com IA."
+        description="Como configurar seu editor de código para usar o BUDS com IA."
       >
         <CodeSnippet code={cursorSetup} language="bash" />
         <div style={{ marginTop: "var(--sp-sm)" }}>
@@ -161,7 +161,7 @@ export function AiDocs() {
               <td>Implementação: "crie esta tela usando o DS"</td>
             </tr>
             <tr>
-              <td><code>/bud-ds.json</code></td>
+              <td><code>/buds.json</code></td>
               <td>~15K tokens</td>
               <td>Ferramentas automatizadas, registries, MCP</td>
             </tr>
@@ -182,7 +182,7 @@ export function AiDocs() {
       <SubSection
         id="ai-prompts"
         title="Prompts recomendados"
-        description="Exemplos de prompts que geram bom código com o Bud DS. A chave é ser específico sobre componentes, tokens e padrões."
+        description="Exemplos de prompts que geram bom código com o BUDS. A chave é ser específico sobre componentes, tokens e padrões."
       >
         <div className={s.promptLabel}>Prompt 1 — Página completa (React)</div>
         <div className={s.promptBox}>{promptExample1}</div>
@@ -245,7 +245,7 @@ export function AiDocs() {
       <SubSection
         id="ai-regras"
         title="Regras críticas para IA"
-        description="Resumo das regras que toda IA deve seguir ao gerar código com o Bud DS."
+        description="Resumo das regras que toda IA deve seguir ao gerar código com o BUDS."
       >
         <table className={s.table}>
           <thead>

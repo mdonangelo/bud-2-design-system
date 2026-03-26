@@ -1,5 +1,5 @@
 /**
- * Classe base para todos os Web Components do Bud DS.
+ * Classe base para todos os Web Components do BUDS.
  *
  * Fornece:
  * - Shadow DOM com reset CSS compartilhado

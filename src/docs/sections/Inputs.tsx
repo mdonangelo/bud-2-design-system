@@ -9,7 +9,7 @@ import { Button } from "../../components/Button";
 import inputStyles from "../../components/Input.module.css";
 import s from "./Inputs.module.css";
 
-const usageCode = `import { Input } from "@getbud-co/bud-ds";
+const usageCode = `import { Input } from "@getbud-co/buds";
 import { EnvelopeSimple, EyeSlash } from "@phosphor-icons/react";
 
 <Input
@@ -41,7 +41,7 @@ import { EnvelopeSimple, EyeSlash } from "@phosphor-icons/react";
   messageType="error"
 />`;
 
-const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
+const htmlUsageCode = `<!-- Incluir buds.css + buds.js na página -->
 
 <bud-input label="Email" placeholder="seu@email.com" size="md"></bud-input>
 

@@ -179,7 +179,7 @@ export function Colors() {
     <DocSection
       id="cores"
       title="Cores"
-      description="Paleta de cores extraída do Figma Bud. Cada grupo tem um propósito semântico definido — use os tokens CSS para manter consistência."
+      description="Paleta de cores extraída do Figma BUDS. Cada grupo tem um propósito semântico definido — use os tokens CSS para manter consistência."
       category={getCategoryForPage("cores")}
     >
       {/* ——— Semantic colors ——— */}

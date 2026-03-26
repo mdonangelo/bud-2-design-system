@@ -212,7 +212,7 @@ function SearchableDemo() {
 /* ——— Usage code ——— */
 
 const usageCode = `import { useState, useRef } from "react";
-import { PopoverSelect, formatMultiLabel } from "@getbud-co/bud-ds";
+import { PopoverSelect, formatMultiLabel } from "@getbud-co/buds";
 
 const options = [
   { id: "1", label: "Produto", initials: "PR" },
@@ -327,7 +327,7 @@ export function PopoverSelects() {
         <FrameworkOnly framework={0}>
         <CodeSnippet
           language="tsx"
-          code={`import { useFilterChips } from "@getbud-co/bud-ds";
+          code={`import { useFilterChips } from "@getbud-co/buds";
 
 const {
   activeFilters,

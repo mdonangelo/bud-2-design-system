@@ -110,9 +110,9 @@ const usageCode = `import {
   Table, TableCardHeader, TableContent,
   TableHead, TableBody, TableRow,
   TableHeaderCell, TableCell, TablePagination,
-} from "@getbud-co/bud-ds";
-import { Pagination } from "@getbud-co/bud-ds";
-import { Badge, Avatar } from "@getbud-co/bud-ds";
+} from "@getbud-co/buds";
+import { Pagination } from "@getbud-co/buds";
+import { Badge, Avatar } from "@getbud-co/buds";
 
 {/* Dentro de uma Table, use TablePagination (wrapper com border-top) */}
 <Table variant="divider" selectable ...>
@@ -410,7 +410,7 @@ export function Tables() {
         <FrameworkOnly framework={0}>
         <CodeSnippet
           language="tsx"
-          code={`import { RowActionsPopover } from "@getbud-co/bud-ds";
+          code={`import { RowActionsPopover } from "@getbud-co/buds";
 import { PencilSimple, Trash } from "@phosphor-icons/react";
 
 const [openRowId, setOpenRowId] = useState<string | null>(null);
