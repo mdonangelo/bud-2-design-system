@@ -12,12 +12,12 @@
 
 ### React
 ```
-npm install @mdonangelo/bud-ds @phosphor-icons/react
+npm install @getbud-co/bud-ds @phosphor-icons/react
 ```
 
 ### HTML (Web Components)
 ```
-npm install @mdonangelo/bud-ds-vanilla
+npm install @getbud-co/bud-ds-vanilla
 ```
 ```html
 <link rel="stylesheet" href="bud-ds.css" />

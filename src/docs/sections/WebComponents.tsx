@@ -15,7 +15,7 @@ const installEsm = `<!-- ES Module -->
   import "./bud-ds.js";
 </script>`;
 
-const installNpm = `npm install @mdonangelo/bud-ds-vanilla`;
+const installNpm = `npm install @getbud-co/bud-ds-vanilla`;
 
 const eventsCode = `<script>
   // Todos os eventos usam CustomEvent com bubbles + composed

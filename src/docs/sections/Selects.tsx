@@ -26,7 +26,7 @@ const cityOptions = [
   { value: "poa", label: "Porto Alegre" },
 ];
 
-const usageCode = `import { Select } from "@mdonangelo/bud-ds";
+const usageCode = `import { Select } from "@getbud-co/bud-ds";
 import { Users } from "@phosphor-icons/react";
 
 const options = [

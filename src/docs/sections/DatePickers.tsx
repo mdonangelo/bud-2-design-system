@@ -8,7 +8,7 @@ import { Button } from "../../components/Button";
 import dpStyles from "../../components/DatePicker.module.css";
 import s from "./DatePickers.module.css";
 
-const usageCode = `import { DatePicker } from "@mdonangelo/bud-ds";
+const usageCode = `import { DatePicker } from "@getbud-co/bud-ds";
 
 {/* Data única */}
 <DatePicker

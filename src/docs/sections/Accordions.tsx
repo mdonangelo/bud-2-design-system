@@ -12,7 +12,7 @@ import s from "./Accordions.module.css";
 
 /* ——— Usage code ——— */
 
-const usageCode = `import { Accordion, AccordionItem } from "@mdonangelo/bud-ds";
+const usageCode = `import { Accordion, AccordionItem } from "@getbud-co/bud-ds";
 
 <Accordion>
   <AccordionItem title="Dados pessoais">

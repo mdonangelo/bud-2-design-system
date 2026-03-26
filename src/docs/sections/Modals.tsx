@@ -16,7 +16,7 @@ import s from "./Modals.module.css";
 
 const usageCode = `import {
   Modal, ModalHeader, ModalBody, ModalFooter, Button
-} from "@mdonangelo/bud-ds";
+} from "@getbud-co/bud-ds";
 
 const [open, setOpen] = useState(false);
 
@@ -100,7 +100,7 @@ const MOCK_MISSIONS: MissionItem[] = [
 const deletionCode = `import { useState } from "react";
 import {
   Modal, ModalHeader, ModalBody, ModalFooter, Button, Input
-} from "@mdonangelo/bud-ds";
+} from "@getbud-co/bud-ds";
 import { Warning } from "@phosphor-icons/react";
 
 function DeleteMissionModal({ open, onClose, missionName }) {

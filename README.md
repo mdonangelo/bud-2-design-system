@@ -21,7 +21,7 @@ Guias transversais importantes:
 Crie ou edite `.npmrc` na raiz do projeto consumidor:
 
 ```
-@mdonangelo:registry=https://npm.pkg.github.com
+@getbud-co:registry=https://npm.pkg.github.com
 ```
 
 ### 2. Autenticar no GitHub Packages
@@ -29,13 +29,13 @@ Crie ou edite `.npmrc` na raiz do projeto consumidor:
 Gere um [Personal Access Token](https://github.com/settings/tokens) com permissão `read:packages` e faça login:
 
 ```bash
-npm login --scope=@mdonangelo --registry=https://npm.pkg.github.com
+npm login --scope=@getbud-co --registry=https://npm.pkg.github.com
 ```
 
 ### 3. Instalar pacotes
 
 ```bash
-npm install @mdonangelo/bud-ds @phosphor-icons/react
+npm install @getbud-co/bud-ds @phosphor-icons/react
 ```
 
 ### 4. Instalar fonts
@@ -59,7 +59,7 @@ import "@fontsource/plus-jakarta-sans/700.css";
 import "@fontsource/crimson-pro/600.css";
 
 // Estilos do DS (obrigatório, uma vez)
-import "@mdonangelo/bud-ds/styles";
+import "@getbud-co/bud-ds/styles";
 ```
 
 ## Uso
@@ -67,7 +67,7 @@ import "@mdonangelo/bud-ds/styles";
 ### Button
 
 ```tsx
-import { Button } from "@mdonangelo/bud-ds";
+import { Button } from "@getbud-co/bud-ds";
 import { Plus } from "@phosphor-icons/react";
 
 <Button variant="primary" size="md">
@@ -86,7 +86,7 @@ import { Plus } from "@phosphor-icons/react";
 ### Input
 
 ```tsx
-import { Input } from "@mdonangelo/bud-ds";
+import { Input } from "@getbud-co/bud-ds";
 
 <Input
   label="E-mail"
@@ -99,7 +99,7 @@ import { Input } from "@mdonangelo/bud-ds";
 ### Modal
 
 ```tsx
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "@mdonangelo/bud-ds";
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "@getbud-co/bud-ds";
 
 <Modal open={isOpen} onClose={() => setIsOpen(false)}>
   <ModalHeader title="Confirmar ação" onClose={() => setIsOpen(false)} />
@@ -116,7 +116,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "@mdonangelo/
 ### Select
 
 ```tsx
-import { Select } from "@mdonangelo/bud-ds";
+import { Select } from "@getbud-co/bud-ds";
 
 <Select
   label="Departamento"
@@ -133,7 +133,7 @@ import { Select } from "@mdonangelo/bud-ds";
 ### Checkbox e Toggle
 
 ```tsx
-import { Checkbox, Toggle } from "@mdonangelo/bud-ds";
+import { Checkbox, Toggle } from "@getbud-co/bud-ds";
 
 <Checkbox label="Aceito os termos" checked={agreed} onChange={setAgreed} />
 
@@ -143,7 +143,7 @@ import { Checkbox, Toggle } from "@mdonangelo/bud-ds";
 ### Toast
 
 ```tsx
-import { toast, Toaster } from "@mdonangelo/bud-ds";
+import { toast, Toaster } from "@getbud-co/bud-ds";
 
 // No layout raiz, adicione o Toaster:
 <Toaster />
@@ -157,7 +157,7 @@ toast.warning("Atenção: dados incompletos.");
 ### Badge e Avatar
 
 ```tsx
-import { Badge, Avatar } from "@mdonangelo/bud-ds";
+import { Badge, Avatar } from "@getbud-co/bud-ds";
 
 <Badge color="green">Ativo</Badge>
 <Badge color="red">Bloqueado</Badge>
@@ -223,7 +223,7 @@ Tamanhos recomendados: `14`, `16`, `20`, `24`, `32`.
 
 ## Design Tokens
 
-Os tokens CSS ficam disponíveis automaticamente ao importar `@mdonangelo/bud-ds/styles`:
+Os tokens CSS ficam disponíveis automaticamente ao importar `@getbud-co/bud-ds/styles`:
 
 ```css
 /* Cores */

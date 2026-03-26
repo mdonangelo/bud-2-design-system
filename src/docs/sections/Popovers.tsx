@@ -151,7 +151,7 @@ function SubmenuDemo() {
 
 const usageCode = `import { useState, useRef } from "react";
 import { PencilSimple, Trash, Copy } from "@phosphor-icons/react";
-import { Popover, type PopoverItem } from "@mdonangelo/bud-ds";
+import { Popover, type PopoverItem } from "@getbud-co/bud-ds";
 
 function Example() {
   const [open, setOpen] = useState(false);

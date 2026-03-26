@@ -83,9 +83,9 @@ const MEMBERS = [
   { id: "4", name: "Kate Morrison", handle: "@kate", initials: "KM", engagement: "72%", position: "QA Engineer", email: "kate@bud.com" },
 ];
 
-const usageCode = `import { Card, CardHeader, CardBody, CardFooter } from "@mdonangelo/bud-ds";
-import { Button } from "@mdonangelo/bud-ds";
-import { Badge } from "@mdonangelo/bud-ds";
+const usageCode = `import { Card, CardHeader, CardBody, CardFooter } from "@getbud-co/bud-ds";
+import { Button } from "@getbud-co/bud-ds";
+import { Badge } from "@getbud-co/bud-ds";
 
 {/* Card com lista de atividades */}
 <Card>

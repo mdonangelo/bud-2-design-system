@@ -7,7 +7,7 @@ import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Pagination } from "../../components/Pagination";
 import s from "./Paginations.module.css";
 
-const usageCode = `import { Pagination } from "@mdonangelo/bud-ds";
+const usageCode = `import { Pagination } from "@getbud-co/bud-ds";
 
 const [page, setPage] = useState(1);
 

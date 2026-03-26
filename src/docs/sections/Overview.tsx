@@ -30,10 +30,10 @@ const principles = [
 /* ——— React ——— */
 
 const installReact = `# 1. Configurar .npmrc
-echo "@mdonangelo:registry=https://npm.pkg.github.com" >> .npmrc
+echo "@getbud-co:registry=https://npm.pkg.github.com" >> .npmrc
 
 # 2. Instalar pacotes
-npm install @mdonangelo/bud-ds @phosphor-icons/react
+npm install @getbud-co/bud-ds @phosphor-icons/react
 
 # 3. Instalar fonts
 npm install @fontsource/inter @fontsource/plus-jakarta-sans @fontsource/crimson-pro`;
@@ -50,9 +50,9 @@ import "@fontsource/plus-jakarta-sans/700.css";
 import "@fontsource/crimson-pro/600.css";
 
 // Estilos do Design System (obrigatório, uma vez)
-import "@mdonangelo/bud-ds/styles";`;
+import "@getbud-co/bud-ds/styles";`;
 
-const usageReact = `import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter } from "@mdonangelo/bud-ds";
+const usageReact = `import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter } from "@getbud-co/bud-ds";
 import { Plus } from "@phosphor-icons/react";
 
 <Button variant="primary" leftIcon={Plus}>Criar objetivo</Button>
@@ -62,7 +62,7 @@ import { Plus } from "@phosphor-icons/react";
 /* ——— HTML / Web Components ——— */
 
 const installHtml = `# Instalar pacote vanilla
-npm install @mdonangelo/bud-ds-vanilla
+npm install @getbud-co/bud-ds-vanilla
 
 # Ou usar os arquivos diretamente (CDN / estático):
 # bud-ds.css, bud-ds.js (ES module) ou bud-ds.iife.js (script tag)`;
@@ -93,7 +93,7 @@ const usageHtml = `<!-- Componentes usam custom elements com Shadow DOM -->
 
 /* ——— Tokens (compartilhado) ——— */
 
-const tokensCode = `/* Os tokens CSS ficam disponíveis via @mdonangelo/bud-ds/styles */
+const tokensCode = `/* Os tokens CSS ficam disponíveis via @getbud-co/bud-ds/styles */
 .card {
   padding: var(--sp-sm);
   border-radius: var(--radius-sm);
@@ -167,7 +167,7 @@ export function Overview() {
         <SubSection
           id="design-tokens"
           title="Design Tokens"
-          description={`Todos os tokens ficam disponíveis como CSS custom properties. Na versão React, importe @mdonangelo/bud-ds/styles. Na versão HTML, inclua bud-ds.css. Use var(--token-name) em qualquer CSS.`}
+          description={`Todos os tokens ficam disponíveis como CSS custom properties. Na versão React, importe @getbud-co/bud-ds/styles. Na versão HTML, inclua bud-ds.css. Use var(--token-name) em qualquer CSS.`}
         >
           <CodeSnippet code={tokensCode} language="css" />
         </SubSection>

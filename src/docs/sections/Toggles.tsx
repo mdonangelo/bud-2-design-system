@@ -7,7 +7,7 @@ import { Toggle } from "../../components/Toggle";
 import tgStyles from "../../components/Toggle.module.css";
 import s from "./Toggles.module.css";
 
-const usageCode = `import { Toggle } from "@mdonangelo/bud-ds";
+const usageCode = `import { Toggle } from "@getbud-co/bud-ds";
 
 <Toggle label="Ativar notificações" />
 

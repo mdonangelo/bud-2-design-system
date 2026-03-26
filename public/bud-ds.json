@@ -4,8 +4,8 @@
   "version": "0.2.1",
   "description": "Sistema de design para a plataforma Bud — gestão de desempenho contínua",
   "packages": {
-    "react": "@mdonangelo/bud-ds",
-    "vanilla": "@mdonangelo/bud-ds-vanilla"
+    "react": "@getbud-co/bud-ds",
+    "vanilla": "@getbud-co/bud-ds-vanilla"
   },
   "tokens": {
     "colors": {

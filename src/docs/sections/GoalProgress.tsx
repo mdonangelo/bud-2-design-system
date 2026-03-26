@@ -7,7 +7,7 @@ import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { GoalProgressBar, GoalGaugeBar } from "../../components/GoalProgress";
 import s from "./GoalProgress.module.css";
 
-const usageCode = `import { GoalProgressBar, GoalGaugeBar } from "@mdonangelo/bud-ds";
+const usageCode = `import { GoalProgressBar, GoalGaugeBar } from "@getbud-co/bud-ds";
 
 {/* Read-only */}
 <GoalProgressBar

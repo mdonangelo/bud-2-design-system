@@ -9,7 +9,7 @@ import { Button } from "../../components/Button";
 import inputStyles from "../../components/Input.module.css";
 import s from "./Inputs.module.css";
 
-const usageCode = `import { Input } from "@mdonangelo/bud-ds";
+const usageCode = `import { Input } from "@getbud-co/bud-ds";
 import { EnvelopeSimple, EyeSlash } from "@phosphor-icons/react";
 
 <Input

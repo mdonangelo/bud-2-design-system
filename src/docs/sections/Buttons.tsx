@@ -11,7 +11,7 @@ import { AssistantButton } from "../../components/PageHeader";
 import btnStyles from "../../components/Button.module.css";
 import s from "./Buttons.module.css";
 
-const usageCode = `import { Button } from "@mdonangelo/bud-ds";
+const usageCode = `import { Button } from "@getbud-co/bud-ds";
 import { Plus, ArrowRight } from "@phosphor-icons/react";
 
 <Button variant="primary" size="lg" leftIcon={Plus}>
@@ -62,7 +62,7 @@ const htmlUsageCode = `<!-- Incluir bud-ds.css + bud-ds.js na página -->
 <bud-button variant="tertiary" size="sm" icon-left="x"
   aria-label="Excluir"></bud-button>`;
 
-const assistantUsageCode = `import { AssistantButton } from "@mdonangelo/bud-ds";
+const assistantUsageCode = `import { AssistantButton } from "@getbud-co/bud-ds";
 
 const [open, setOpen] = useState(false);
 

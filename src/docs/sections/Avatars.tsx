@@ -35,7 +35,7 @@ const sampleAvatars: AvatarGroupItem[] = [
 const samplePhoto =
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=128&h=128&fit=crop&crop=face";
 
-const usageCode = `import { Avatar } from "@mdonangelo/bud-ds";
+const usageCode = `import { Avatar } from "@getbud-co/bud-ds";
 
 {/* Com foto */}
 <Avatar size="md" src="/photos/maria.jpg" alt="Maria Soares" />
@@ -61,7 +61,7 @@ const usageCode = `import { Avatar } from "@mdonangelo/bud-ds";
 <Avatar size="2xl" initials="F" />
 
 {/* Avatar com label */}
-import { AvatarLabelGroup } from "@mdonangelo/bud-ds";
+import { AvatarLabelGroup } from "@getbud-co/bud-ds";
 
 <AvatarLabelGroup
   size="md"
@@ -79,7 +79,7 @@ import { AvatarLabelGroup } from "@mdonangelo/bud-ds";
 />
 
 {/* Grupo de avatares */}
-import { AvatarGroup } from "@mdonangelo/bud-ds";
+import { AvatarGroup } from "@getbud-co/bud-ds";
 
 <AvatarGroup
   size="sm"

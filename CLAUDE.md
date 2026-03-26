@@ -269,7 +269,7 @@ Botões de ação (fechar, assistente) ficam dentro de `.headerActions` no `.hea
 SEMPRE envolver composições de skeletons em `SkeletonContainer` para acessibilidade:
 
 ```tsx
-import { Skeleton, SkeletonContainer, SKELETON_HEIGHTS } from "@mdonangelo/bud-ds";
+import { Skeleton, SkeletonContainer, SKELETON_HEIGHTS } from "@getbud-co/bud-ds";
 
 // ✅ CORRETO - com SkeletonContainer
 <SkeletonContainer>
@@ -388,7 +388,7 @@ Wrapper do Drawer que adiciona gesto de "arrastar para baixo para fechar" em dis
 
 **Uso:**
 ```tsx
-import { DragToCloseDrawer, DrawerHeader, DrawerBody } from "@mdonangelo/bud-ds";
+import { DragToCloseDrawer, DrawerHeader, DrawerBody } from "@getbud-co/bud-ds";
 
 <DragToCloseDrawer
   open={open}
@@ -418,7 +418,7 @@ Wrapper padronizado para botão "⋯" + popover de ações em linhas de tabela.
 
 **Uso:**
 ```tsx
-import { RowActionsPopover } from "@mdonangelo/bud-ds";
+import { RowActionsPopover } from "@getbud-co/bud-ds";
 import { PencilSimple, Trash } from "@phosphor-icons/react";
 
 const [openRowId, setOpenRowId] = useState<string | null>(null);

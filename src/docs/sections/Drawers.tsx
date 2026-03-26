@@ -21,7 +21,7 @@ import s from "./Drawers.module.css";
 
 const usageCode = `import {
   Drawer, DrawerHeader, DrawerBody, DrawerFooter, Button
-} from "@mdonangelo/bud-ds";
+} from "@getbud-co/bud-ds";
 
 const [open, setOpen] = useState(false);
 
@@ -617,7 +617,7 @@ export function Drawers() {
         <FrameworkOnly framework={0}>
         <CodeSnippet
           language="tsx"
-          code={`import { DragToCloseDrawer, DrawerHeader, DrawerBody } from "@mdonangelo/bud-ds";
+          code={`import { DragToCloseDrawer, DrawerHeader, DrawerBody } from "@getbud-co/bud-ds";
 
 <DragToCloseDrawer
   open={open}

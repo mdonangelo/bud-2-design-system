@@ -7,7 +7,7 @@ import { Button } from "../../components/Button";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import s from "./Toasts.module.css";
 
-const usageCode = `import { toast, Toaster } from "@mdonangelo/bud-ds";
+const usageCode = `import { toast, Toaster } from "@getbud-co/bud-ds";
 
 {/* Coloque o Toaster uma vez no root da app */}
 <Toaster />

@@ -14,7 +14,7 @@ const usageCode = `import {
   Skeleton, 
   SkeletonContainer, 
   SKELETON_HEIGHTS 
-} from "@mdonangelo/bud-ds";
+} from "@getbud-co/bud-ds";
 
 {/* Sempre envolver skeletons em SkeletonContainer para acessibilidade */}
 <SkeletonContainer>
@@ -178,7 +178,7 @@ export function Skeletons() {
         </div>
         <FrameworkOnly framework={0}>
           <CodeSnippet
-            code={`import { SkeletonContainer } from "@mdonangelo/bud-ds";
+            code={`import { SkeletonContainer } from "@getbud-co/bud-ds";
 import { Image } from "@phosphor-icons/react";
 
 <SkeletonContainer>
@@ -221,7 +221,7 @@ import { Image } from "@phosphor-icons/react";
         </div>
         <FrameworkOnly framework={0}>
           <CodeSnippet
-            code={`import { SkeletonContainer } from "@mdonangelo/bud-ds";
+            code={`import { SkeletonContainer } from "@getbud-co/bud-ds";
 import { FileVideo } from "@phosphor-icons/react";
 
 <SkeletonContainer>
@@ -255,7 +255,7 @@ import { FileVideo } from "@phosphor-icons/react";
         </div>
         <FrameworkOnly framework={0}>
           <CodeSnippet
-            code={`import { SkeletonContainer } from "@mdonangelo/bud-ds";
+            code={`import { SkeletonContainer } from "@getbud-co/bud-ds";
 
 <SkeletonContainer>
   <div className={styles.chartPlaceholder}>
@@ -295,7 +295,7 @@ import { FileVideo } from "@phosphor-icons/react";
         </div>
         <FrameworkOnly framework={0}>
           <CodeSnippet
-            code={`import { Skeleton, SkeletonContainer } from "@mdonangelo/bud-ds";
+            code={`import { Skeleton, SkeletonContainer } from "@getbud-co/bud-ds";
 import { UserCircle } from "@phosphor-icons/react";
 
 <SkeletonContainer>

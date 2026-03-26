@@ -7,7 +7,7 @@ import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { ScaleInput } from "../../components/ScaleInput";
 import s from "./ScaleInputs.module.css";
 
-const usageCode = `import { ScaleInput } from "@mdonangelo/bud-ds";
+const usageCode = `import { ScaleInput } from "@getbud-co/bud-ds";
 
 {/* NPS (0-10) com labels */}
 <ScaleInput

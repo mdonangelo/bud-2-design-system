@@ -9,7 +9,7 @@ import { Badge } from "../../components/Badge";
 import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import s from "./Tooltips.module.css";
 
-const usageCode = `import { Tooltip } from "@mdonangelo/bud-ds";
+const usageCode = `import { Tooltip } from "@getbud-co/bud-ds";
 
 {/* Texto simples */}
 <Tooltip content="Adicionar novo item">

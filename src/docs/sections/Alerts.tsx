@@ -7,7 +7,7 @@ import { FrameworkSwitcher } from "../FrameworkSwitcher";
 import { Alert } from "../../components/Alert";
 import s from "./Alerts.module.css";
 
-const usageCode = `import { Alert } from "@mdonangelo/bud-ds";
+const usageCode = `import { Alert } from "@getbud-co/bud-ds";
 
 <Alert variant="info" title="Nova versão disponível">
   Atualize para a v2.0 para acessar os novos recursos.
