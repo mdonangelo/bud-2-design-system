@@ -63,6 +63,7 @@ npm install @getbud-co/buds-vanilla
 - **Toast** (`toast()` / `toast()`): API global, 5 variantes, auto-dismiss
 - **Tooltip** (`<Tooltip>` / `<bud-tooltip>`): 4 placements, delay, auto-reposiciona
 - **Popover** (`<Popover>` / `<bud-popover>`): Menu de contexto, submenu, keyboard nav
+- **LoadingScreen** (`<LoadingScreen>` / `<bud-loading-screen>`): Tela fullscreen com liquid fill animation no logo Bud, message customizável, prefers-reduced-motion
 - **Skeleton** (`<Skeleton>` / `<bud-skeleton>`): Loading placeholder, shimmer, a11y container
 
 ### Charts (SVG puro)

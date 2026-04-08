@@ -262,6 +262,36 @@ Em telas ≤768px o Sidebar se transforma em drawer lateral via CSS `@media`. Pr
 ### Modal — alinhamento de ações no header
 Botões de ação (fechar, assistente) ficam dentro de `.headerActions` no `.headerTop` com `align-items: flex-start`. Isso garante alinhamento com o título do modal, sem descer por causa da descrição. O `children` do `ModalHeader` é renderizado antes do botão de fechar, permitindo botões adicionais (ex: Assistente) ao lado do X.
 
+### LoadingScreen — tela de loading com liquid fill
+
+Tela fullscreen com animação liquid fill no símbolo do Bud. Usada no boot da aplicação.
+
+```tsx
+import { LoadingScreen } from "@getbud-co/buds";
+
+// Uso padrão
+<LoadingScreen />
+
+// Com mensagem customizada
+<LoadingScreen message="Conectando ao servidor..." />
+```
+
+**Props:**
+- `message?: string` — texto abaixo do logo (default: "Carregando...")
+- `className?: string` — classe CSS adicional
+
+**Anatomia:**
+1. Silhueta cinza (`caramel-200`) — símbolo vazio sempre visível
+2. Preenchimento laranja (`orange-500`) — revelado por clip-path animado (1.8s, ease-in-out, infinite)
+3. Label com animação pulse sincronizada
+
+**Acessibilidade:**
+- `role="status"` + `aria-label` para screen readers
+- SVGs decorativos com `aria-hidden`
+- Respeita `prefers-reduced-motion` (animações desabilitadas, logo completo)
+
+**Web Component:** `<bud-loading-screen message="..."></bud-loading-screen>`
+
 ### Skeleton — acessibilidade e composições
 
 **Uso obrigatório de SkeletonContainer:**

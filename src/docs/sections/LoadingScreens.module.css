@@ -1,0 +1,119 @@
+.previewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-md);
+}
+
+.previewFrame {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 280px;
+  border: 1px solid var(--color-caramel-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.previewFrame > * {
+  height: 100% !important;
+}
+
+.messagesRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--sp-lg);
+}
+
+.fullscreenOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  cursor: pointer;
+}
+
+.closeHint {
+  position: fixed;
+  bottom: var(--sp-2xl);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  color: var(--color-neutral-400);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--sp-2xs) var(--sp-sm);
+  border-radius: var(--radius-sm);
+  transition: background-color 120ms ease;
+}
+
+.closeHint:hover {
+  background-color: var(--color-caramel-100);
+}
+
+.anatomyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.anatomyItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-sm);
+}
+
+.anatomyItem p {
+  margin: var(--sp-3xs) 0 0;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-neutral-500);
+}
+
+.anatomyItem strong {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-neutral-950);
+}
+
+.anatomyBullet {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-2xs);
+  margin-top: 2px;
+}
+
+.a11yList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-neutral-700);
+}
+
+.a11yList li {
+  padding-left: var(--sp-md);
+  position: relative;
+}
+
+.a11yList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-green-500);
+  font-weight: 600;
+}
+
+.a11yList code {
+  font-size: var(--text-xs);
+  background: var(--color-caramel-100);
+  padding: 1px var(--sp-3xs);
+  border-radius: var(--radius-2xs);
+}

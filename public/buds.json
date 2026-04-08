@@ -627,6 +627,19 @@
       }
     },
     {
+      "name": "LoadingScreen",
+      "tag": "bud-loading-screen",
+      "category": "feedback",
+      "props": [
+        {
+          "name": "message",
+          "attr": "message",
+          "type": "string",
+          "default": "\"Carregando...\""
+        }
+      ]
+    },
+    {
       "name": "Skeleton",
       "tag": "bud-skeleton",
       "category": "feedback",

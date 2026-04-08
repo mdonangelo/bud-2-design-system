@@ -45,6 +45,7 @@ import { AdvancedComponents } from "./docs/sections/AdvancedComponents";
 import { Sidebars } from "./docs/sections/Sidebars";
 import { PageHeaders } from "./docs/sections/PageHeaders";
 import { Accordions } from "./docs/sections/Accordions";
+import { LoadingScreens } from "./docs/sections/LoadingScreens";
 import { Skeletons } from "./docs/sections/Skeletons";
 import { AiAssistantSection } from "./docs/sections/AiAssistant";
 import { AiDocs } from "./docs/sections/AiDocs";
@@ -98,6 +99,7 @@ const SECTIONS: Record<string, React.ComponentType> = {
   "overlays-utilitarios": AdvancedComponents,
   "componentes-avancados": AdvancedComponents,
   "page-header": PageHeaders,
+  "loading-screen": LoadingScreens,
   "skeletons": Skeletons,
   "ai-assistant": AiAssistantSection,
   "ia-automacao": AiDocs,

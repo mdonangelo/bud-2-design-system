@@ -196,6 +196,15 @@ toast.dismiss() // remove todos
 - **Setup React**: `<Toaster />` no root
 - **Setup HTML**: `<bud-toaster></bud-toaster>` no body
 
+### LoadingScreen
+- **React**: `<LoadingScreen />` ou `<LoadingScreen message="Conectando..." />`
+- **HTML**: `<bud-loading-screen></bud-loading-screen>` ou `<bud-loading-screen message="Conectando..."></bud-loading-screen>`
+- Tela fullscreen com animação liquid fill no símbolo do Bud
+- **Props**: message (default: "Carregando..."), className
+- **Acessibilidade**: role="status", aria-label, respeita prefers-reduced-motion
+- **Tokens**: background neutral-0, silhueta caramel-200, fill orange-500, label neutral-400
+- **Animação**: fillSweep 1.8s clip-path sweep + pulse 1.8s opacity no label
+
 ### Skeleton
 - **React**: `<SkeletonContainer><Skeleton variant="text" width={200} height={14} /></SkeletonContainer>`
 - **HTML**: `<bud-skeleton-container><bud-skeleton variant="text" width="200" height="14"></bud-skeleton></bud-skeleton-container>`
